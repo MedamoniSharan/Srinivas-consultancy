@@ -42,6 +42,7 @@ import {
   Cog,
 } from "lucide-react";
 import { Logos3 } from "@/components/ui/logos3";
+import MagicRings from "@/components/ui/MagicRings";
 import { TestimonialsSection } from "@/components/ui/testimonials-with-marquee";
 import { ImageCarouselHero } from "@/components/ui/ai-image-generator-hero";
 import { InteractiveRobotSpline } from "@/components/ui/interactive-3d-robot";
@@ -274,7 +275,31 @@ const Navbar = () => {
 const Hero = () => {
   return (
     <section className="relative pt-32 pb-32 px-6 overflow-hidden flex flex-col items-center text-center">
-      <div className="hero-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#a855f7]/20 blur-[120px] rounded-full -z-10"></div>
+      <div className="absolute inset-0 -z-10" style={{ width: '100%', height: '100%', position: 'absolute' }}>
+        <MagicRings
+          color="#a855f7"
+          colorTwo="#7c3aed"
+          ringCount={8}
+          speed={0.8}
+          attenuation={8}
+          lineThickness={2.5}
+          baseRadius={0.15}
+          radiusStep={0.08}
+          scaleRate={0.15}
+          opacity={0.7}
+          blur={0}
+          noiseAmount={0.05}
+          rotation={0}
+          ringGap={1.4}
+          fadeIn={0.7}
+          fadeOut={0.5}
+          followMouse={true}
+          mouseInfluence={0.2}
+          hoverScale={1.1}
+          parallax={0.05}
+          clickBurst={true}
+        />
+      </div>
 
       <AnimatedSection>
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-[#a855f7] mb-8">
