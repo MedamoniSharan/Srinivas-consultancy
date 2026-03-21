@@ -14,7 +14,6 @@ import {
   ChevronDown,
   ChevronLeft,
   ChevronRight,
-  Star,
   Menu,
   Rocket,
   Eye,
@@ -43,6 +42,8 @@ import {
   Cog,
 } from "lucide-react";
 import { Logos3 } from "@/components/ui/logos3";
+import { TestimonialsSection } from "@/components/ui/testimonials-with-marquee";
+import { FeaturesSectionWithBentoGrid } from "@/components/ui/feature-section-with-bento-grid";
 
 function useScrollReveal() {
   const ref = useRef(null);
@@ -85,52 +86,52 @@ const navItems = [
   {
     label: "Products",
     children: [
-      { label: "AI Agents", href: "#", icon: <Bot size={16} /> },
-      { label: "CRM Platform", href: "#", icon: <Users size={16} /> },
-      { label: "ERP System", href: "#", icon: <Building2 size={16} /> },
-      { label: "Procurement / Purchase System", href: "#", icon: <ShoppingCart size={16} /> },
+      { label: "AI Agents", href: "/products/ai-agents", icon: <Bot size={16} /> },
+      { label: "CRM Platform", href: "/products/crm", icon: <Users size={16} /> },
+      { label: "ERP System", href: "/products/erp", icon: <Building2 size={16} /> },
+      { label: "Procurement / Purchase System", href: "/products/procurement", icon: <ShoppingCart size={16} /> },
     ],
   },
   {
     label: "Services",
     children: [
-      { label: "IT Staffing & Consulting", href: "#", icon: <Briefcase size={16} /> },
-      { label: "AI Development", href: "#", icon: <Brain size={16} /> },
-      { label: "Mobile App Development", href: "#", icon: <Smartphone size={16} /> },
-      { label: "Web Development", href: "#", icon: <Globe size={16} /> },
-      { label: "Custom Software Development", href: "#", icon: <Code size={16} /> },
+      { label: "IT Staffing & Consulting", href: "/services/staffing", icon: <Briefcase size={16} /> },
+      { label: "AI Development", href: "/services/ai-development", icon: <Brain size={16} /> },
+      { label: "Mobile App Development", href: "/services/mobile-development", icon: <Smartphone size={16} /> },
+      { label: "Web Development", href: "/services/web-development", icon: <Globe size={16} /> },
+      { label: "Custom Software Development", href: "/services/custom-software", icon: <Code size={16} /> },
     ],
   },
   {
     label: "Industries",
     children: [
-      { label: "IT & Engineering", href: "#", icon: <Cpu size={16} /> },
-      { label: "Healthcare", href: "#", icon: <HeartPulse size={16} /> },
-      { label: "Pharmaceutical", href: "#", icon: <Pill size={16} /> },
-      { label: "Finance", href: "#", icon: <Landmark size={16} /> },
-      { label: "Retail & E-Commerce", href: "#", icon: <ShoppingCart size={16} /> },
+      { label: "IT & Engineering", href: "/industries/it-engineering", icon: <Cpu size={16} /> },
+      { label: "Healthcare", href: "/industries/healthcare", icon: <HeartPulse size={16} /> },
+      { label: "Pharmaceutical", href: "/industries/pharmaceutical", icon: <Pill size={16} /> },
+      { label: "Finance", href: "/industries/finance", icon: <Landmark size={16} /> },
+      { label: "Retail & E-Commerce", href: "/industries/retail", icon: <ShoppingCart size={16} /> },
     ],
   },
   {
     label: "Technologies",
     children: [
-      { label: "AI/ML Engineering", href: "#", icon: <Brain size={16} /> },
-      { label: "Data & Analytics", href: "#", icon: <LineChart size={16} /> },
-      { label: "Network Engineering", href: "#", icon: <Network size={16} /> },
-      { label: "Cyber Security", href: "#", icon: <Lock size={16} /> },
-      { label: "UI/UX Designer", href: "#", icon: <Palette size={16} /> },
+      { label: "AI/ML Engineering", href: "/technologies/ai-ml", icon: <Brain size={16} /> },
+      { label: "Data & Analytics", href: "/technologies/data-analytics", icon: <LineChart size={16} /> },
+      { label: "Network Engineering", href: "/technologies/network", icon: <Network size={16} /> },
+      { label: "Cyber Security", href: "/technologies/cybersecurity", icon: <Lock size={16} /> },
+      { label: "UI/UX Designer", href: "/technologies/ui-ux", icon: <Palette size={16} /> },
     ],
   },
   {
     label: "Careers",
     children: [
-      { label: "AI/ML Engineer", href: "#", icon: <Brain size={16} /> },
-      { label: "Data Engineer", href: "#", icon: <Database size={16} /> },
-      { label: "Network Engineer", href: "#", icon: <Network size={16} /> },
-      { label: "Cyber Security Engineer", href: "#", icon: <Lock size={16} /> },
-      { label: "UI/UX Designer", href: "#", icon: <Palette size={16} /> },
-      { label: "Java Developer", href: "#", icon: <Code size={16} /> },
-      { label: "Software Developer", href: "#", icon: <Cog size={16} /> },
+      { label: "AI/ML Engineer", href: "/careers/ai-ml-engineer", icon: <Brain size={16} /> },
+      { label: "Data Engineer", href: "/careers/data-engineer", icon: <Database size={16} /> },
+      { label: "Network Engineer", href: "/careers/network-engineer", icon: <Network size={16} /> },
+      { label: "Cyber Security Engineer", href: "/careers/cybersecurity-engineer", icon: <Lock size={16} /> },
+      { label: "UI/UX Designer", href: "/careers/ui-ux-designer", icon: <Palette size={16} /> },
+      { label: "Java Developer", href: "/careers/java-developer", icon: <Code size={16} /> },
+      { label: "Software Developer", href: "/careers/software-developer", icon: <Cog size={16} /> },
     ],
   },
   {
@@ -726,37 +727,67 @@ const Pricing = () => {
   );
 };
 
+const consultancyTestimonials = [
+  {
+    author: {
+      name: "James Carter",
+      handle: "CEO at TechFlow Solutions",
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    },
+    text: "Srinivas Consultancy's AI automation transformed our operations — repetitive tasks are gone and our team's productivity has doubled.",
+  },
+  {
+    author: {
+      name: "Sophia Martinez",
+      handle: "Operations Manager at NexaCorp",
+      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    },
+    text: "Their IT staffing expertise helped us find top-tier engineers in weeks, not months. The quality of talent they deliver is unmatched.",
+  },
+  {
+    author: {
+      name: "David Reynolds",
+      handle: "Head of Sales at GrowthPeak",
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+    },
+    text: "AI-driven insights from Srinivas Consultancy doubled our sales efficiency. We now engage leads at the right time with data-backed decisions.",
+  },
+  {
+    author: {
+      name: "Emily Wong",
+      handle: "Customer Success Lead at SupportHive",
+      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
+    },
+    text: "Our response time improved drastically with their custom AI chatbot. Customer satisfaction is at an all-time high thanks to Srinivas Consultancy.",
+  },
+  {
+    author: {
+      name: "Michael Chen",
+      handle: "CTO at DataVault Systems",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    },
+    text: "Their ERP implementation streamlined our entire supply chain. We reduced operational overhead by 35% within the first quarter.",
+  },
+  {
+    author: {
+      name: "Priya Sharma",
+      handle: "VP Engineering at MedixChain",
+      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face",
+    },
+    text: "The custom software they built for our healthcare logistics reduced data errors by 80%. Their consultants truly understand enterprise challenges.",
+  },
+];
+
 const Testimonials = () => {
-  const testimonials = [
-    { quote: "AI automation transformed our operations by eliminating repetitive tasks and improving efficiency. Scaling our workflow has never been easier!", name: "James Carter", title: "CEO at TechFlow Solutions", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" },
-    { quote: "With AI, we cut manual work and improved accuracy. Our team now focuses on high-impact tasks while automation handles the rest!", name: "Sophia Martinez", title: "Operations Manager at NexaCorp", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" },
-    { quote: "AI-driven insights doubled our sales efficiency. We now engage leads at the right time with smarter, data-backed decisions!", name: "David Reynolds", title: "Head of Sales at GrowthPeak", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop" },
-    { quote: "Customer support is now seamless. Our response time improved drastically, and satisfaction levels are at an all-time high, thanks to Srinivas Consultancy", name: "Emily Wong", title: "Customer Success Lead at SupportHive", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" },
-  ];
   return (
-    <section className="py-24 px-6 max-w-7xl mx-auto">
-      <AnimatedSection>
-        <div className="text-center mb-16">
-          <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-white mb-6">Testimonials</div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">Why Businesses Love<br />Our AI Solutions</h2>
-          <p className="text-gray-400 text-lg">Real businesses, real results with AI automation.</p>
-        </div>
-      </AnimatedSection>
-      <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-        {testimonials.map((t, i) => (
-          <AnimatedSection key={i} delay={i * 100}>
-            <div className="bg-gradient-to-br from-zinc-900 to-black border border-white/10 rounded-3xl p-8 lg:p-10 hover:border-[#a855f7]/20 transition-all duration-500 h-full">
-              <div className="flex gap-1 mb-6">{[...Array(5)].map((_, j) => (<Star key={j} size={20} className="fill-white text-white" />))}</div>
-              <p className="text-white text-lg mb-8 leading-relaxed">"{t.quote}"</p>
-              <div className="flex items-center gap-4">
-                <img src={t.image} alt={t.name} className="w-12 h-12 rounded-full object-cover" />
-                <div><div className="text-white font-semibold">{t.name}</div><div className="text-gray-400 text-sm">{t.title}</div></div>
-              </div>
-            </div>
-          </AnimatedSection>
-        ))}
-      </div>
-    </section>
+    <AnimatedSection>
+      <TestimonialsSection
+        title="Why Businesses Trust Srinivas Consultancy"
+        description="Real results from real clients — see how our AI solutions and IT consulting drive business growth."
+        testimonials={consultancyTestimonials}
+        className="bg-transparent text-white"
+      />
+    </AnimatedSection>
   );
 };
 
@@ -843,30 +874,30 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-semibold mb-4 text-sm">Products</h4>
             <ul className="space-y-3 text-sm text-gray-500">
-              <li><a href="#" className="hover:text-white transition-colors">AI Agents</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">CRM Platform</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">ERP System</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Procurement System</a></li>
+              <li><a href="/products/ai-agents" className="hover:text-white transition-colors">AI Agents</a></li>
+              <li><a href="/products/crm" className="hover:text-white transition-colors">CRM Platform</a></li>
+              <li><a href="/products/erp" className="hover:text-white transition-colors">ERP System</a></li>
+              <li><a href="/products/procurement" className="hover:text-white transition-colors">Procurement System</a></li>
             </ul>
           </div>
           <div>
             <h4 className="text-white font-semibold mb-4 text-sm">Services</h4>
             <ul className="space-y-3 text-sm text-gray-500">
-              <li><a href="#" className="hover:text-white transition-colors">IT Staffing & Consulting</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">AI Development</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Mobile App Development</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Web Development</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Custom Software</a></li>
+              <li><a href="/services/staffing" className="hover:text-white transition-colors">IT Staffing & Consulting</a></li>
+              <li><a href="/services/ai-development" className="hover:text-white transition-colors">AI Development</a></li>
+              <li><a href="/services/mobile-development" className="hover:text-white transition-colors">Mobile App Development</a></li>
+              <li><a href="/services/web-development" className="hover:text-white transition-colors">Web Development</a></li>
+              <li><a href="/services/custom-software" className="hover:text-white transition-colors">Custom Software</a></li>
             </ul>
           </div>
           <div>
             <h4 className="text-white font-semibold mb-4 text-sm">Company</h4>
             <ul className="space-y-3 text-sm text-gray-500">
               <li><a href="/about" className="hover:text-white transition-colors">About</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
+              <li><a href="/careers" className="hover:text-white transition-colors">Careers</a></li>
               <li><a href="/contact" className="hover:text-white transition-colors">Contact</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Industries</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Technologies</a></li>
+              <li><a href="/industries" className="hover:text-white transition-colors">Industries</a></li>
+              <li><a href="/technologies" className="hover:text-white transition-colors">Technologies</a></li>
             </ul>
           </div>
         </div>

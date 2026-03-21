@@ -25,6 +25,13 @@ import {
   Cog,
   Eye,
   Target,
+  MapPin,
+  Clock,
+  Check,
+  DollarSign,
+  Heart,
+  BookOpen,
+  Timer,
 } from "lucide-react";
 
 const navItems = [
@@ -32,40 +39,40 @@ const navItems = [
   {
     label: "Products",
     children: [
-      { label: "AI Agents", href: "/products/ai-agents", icon: <Bot size={16} /> },
-      { label: "CRM Platform", href: "/products/crm", icon: <Users size={16} /> },
-      { label: "ERP System", href: "/products/erp", icon: <Building2 size={16} /> },
-      { label: "Procurement / Purchase System", href: "/products/procurement", icon: <ShoppingCart size={16} /> },
+      { label: "AI Agents", href: "#", icon: <Bot size={16} /> },
+      { label: "CRM Platform", href: "#", icon: <Users size={16} /> },
+      { label: "ERP System", href: "#", icon: <Building2 size={16} /> },
+      { label: "Procurement / Purchase System", href: "#", icon: <ShoppingCart size={16} /> },
     ],
   },
   {
     label: "Services",
     children: [
-      { label: "IT Staffing & Consulting", href: "/services/staffing", icon: <Briefcase size={16} /> },
-      { label: "AI Development", href: "/services/ai-development", icon: <Brain size={16} /> },
-      { label: "Mobile App Development", href: "/services/mobile-development", icon: <Smartphone size={16} /> },
-      { label: "Web Development", href: "/services/web-development", icon: <Globe size={16} /> },
-      { label: "Custom Software Development", href: "/services/custom-software", icon: <Code size={16} /> },
+      { label: "IT Staffing & Consulting", href: "#", icon: <Briefcase size={16} /> },
+      { label: "AI Development", href: "#", icon: <Brain size={16} /> },
+      { label: "Mobile App Development", href: "#", icon: <Smartphone size={16} /> },
+      { label: "Web Development", href: "#", icon: <Globe size={16} /> },
+      { label: "Custom Software Development", href: "#", icon: <Code size={16} /> },
     ],
   },
   {
     label: "Industries",
     children: [
-      { label: "IT & Engineering", href: "/industries/it-engineering", icon: <Cpu size={16} /> },
-      { label: "Healthcare", href: "/industries/healthcare", icon: <HeartPulse size={16} /> },
-      { label: "Pharmaceutical", href: "/industries/pharmaceutical", icon: <Pill size={16} /> },
-      { label: "Finance", href: "/industries/finance", icon: <Landmark size={16} /> },
-      { label: "Retail & E-Commerce", href: "/industries/retail", icon: <ShoppingCart size={16} /> },
+      { label: "IT & Engineering", href: "#", icon: <Cpu size={16} /> },
+      { label: "Healthcare", href: "#", icon: <HeartPulse size={16} /> },
+      { label: "Pharmaceutical", href: "#", icon: <Pill size={16} /> },
+      { label: "Finance", href: "#", icon: <Landmark size={16} /> },
+      { label: "Retail & E-Commerce", href: "#", icon: <ShoppingCart size={16} /> },
     ],
   },
   {
     label: "Technologies",
     children: [
-      { label: "AI/ML Engineering", href: "/technologies/ai-ml", icon: <Brain size={16} /> },
-      { label: "Data & Analytics", href: "/technologies/data-analytics", icon: <LineChart size={16} /> },
-      { label: "Network Engineering", href: "/technologies/network", icon: <Network size={16} /> },
-      { label: "Cyber Security", href: "/technologies/cybersecurity", icon: <Lock size={16} /> },
-      { label: "UI/UX Designer", href: "/technologies/ui-ux", icon: <Palette size={16} /> },
+      { label: "AI/ML Engineering", href: "#", icon: <Brain size={16} /> },
+      { label: "Data & Analytics", href: "#", icon: <LineChart size={16} /> },
+      { label: "Network Engineering", href: "#", icon: <Network size={16} /> },
+      { label: "Cyber Security", href: "#", icon: <Lock size={16} /> },
+      { label: "UI/UX Designer", href: "#", icon: <Palette size={16} /> },
     ],
   },
   {
@@ -113,13 +120,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-black/80 backdrop-blur-xl border-b border-white/10 shadow-lg"
-          : "bg-transparent"
-      }`}
-    >
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-black/80 backdrop-blur-xl border-b border-white/10 shadow-lg" : "bg-transparent"}`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         <a href="/" className="flex items-center gap-2.5">
           <div className="w-9 h-9 bg-gradient-to-br from-[#a855f7] to-[#7c3aed] rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.3)]">
@@ -130,19 +131,11 @@ const Navbar = () => {
             <span className="block text-[10px] text-[#a855f7] font-medium tracking-widest uppercase">Consultancy</span>
           </div>
         </a>
-
         <div className="hidden lg:flex items-center gap-1 text-sm font-medium">
           {navItems.map((item) => (
-            <div
-              key={item.label}
-              className="relative"
-              onMouseEnter={() => item.children && handleMouseEnter(item.label)}
-              onMouseLeave={handleMouseLeave}
-            >
+            <div key={item.label} className="relative" onMouseEnter={() => item.children && handleMouseEnter(item.label)} onMouseLeave={handleMouseLeave}>
               {item.href ? (
-                <a href={item.href} className="px-3 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-all">
-                  {item.label}
-                </a>
+                <a href={item.href} className="px-3 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-all">{item.label}</a>
               ) : (
                 <button className="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-all">
                   {item.label}
@@ -162,31 +155,23 @@ const Navbar = () => {
             </div>
           ))}
         </div>
-
         <a href="/contact" className="hidden lg:flex items-center gap-2 bg-[#a855f7] hover:bg-[#9333ea] text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:shadow-[0_0_30px_rgba(168,85,247,0.6)]">
           Get in Touch <ArrowUpRight size={16} />
         </a>
-
         <button className="lg:hidden text-white p-2" onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
-
       {mobileOpen && (
         <div className="lg:hidden bg-black/95 backdrop-blur-xl border-t border-white/10 max-h-[80vh] overflow-y-auto animate-slideDown">
           <div className="p-4 space-y-1">
             {navItems.map((item) => (
               <div key={item.label}>
                 {item.href ? (
-                  <a href={item.href} className="block px-4 py-3 text-white rounded-xl hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>
-                    {item.label}
-                  </a>
+                  <a href={item.href} className="block px-4 py-3 text-white rounded-xl hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>{item.label}</a>
                 ) : (
                   <>
-                    <button
-                      className="flex items-center justify-between w-full px-4 py-3 text-white rounded-xl hover:bg-white/5 transition-colors"
-                      onClick={() => setMobileExpanded(mobileExpanded === item.label ? null : item.label)}
-                    >
+                    <button className="flex items-center justify-between w-full px-4 py-3 text-white rounded-xl hover:bg-white/5 transition-colors" onClick={() => setMobileExpanded(mobileExpanded === item.label ? null : item.label)}>
                       {item.label}
                       <ChevronDown size={16} className={`transition-transform duration-200 ${mobileExpanded === item.label ? "rotate-180" : ""}`} />
                     </button>
@@ -260,7 +245,7 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-4 text-sm">Company</h4>
             <ul className="space-y-3 text-sm text-gray-500">
               <li><a href="/about" className="hover:text-white transition-colors">About</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
+              <li><a href="/careers" className="hover:text-white transition-colors">Careers</a></li>
               <li><a href="/contact" className="hover:text-white transition-colors">Contact</a></li>
               <li><a href="/blog" className="hover:text-white transition-colors">Blog</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Technologies</a></li>
@@ -268,11 +253,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-gray-600">© {new Date().getFullYear()} Srinivas Consultancy. All rights reserved.</p>
-          <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-lg border border-white/10">
-            <div className="w-4 h-4 bg-white rounded-sm flex items-center justify-center overflow-hidden"><div className="w-full h-full bg-[#a855f7] transform -rotate-45 translate-y-2"></div></div>
-            <span className="text-xs text-gray-400">Made in Framer</span>
-          </div>
+          <p className="text-xs text-gray-600">&copy; {new Date().getFullYear()} Srinivas Consultancy. All rights reserved.</p>
           <p className="text-xs text-gray-600">Visioned and Crafted by Srinivas Consultancy</p>
         </div>
       </div>
@@ -280,46 +261,106 @@ const Footer = () => {
   );
 };
 
-export default function BlogPage() {
-  const posts = [
-    { title: "How AI Is Reshaping Modern Business Operations", tag: "AI Automation", date: "March 15, 2026" },
-    { title: "5 Ways to Automate Your Sales Pipeline Today", tag: "Sales", date: "March 10, 2026" },
-    { title: "The Future of Customer Support with AI Assistants", tag: "Customer Support", date: "March 5, 2026" },
-    { title: "Why Data-Driven Decisions Outperform Gut Instinct", tag: "Analytics", date: "February 28, 2026" },
-    { title: "Scaling Your Startup with Intelligent Automation", tag: "Growth", date: "February 20, 2026" },
-    { title: "AI in Healthcare: Reducing Errors, Saving Lives", tag: "Healthcare", date: "February 14, 2026" },
-  ];
+const responsibilities = [
+  "Conduct penetration testing and vulnerability assessments across web applications, networks, and cloud infrastructure",
+  "Lead incident response procedures including threat containment, forensic analysis, and post-incident reporting",
+  "Perform comprehensive security audits and risk assessments to identify and remediate vulnerabilities",
+  "Ensure compliance with industry standards and regulations including ISO 27001, SOC 2, GDPR, and HIPAA",
+  "Design and implement security monitoring solutions using SIEM tools, IDS/IPS, and endpoint detection platforms",
+  "Develop security policies, playbooks, and training programs to strengthen the organization's security posture",
+];
 
+const requirements = [
+  "3+ years of experience in cybersecurity engineering, penetration testing, or security operations",
+  "Strong knowledge of OWASP Top 10, MITRE ATT&CK framework, and common attack vectors",
+  "Experience with security tools such as Burp Suite, Metasploit, Nessus, Splunk, or CrowdStrike",
+  "Industry certifications such as CEH, OSCP, CISSP, or CompTIA Security+ are preferred",
+  "Bachelor's degree in Cybersecurity, Computer Science, or related field",
+];
+
+const perks = [
+  { icon: <DollarSign size={20} />, title: "Competitive Salary", desc: "Industry-leading compensation packages" },
+  { icon: <Heart size={20} />, title: "Health Benefits", desc: "Comprehensive health & wellness coverage" },
+  { icon: <BookOpen size={20} />, title: "Learning Budget", desc: "Annual budget for courses & conferences" },
+  { icon: <Timer size={20} />, title: "Flexible Hours", desc: "Work-life balance with flexible scheduling" },
+];
+
+export default function CybersecurityEngineerPage() {
   return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-[#a855f7] selection:text-white">
       <Navbar />
 
-      <section className="pt-32 pb-12 px-6 text-center relative overflow-hidden">
+      <section className="pt-32 pb-16 px-6 relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#a855f7]/15 blur-[120px] rounded-full -z-10"></div>
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">Blog</h1>
-        <p className="text-gray-400 text-lg max-w-xl mx-auto">
-          Insights on AI automation and business efficiency
-        </p>
+        <div className="max-w-4xl mx-auto">
+          <a href="/careers" className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-white mb-6 transition-colors">&larr; Back to Careers</a>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Cyber Security Engineer</h1>
+          <div className="flex flex-wrap gap-3">
+            <span className="flex items-center gap-1.5 bg-[#a855f7]/10 text-[#a855f7] px-4 py-2 rounded-full text-sm font-medium border border-[#a855f7]/20">
+              <Clock size={14} /> Full-time
+            </span>
+            <span className="flex items-center gap-1.5 bg-white/5 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-white/10">
+              <MapPin size={14} /> Hyderabad, India / Remote
+            </span>
+          </div>
+        </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 pb-24">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.map((post, i) => (
-            <article
-              key={i}
-              className="bg-zinc-900/50 border border-white/5 rounded-2xl p-6 hover:border-[#a855f7]/30 transition-all duration-300 cursor-pointer group"
-            >
-              <div className="w-full h-48 bg-gradient-to-br from-[#a855f7]/20 to-[#6366f1]/10 rounded-xl mb-4 group-hover:from-[#a855f7]/30 transition-all duration-300"></div>
-              <div className="inline-block px-3 py-1 bg-[#a855f7]/10 border border-[#a855f7]/20 rounded-full text-xs text-[#a855f7] mb-3">
-                {post.tag}
+      <section className="max-w-4xl mx-auto px-6 pb-24">
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold mb-4">About the Role</h2>
+          <p className="text-gray-400 leading-relaxed">
+            We are seeking a proactive Cyber Security Engineer to safeguard our systems, data, and client infrastructure against evolving threats. You will be responsible for identifying vulnerabilities, responding to security incidents, and building a robust security framework. This role offers the opportunity to work on diverse security challenges across cloud, application, and network layers in a fast-growing technology consultancy.
+          </p>
+        </div>
+
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold mb-6">Key Responsibilities</h2>
+          <ul className="space-y-4">
+            {responsibilities.map((item, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <div className="w-2 h-2 rounded-full bg-[#a855f7] mt-2 shrink-0"></div>
+                <span className="text-gray-400 leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold mb-6">Requirements</h2>
+          <ul className="space-y-4">
+            {requirements.map((item, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <Check size={18} className="text-[#a855f7] mt-0.5 shrink-0" />
+                <span className="text-gray-400 leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mb-16">
+          <h2 className="text-2xl font-bold mb-6">What We Offer</h2>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {perks.map((perk, i) => (
+              <div key={i} className="bg-zinc-900/50 border border-white/5 rounded-2xl p-5 flex items-start gap-4">
+                <div className="w-10 h-10 rounded-xl bg-[#a855f7]/10 flex items-center justify-center text-[#a855f7] shrink-0">
+                  {perk.icon}
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-1">{perk.title}</h3>
+                  <p className="text-gray-400 text-sm">{perk.desc}</p>
+                </div>
               </div>
-              <h2 className="text-xl font-bold mb-3 group-hover:text-[#a855f7] transition-colors">{post.title}</h2>
-              <p className="text-gray-400 text-sm mb-4">
-                Discover how AI automation is transforming modern businesses and streamlining operations...
-              </p>
-              <p className="text-xs text-gray-600">{post.date}</p>
-            </article>
-          ))}
+            ))}
+          </div>
+        </div>
+
+        <div className="text-center bg-zinc-900/50 border border-white/5 rounded-3xl p-10">
+          <h2 className="text-2xl font-bold mb-3">Ready to Apply?</h2>
+          <p className="text-gray-400 mb-6">Join our team and help defend against the threats of tomorrow.</p>
+          <a href="/contact" className="inline-flex items-center gap-2 bg-[#a855f7] hover:bg-[#9333ea] text-white px-8 py-3.5 rounded-xl font-semibold transition-all shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:shadow-[0_0_30px_rgba(168,85,247,0.6)]">
+            Apply Now <ArrowUpRight size={16} />
+          </a>
         </div>
       </section>
 
