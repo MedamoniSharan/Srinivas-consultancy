@@ -24,7 +24,7 @@ export function FeaturesSectionWithBentoGrid() {
     {
       title: "See Our Solutions in Action",
       description:
-        "Watch how Srinivas Consultancy helps businesses transform operations with AI automation and custom software.",
+        "Watch how TelivAI Solutions helps businesses transform operations with AI automation and custom software.",
       skeleton: <SkeletonThree />,
       className:
         "col-span-1 md:col-span-3 lg:col-span-3 border-b md:border-r border-white/10",
@@ -45,7 +45,7 @@ export function FeaturesSectionWithBentoGrid() {
           Everything Your Business Needs to Scale
         </h4>
         <p className="text-sm lg:text-base max-w-2xl my-4 mx-auto text-gray-400 text-center font-normal">
-          From IT staffing and AI development to custom ERP systems and cloud migration — Srinivas Consultancy delivers enterprise-grade solutions that drive real results.
+          From IT staffing and AI development to custom ERP systems and cloud migration — TelivAI Solutions delivers enterprise-grade solutions that drive real results.
         </p>
       </div>
 
@@ -205,7 +205,7 @@ export const SkeletonThree = () => {
           </div>
           <img
             src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1200&q=80&auto=format&fit=crop"
-            alt="Watch Srinivas Consultancy solutions overview"
+            alt="Watch TelivAI Solutions overview"
             className="h-full w-full aspect-square object-cover object-center rounded-sm blur-none group-hover/image:blur-md transition-all duration-200"
           />
         </div>

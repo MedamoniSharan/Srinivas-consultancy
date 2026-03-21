@@ -1,4 +1,5 @@
 import { ArrowUpRight, BrainCircuit, ClipboardList, Scale, Truck, FlaskRound, Eye } from "lucide-react";
+import PageLayout from "@/components/PageLayout";
 
 export default function Pharmaceutical() {
   const features = [
@@ -11,20 +12,7 @@ export default function Pharmaceutical() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-[#a855f7] selection:text-white">
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-black/80 backdrop-blur-xl border-b border-white/10">
-        <a href="/" className="flex items-center gap-2.5">
-          <div className="w-9 h-9 bg-gradient-to-br from-[#a855f7] to-[#7c3aed] rounded-xl flex items-center justify-center">
-            <span className="text-white font-black text-sm">SC</span>
-          </div>
-          <div>
-            <span className="text-lg font-bold text-white tracking-tight leading-none">Srinivas</span>
-            <span className="block text-[10px] text-[#a855f7] font-medium tracking-widest uppercase">Consultancy</span>
-          </div>
-        </a>
-        <a href="/contact" className="bg-[#a855f7] hover:bg-[#9333ea] text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-[0_0_20px_rgba(168,85,247,0.4)]">Get in Touch</a>
-      </nav>
-
+    <PageLayout>
       <section className="pt-32 pb-20 px-6 text-center relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#a855f7]/15 blur-[120px] rounded-full -z-10"></div>
         <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-[#a855f7] mb-6">Pharmaceutical</div>
@@ -52,13 +40,6 @@ export default function Pharmaceutical() {
           <a href="/contact" className="inline-flex items-center gap-2 bg-[#a855f7] hover:bg-[#9333ea] text-white px-8 py-3 rounded-xl font-semibold transition-all">Contact Us <ArrowUpRight size={18} /></a>
         </div>
       </section>
-
-      <footer className="border-t border-white/5 py-8 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-gray-600">© {new Date().getFullYear()} Srinivas Consultancy. All rights reserved.</p>
-          <a href="/" className="text-sm text-[#a855f7] hover:text-[#c084fc] transition-colors">Back to Home</a>
-        </div>
-      </footer>
-    </div>
+    </PageLayout>
   );
 }

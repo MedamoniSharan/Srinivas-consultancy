@@ -1,102 +1,119 @@
-import { ArrowUpRight, Brain, Bot, Globe, Check, Code, Briefcase } from "lucide-react";
+import PageLayout from "@/components/PageLayout";
+import AnimatedSection from "@/components/AnimatedSection";
+import { ArrowUpRight, Brain, MessageSquare, Eye, BarChart3, GitBranch, Bot } from "lucide-react";
+
+const bentoItems = [
+  { title: "Custom ML Models", desc: "Purpose-built machine learning models trained on your data for classification, prediction, and optimization.", large: true, image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80&auto=format&fit=crop" },
+  { title: "NLP Solutions", desc: "Text analysis, sentiment detection, and language understanding at enterprise scale.", icon: <MessageSquare size={24} /> },
+  { title: "Computer Vision", desc: "Image recognition, object detection, and visual inspection automation.", icon: <Eye size={24} /> },
+  { title: "Predictive Analytics", desc: "Data-driven forecasting to anticipate trends and make smarter decisions.", icon: <BarChart3 size={24} /> },
+  { title: "MLOps Pipeline", desc: "End-to-end ML infrastructure for training, deployment, and monitoring.", icon: <GitBranch size={24} /> },
+  { title: "Conversational AI", desc: "Intelligent chatbots and voice assistants that understand context, intent, and emotion to deliver human-like interactions.", large: true, image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80&auto=format&fit=crop" },
+];
+
+const steps = [
+  { num: "01", title: "Discovery", desc: "Understand your data landscape, goals, and AI readiness." },
+  { num: "02", title: "Prototyping", desc: "Rapid proof-of-concept to validate approach and feasibility." },
+  { num: "03", title: "Development", desc: "Full model training, integration, and performance optimization." },
+  { num: "04", title: "Deployment", desc: "Production rollout with monitoring, scaling, and iteration." },
+];
 
 export default function AIDevelopmentPage() {
-  const features = [
-    {
-      icon: <Brain size={22} />,
-      title: "Custom ML Models",
-      desc: "Purpose-built machine learning models trained on your data to solve your specific business challenges with high accuracy.",
-    },
-    {
-      icon: <Bot size={22} />,
-      title: "NLP Solutions",
-      desc: "Natural language processing for chatbots, sentiment analysis, document understanding, and text classification at scale.",
-    },
-    {
-      icon: <Globe size={22} />,
-      title: "Computer Vision",
-      desc: "Image recognition, object detection, and visual inspection systems powered by state-of-the-art deep learning architectures.",
-    },
-    {
-      icon: <Code size={22} />,
-      title: "Predictive Analytics",
-      desc: "Data-driven forecasting models for demand planning, churn prediction, risk assessment, and revenue optimization.",
-    },
-    {
-      icon: <Briefcase size={22} />,
-      title: "AI Strategy Consulting",
-      desc: "Expert guidance on AI adoption — from opportunity assessment and roadmap development to governance frameworks.",
-    },
-    {
-      icon: <Check size={22} />,
-      title: "Model Training & Deployment",
-      desc: "End-to-end MLOps — model training, validation, deployment pipelines, monitoring, and continuous retraining at production scale.",
-    },
-  ];
-
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-[#a855f7] selection:text-white">
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-black/80 backdrop-blur-xl border-b border-white/10">
-        <a href="/" className="flex items-center gap-2.5">
-          <div className="w-9 h-9 bg-gradient-to-br from-[#a855f7] to-[#7c3aed] rounded-xl flex items-center justify-center">
-            <span className="text-white font-black text-sm">SC</span>
+    <PageLayout>
+      {/* Hero */}
+      <section className="relative pt-36 pb-24 px-6 text-center overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#a855f7]/15 rounded-full blur-[120px] -z-10" />
+        <AnimatedSection>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-[#a855f7] mb-8">
+            <Brain size={14} /> Artificial Intelligence
           </div>
-          <div>
-            <span className="text-lg font-bold text-white tracking-tight leading-none">Srinivas</span>
-            <span className="block text-[10px] text-[#a855f7] font-medium tracking-widest uppercase">Consultancy</span>
-          </div>
-        </a>
-        <a href="/contact" className="bg-[#a855f7] hover:bg-[#9333ea] text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-[0_0_20px_rgba(168,85,247,0.4)]">
-          Get in Touch
-        </a>
-      </nav>
-
-      <section className="pt-32 pb-20 px-6 text-center relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#a855f7]/15 blur-[120px] rounded-full -z-10"></div>
-        <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-[#a855f7] mb-6">Service</div>
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">AI Development</h1>
-        <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-          Custom AI and machine learning solutions — from predictive analytics and NLP to computer vision and intelligent automation.
-        </p>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white max-w-4xl mx-auto mb-6 tracking-tight leading-[1.1]">
+            AI Development
+          </h1>
+          <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            From custom ML models to conversational AI — we build intelligent systems that learn, adapt, and deliver measurable results.
+          </p>
+        </AnimatedSection>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 pb-24">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((f, i) => (
-            <div key={i} className="bg-zinc-900/50 border border-white/5 rounded-3xl p-8 hover:border-[#a855f7]/30 transition-all duration-500">
-              <div className="w-12 h-12 rounded-2xl bg-[#a855f7]/10 border border-[#a855f7]/20 flex items-center justify-center text-[#a855f7] mb-6">{f.icon}</div>
-              <h3 className="text-xl font-bold mb-3">{f.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{f.desc}</p>
-            </div>
+      {/* Bento Grid */}
+      <section className="py-20 px-6 max-w-7xl mx-auto">
+        <AnimatedSection>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white">What We Offer</h2>
+          </div>
+        </AnimatedSection>
+        <div className="grid md:grid-cols-4 gap-4">
+          {bentoItems.map((item, i) => (
+            <AnimatedSection key={i} delay={i * 80} className={item.large ? "md:col-span-2" : ""}>
+              {item.large ? (
+                <div className="relative rounded-2xl overflow-hidden h-64 group">
+                  <img src={item.image} alt={item.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                  <div className="absolute bottom-0 left-0 p-6">
+                    <h3 className="text-xl font-bold text-white mb-1">{item.title}</h3>
+                    <p className="text-gray-300 text-sm leading-relaxed max-w-sm">{item.desc}</p>
+                  </div>
+                </div>
+              ) : (
+                <div className="bg-zinc-900/50 border border-white/5 rounded-2xl p-6 h-full hover:border-[#a855f7]/30 transition-all duration-500">
+                  <div className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#a855f7] mb-4">{item.icon}</div>
+                  <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              )}
+            </AnimatedSection>
           ))}
         </div>
       </section>
 
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto bg-gradient-to-br from-zinc-900 to-black rounded-[2rem] border border-white/5 p-12 md:p-16 text-center relative overflow-hidden">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-[#a855f7]/10 blur-[100px] -z-10"></div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Ready to get started?</h2>
-          <p className="text-gray-400 text-lg max-w-xl mx-auto mb-8">{"Let's build intelligent AI solutions tailored to your business."}</p>
-          <a href="/contact" className="inline-flex items-center gap-2 bg-[#a855f7] hover:bg-[#9333ea] text-white px-8 py-3 rounded-xl font-semibold transition-all hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]">
-            Contact Us <ArrowUpRight size={18} />
-          </a>
+      {/* Process Timeline */}
+      <section className="py-20 px-6 max-w-5xl mx-auto">
+        <AnimatedSection>
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-16">Our Process</h2>
+        </AnimatedSection>
+        <div className="relative flex flex-col md:flex-row md:justify-between gap-8 md:gap-0">
+          <div className="hidden md:block absolute top-6 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#a855f7]/50 to-transparent" />
+          {steps.map((s, i) => (
+            <AnimatedSection key={i} delay={i * 150} className="flex-1 text-center relative">
+              <div className="w-12 h-12 rounded-full bg-[#a855f7] text-white font-bold text-sm flex items-center justify-center mx-auto mb-4 relative z-10">{s.num}</div>
+              <h3 className="text-white font-semibold mb-1">{s.title}</h3>
+              <p className="text-gray-400 text-sm max-w-[200px] mx-auto">{s.desc}</p>
+            </AnimatedSection>
+          ))}
         </div>
       </section>
 
-      <footer className="border-t border-white/5 py-8 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-gray-600">© {new Date().getFullYear()} Srinivas Consultancy. All rights reserved.</p>
-          <a href="/" className="text-sm text-[#a855f7] hover:text-[#c084fc] transition-colors">Back to Home</a>
-        </div>
-      </footer>
+      {/* Showcase */}
+      <section className="py-20 px-6 max-w-6xl mx-auto">
+        <AnimatedSection>
+          <div className="relative rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200&q=80&auto=format&fit=crop" alt="AI showcase" className="w-full h-[400px] object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+            <div className="absolute bottom-0 left-0 p-8 md:p-12 max-w-2xl">
+              <p className="text-xl md:text-2xl font-semibold text-white leading-relaxed italic">
+                &ldquo;Their custom ML model cut our fraud detection false positives by 60% in the first month of deployment.&rdquo;
+              </p>
+              <p className="text-[#a855f7] text-sm mt-4 font-medium">— CTO, FinTech Startup</p>
+            </div>
+          </div>
+        </AnimatedSection>
+      </section>
 
-      <style jsx>{`
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        section { animation: fadeInUp 0.6s ease-out; }
-      `}</style>
-    </div>
+      {/* CTA */}
+      <section className="py-24 px-6">
+        <AnimatedSection>
+          <div className="max-w-4xl mx-auto bg-gradient-to-br from-[#a855f7]/20 via-zinc-900 to-black rounded-3xl border border-white/5 p-12 md:p-16 text-center relative overflow-hidden">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-[#a855f7]/10 blur-[100px] -z-10" />
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Let&apos;s Build Your AI Advantage</h2>
+            <p className="text-gray-400 text-lg max-w-xl mx-auto mb-8">From prototype to production — we make AI work for your business.</p>
+            <a href="/contact" className="inline-flex items-center gap-2 bg-[#a855f7] hover:bg-[#9333ea] text-white px-8 py-3 rounded-xl font-semibold transition-all hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]">
+              Start a Project <ArrowUpRight size={18} />
+            </a>
+          </div>
+        </AnimatedSection>
+      </section>
+    </PageLayout>
   );
 }

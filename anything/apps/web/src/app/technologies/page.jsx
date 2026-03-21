@@ -1,91 +1,99 @@
-import { ArrowUpRight, BrainCircuit, Database, Network, Shield, Palette } from "lucide-react";
+import PageLayout from "@/components/PageLayout";
+import AnimatedSection from "@/components/AnimatedSection";
+import { ArrowRight, Brain, BarChart3, Network, Shield, Palette, Rocket, Users, Clock, HeartHandshake } from "lucide-react";
 
-export default function Technologies() {
-  const technologies = [
-    {
-      icon: <BrainCircuit size={24} />,
-      title: "AI/ML Engineering",
-      desc: "Deep learning, NLP, computer vision, and MLOps solutions that bring intelligence to your products.",
-      href: "/technologies/ai-ml",
-    },
-    {
-      icon: <Database size={24} />,
-      title: "Data & Analytics",
-      desc: "Data warehousing, real-time analytics, and business intelligence to turn raw data into actionable insights.",
-      href: "/technologies/data-analytics",
-    },
-    {
-      icon: <Network size={24} />,
-      title: "Network Engineering",
-      desc: "Enterprise network architecture, SDN implementation, and cloud networking for resilient infrastructure.",
-      href: "/technologies/network",
-    },
-    {
-      icon: <Shield size={24} />,
-      title: "Cyber Security",
-      desc: "Penetration testing, zero trust architecture, and threat intelligence to protect your digital assets.",
-      href: "/technologies/cybersecurity",
-    },
-    {
-      icon: <Palette size={24} />,
-      title: "UI/UX Design",
-      desc: "User research, prototyping, and design systems that create beautiful, intuitive digital experiences.",
-      href: "/technologies/ui-ux",
-    },
-  ];
+const technologies = [
+  { title: "AI / ML", href: "/technologies/ai-ml", icon: Brain, image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80&auto=format&fit=crop", description: "Intelligent systems powered by deep learning, NLP, and computer vision." },
+  { title: "Data & Analytics", href: "/technologies/data-analytics", icon: BarChart3, image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80&auto=format&fit=crop", description: "Real-time insights through modern data engineering and BI platforms." },
+  { title: "Network Engineering", href: "/technologies/network", icon: Network, image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80&auto=format&fit=crop", description: "Resilient infrastructure from SD-WAN to cloud-native networking." },
+  { title: "Cyber Security", href: "/technologies/cybersecurity", icon: Shield, image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80&auto=format&fit=crop", description: "Defense-in-depth strategies, penetration testing, and zero-trust architecture." },
+  { title: "UI / UX Design", href: "/technologies/ui-ux", icon: Palette, image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80&auto=format&fit=crop", description: "Research-driven design systems that delight users and drive outcomes." },
+];
 
+const stats = [
+  { label: "Projects", value: "50+", icon: Rocket },
+  { label: "Technologies", value: "15+", icon: Users },
+  { label: "SLA", value: "99.9%", icon: Clock },
+  { label: "Support", value: "24/7", icon: HeartHandshake },
+];
+
+export default function TechnologiesPage() {
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-[#a855f7] selection:text-white">
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-black/80 backdrop-blur-xl border-b border-white/10">
-        <a href="/" className="flex items-center gap-2.5">
-          <div className="w-9 h-9 bg-gradient-to-br from-[#a855f7] to-[#7c3aed] rounded-xl flex items-center justify-center">
-            <span className="text-white font-black text-sm">SC</span>
-          </div>
-          <div>
-            <span className="text-lg font-bold text-white tracking-tight leading-none">Srinivas</span>
-            <span className="block text-[10px] text-[#a855f7] font-medium tracking-widest uppercase">Consultancy</span>
-          </div>
-        </a>
-        <a href="/contact" className="bg-[#a855f7] hover:bg-[#9333ea] text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-[0_0_20px_rgba(168,85,247,0.4)]">Get in Touch</a>
-      </nav>
-
-      <section className="pt-32 pb-20 px-6 text-center relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#a855f7]/15 blur-[120px] rounded-full -z-10"></div>
-        <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-[#a855f7] mb-6">Technologies</div>
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">Our Technologies</h1>
-        <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">Cutting-edge technology expertise that powers next-generation solutions.</p>
+    <PageLayout>
+      {/* Hero */}
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute top-20 left-10 w-48 h-48 bg-[#a855f7]/10 blur-[80px] rounded-full" />
+        <div className="absolute bottom-10 right-20 w-32 h-32 bg-[#7c3aed]/10 blur-[80px] rounded-full" />
+        <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
+          <AnimatedSection>
+            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-medium tracking-wider uppercase bg-[#a855f7]/10 text-[#a855f7] border border-[#a855f7]/20 mb-6">Our Technology Stack</span>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">Technologies</h1>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">We leverage cutting-edge technologies to build solutions that scale, perform, and endure.</p>
+          </AnimatedSection>
+        </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 pb-24">
+      {/* Technology Cards */}
+      <section className="max-w-7xl mx-auto px-6 pb-24">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {technologies.map((tech, i) => (
-            <a key={i} href={tech.href} className="group bg-zinc-900/50 border border-white/5 rounded-3xl p-8 hover:border-[#a855f7]/30 transition-all duration-500">
-              <div className="w-12 h-12 rounded-2xl bg-[#a855f7]/10 border border-[#a855f7]/20 flex items-center justify-center text-[#a855f7] mb-6">{tech.icon}</div>
-              <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
-                {tech.title}
-                <ArrowUpRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity text-[#a855f7]" />
-              </h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{tech.desc}</p>
-            </a>
+            <AnimatedSection key={tech.title} delay={i * 100}>
+              <a href={tech.href} className="group block bg-zinc-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-[#a855f7]/30 hover:-translate-y-1 transition-all duration-500">
+                <div className="h-48 overflow-hidden">
+                  <img src={tech.image} alt={tech.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-xl bg-[#a855f7]/10 flex items-center justify-center">
+                      <tech.icon className="w-5 h-5 text-[#a855f7]" />
+                    </div>
+                    <h3 className="text-lg font-semibold">{tech.title}</h3>
+                  </div>
+                  <p className="text-sm text-gray-400 mb-4">{tech.description}</p>
+                  <span className="inline-flex items-center gap-1 text-sm text-[#a855f7] group-hover:gap-2 transition-all">
+                    Learn more <ArrowRight className="w-4 h-4" />
+                  </span>
+                </div>
+              </a>
+            </AnimatedSection>
           ))}
         </div>
       </section>
 
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto bg-gradient-to-br from-zinc-900 to-black rounded-[2rem] border border-white/5 p-12 md:p-16 text-center relative overflow-hidden">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-[#a855f7]/10 blur-[100px] -z-10"></div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Ready to get started?</h2>
-          <p className="text-gray-400 text-lg max-w-xl mx-auto mb-8">Let&apos;s discuss how we can help transform your business.</p>
-          <a href="/contact" className="inline-flex items-center gap-2 bg-[#a855f7] hover:bg-[#9333ea] text-white px-8 py-3 rounded-xl font-semibold transition-all">Contact Us <ArrowUpRight size={18} /></a>
+      {/* Expertise Metrics */}
+      <section className="border-t border-white/5 py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <AnimatedSection>
+            <h2 className="text-3xl font-bold text-center mb-14">Our Expertise</h2>
+          </AnimatedSection>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((s, i) => (
+              <AnimatedSection key={s.label} delay={i * 100}>
+                <div className="text-center">
+                  <div className="w-12 h-12 rounded-full bg-[#a855f7]/10 flex items-center justify-center mx-auto mb-4">
+                    <s.icon className="w-5 h-5 text-[#a855f7]" />
+                  </div>
+                  <p className="text-3xl font-bold mb-1">{s.value}</p>
+                  <p className="text-sm text-gray-400">{s.label}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </section>
 
-      <footer className="border-t border-white/5 py-8 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-gray-600">© {new Date().getFullYear()} Srinivas Consultancy. All rights reserved.</p>
-          <a href="/" className="text-sm text-[#a855f7] hover:text-[#c084fc] transition-colors">Back to Home</a>
-        </div>
-      </footer>
-    </div>
+      {/* CTA */}
+      <section className="py-24">
+        <AnimatedSection>
+          <div className="max-w-3xl mx-auto text-center px-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to build with us?</h2>
+            <p className="text-gray-400 mb-8">Let&apos;s discuss how our technology expertise can accelerate your business goals.</p>
+            <a href="/contact" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#a855f7] hover:bg-[#9333ea] text-white font-medium transition-colors">
+              Get in Touch <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+        </AnimatedSection>
+      </section>
+    </PageLayout>
   );
 }

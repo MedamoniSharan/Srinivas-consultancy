@@ -1,64 +1,101 @@
-import { ArrowUpRight, Search, PenLine, Layers, Paintbrush, MousePointerClick, Component } from "lucide-react";
+import PageLayout from "@/components/PageLayout";
+import AnimatedSection from "@/components/AnimatedSection";
+import { Palette, Users, PenTool, Layers, MousePointerClick, FlaskConical, Component, Check, ArrowRight } from "lucide-react";
 
-export default function UIUX() {
-  const features = [
-    { icon: <Search size={24} />, title: "User Research", desc: "In-depth user interviews, surveys, and behavioral analysis to understand your audience and inform design decisions." },
-    { icon: <PenLine size={24} />, title: "Wireframing", desc: "Low and high-fidelity wireframes that map user flows, information architecture, and interaction patterns." },
-    { icon: <Layers size={24} />, title: "Prototyping", desc: "Interactive prototypes in Figma and Framer that bring concepts to life for stakeholder validation and user testing." },
-    { icon: <Paintbrush size={24} />, title: "Visual Design", desc: "Stunning visual interfaces with cohesive branding, typography systems, color palettes, and iconography." },
-    { icon: <MousePointerClick size={24} />, title: "Usability Testing", desc: "Structured usability studies with A/B testing, heatmaps, and session recordings to validate design effectiveness." },
-    { icon: <Component size={24} />, title: "Design Systems", desc: "Scalable component libraries and design tokens that ensure consistency across products and accelerate development." },
-  ];
+const capabilities = [
+  { icon: Users, title: "User Research", description: "Interviews, surveys, and analytics that uncover real user needs and pain points." },
+  { icon: PenTool, title: "Wireframing & Prototyping", description: "Low- and high-fidelity prototypes to validate concepts before a single line of code." },
+  { icon: Layers, title: "Visual Design", description: "Brand-aligned interfaces with polished typography, color, and spatial hierarchy." },
+  { icon: MousePointerClick, title: "Interaction Design", description: "Micro-interactions, transitions, and motion that make interfaces feel alive." },
+  { icon: FlaskConical, title: "Usability Testing", description: "Moderated and unmoderated tests that surface friction and drive iterative improvement." },
+  { icon: Component, title: "Design Systems", description: "Scalable component libraries with tokens, guidelines, and developer handoff docs." },
+];
 
+const techStack = ["Figma", "Adobe XD", "Sketch", "Framer", "Principle", "Storybook", "Tailwind CSS", "React"];
+
+export default function UiUxPage() {
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-[#a855f7] selection:text-white">
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-black/80 backdrop-blur-xl border-b border-white/10">
-        <a href="/" className="flex items-center gap-2.5">
-          <div className="w-9 h-9 bg-gradient-to-br from-[#a855f7] to-[#7c3aed] rounded-xl flex items-center justify-center">
-            <span className="text-white font-black text-sm">SC</span>
-          </div>
-          <div>
-            <span className="text-lg font-bold text-white tracking-tight leading-none">Srinivas</span>
-            <span className="block text-[10px] text-[#a855f7] font-medium tracking-widest uppercase">Consultancy</span>
-          </div>
-        </a>
-        <a href="/contact" className="bg-[#a855f7] hover:bg-[#9333ea] text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-[0_0_20px_rgba(168,85,247,0.4)]">Get in Touch</a>
-      </nav>
-
-      <section className="pt-32 pb-20 px-6 text-center relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#a855f7]/15 blur-[120px] rounded-full -z-10"></div>
-        <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-[#a855f7] mb-6">UI/UX Design</div>
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">UI/UX Design</h1>
-        <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">Crafting intuitive, beautiful digital experiences that users love and businesses depend on.</p>
+    <PageLayout>
+      {/* Hero */}
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute top-24 left-8 w-48 h-48 bg-[#a855f7]/10 blur-[80px] rounded-full" />
+        <div className="absolute bottom-6 right-14 w-36 h-36 bg-[#7c3aed]/10 blur-[80px] rounded-full" />
+        <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
+          <AnimatedSection>
+            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-medium tracking-wider uppercase bg-[#a855f7]/10 text-[#a855f7] border border-[#a855f7]/20 mb-6">Technology</span>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">UI/UX Design</h1>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">Crafting digital experiences that delight users and drive measurable business outcomes.</p>
+          </AnimatedSection>
+        </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 pb-24">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((f, i) => (
-            <div key={i} className="bg-zinc-900/50 border border-white/5 rounded-3xl p-8 hover:border-[#a855f7]/30 transition-all duration-500">
-              <div className="w-12 h-12 rounded-2xl bg-[#a855f7]/10 border border-[#a855f7]/20 flex items-center justify-center text-[#a855f7] mb-6">{f.icon}</div>
-              <h3 className="text-xl font-bold mb-3">{f.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{f.desc}</p>
+      {/* Overview */}
+      <section className="max-w-7xl mx-auto px-6 pb-24">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <AnimatedSection>
+            <div className="rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(168,85,247,0.15)]">
+              <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80&auto=format&fit=crop" alt="UI/UX Design" className="w-full h-full object-cover" />
             </div>
+          </AnimatedSection>
+          <AnimatedSection delay={150}>
+            <h2 className="text-3xl font-bold mb-4">Overview</h2>
+            <p className="text-gray-400 mb-4">We craft digital experiences that delight users and drive business outcomes. Our design process is rooted in research, validated through testing, and refined for pixel-perfect execution.</p>
+            <p className="text-gray-400 mb-6">From discovery workshops to production-ready design systems, we embed design thinking into every stage of the product lifecycle.</p>
+            <ul className="space-y-3">
+              {["Research-driven design decisions", "Accessible, inclusive interfaces", "Scalable design system delivery"].map((item) => (
+                <li key={item} className="flex items-center gap-3 text-gray-300">
+                  <Check className="w-5 h-5 text-[#a855f7] shrink-0" /> {item}
+                </li>
+              ))}
+            </ul>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Capabilities */}
+      <section className="max-w-7xl mx-auto px-6 pb-24">
+        <AnimatedSection>
+          <h2 className="text-3xl font-bold text-center mb-14">Capabilities</h2>
+        </AnimatedSection>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {capabilities.map((cap, i) => (
+            <AnimatedSection key={cap.title} delay={i * 100}>
+              <div className="bg-zinc-900/50 border border-white/5 rounded-2xl p-6 hover:border-[#a855f7]/30 hover:-translate-y-1 transition-all duration-500">
+                <div className="w-12 h-12 rounded-full bg-[#a855f7]/10 flex items-center justify-center mb-4">
+                  <cap.icon className="w-6 h-6 text-[#a855f7]" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">{cap.title}</h3>
+                <p className="text-sm text-gray-400">{cap.description}</p>
+              </div>
+            </AnimatedSection>
           ))}
         </div>
       </section>
 
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto bg-gradient-to-br from-zinc-900 to-black rounded-[2rem] border border-white/5 p-12 md:p-16 text-center relative overflow-hidden">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-[#a855f7]/10 blur-[100px] -z-10"></div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Ready to get started?</h2>
-          <p className="text-gray-400 text-lg max-w-xl mx-auto mb-8">Let&apos;s discuss how we can help transform your business.</p>
-          <a href="/contact" className="inline-flex items-center gap-2 bg-[#a855f7] hover:bg-[#9333ea] text-white px-8 py-3 rounded-xl font-semibold transition-all">Contact Us <ArrowUpRight size={18} /></a>
-        </div>
+      {/* Tech Stack */}
+      <section className="max-w-7xl mx-auto px-6 pb-24">
+        <AnimatedSection>
+          <h2 className="text-3xl font-bold text-center mb-10">Tools &amp; Technologies</h2>
+          <div className="flex flex-wrap justify-center gap-3">
+            {techStack.map((t) => (
+              <span key={t} className="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm text-gray-300">{t}</span>
+            ))}
+          </div>
+        </AnimatedSection>
       </section>
 
-      <footer className="border-t border-white/5 py-8 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-gray-600">© {new Date().getFullYear()} Srinivas Consultancy. All rights reserved.</p>
-          <a href="/" className="text-sm text-[#a855f7] hover:text-[#c084fc] transition-colors">Back to Home</a>
-        </div>
-      </footer>
-    </div>
+      {/* CTA */}
+      <section className="py-24 border-t border-white/5">
+        <AnimatedSection>
+          <div className="max-w-3xl mx-auto text-center px-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Design experiences that matter</h2>
+            <p className="text-gray-400 mb-8">Partner with our design team to create products your users will love.</p>
+            <a href="/contact" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#a855f7] hover:bg-[#9333ea] text-white font-medium transition-colors">
+              Start a Conversation <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+        </AnimatedSection>
+      </section>
+    </PageLayout>
   );
 }

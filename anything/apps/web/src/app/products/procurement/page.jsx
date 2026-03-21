@@ -1,104 +1,107 @@
-import { ArrowUpRight, ShoppingCart, Briefcase, Users, Check, Globe, Brain } from "lucide-react";
+
+import PageLayout from "@/components/PageLayout";
+import AnimatedSection from "@/components/AnimatedSection";
+import { ArrowUpRight, Contact, FileCheck2, PieChart } from "lucide-react";
+
+const features = [
+  {
+    icon: Contact,
+    title: "Vendor Management",
+    description: "Centralized vendor profiles with performance tracking, compliance scoring, and contract management. Evaluate suppliers at a glance and build a reliable vendor network.",
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80&auto=format&fit=crop",
+  },
+  {
+    icon: FileCheck2,
+    title: "Purchase Order Automation",
+    description: "Streamlined PO creation, multi-level approval workflows, and automatic three-way matching. Reduce manual errors and accelerate procurement cycles dramatically.",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80&auto=format&fit=crop",
+  },
+  {
+    icon: PieChart,
+    title: "Spend Analytics",
+    description: "Deep visibility into organizational spending with real-time dashboards, category breakdowns, and budget variance alerts that help you optimize every dollar.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80&auto=format&fit=crop",
+  },
+];
+
+const stats = [
+  { value: "30%", label: "Savings" },
+  { value: "1000+", label: "Vendors" },
+  { value: "Automated", label: "Approvals" },
+  { value: "Real-time", label: "Tracking" },
+];
 
 export default function ProcurementPage() {
-  const features = [
-    {
-      icon: <Users size={22} />,
-      title: "Vendor Management",
-      desc: "Centralized vendor database with performance scorecards, qualification tracking, and relationship management tools.",
-    },
-    {
-      icon: <ShoppingCart size={22} />,
-      title: "Purchase Orders",
-      desc: "Streamlined PO creation, approval routing, and tracking — from requisition to receipt with full audit trails.",
-    },
-    {
-      icon: <Briefcase size={22} />,
-      title: "Budget Tracking",
-      desc: "Real-time budget monitoring with spend alerts, department-level allocation, and variance analysis dashboards.",
-    },
-    {
-      icon: <Check size={22} />,
-      title: "Approval Workflows",
-      desc: "Configurable multi-level approval chains with automated escalation, delegation rules, and mobile approvals.",
-    },
-    {
-      icon: <Globe size={22} />,
-      title: "Contract Management",
-      desc: "Manage vendor contracts with automated renewal reminders, compliance tracking, and centralized document storage.",
-    },
-    {
-      icon: <Brain size={22} />,
-      title: "Spend Analytics",
-      desc: "Deep spend intelligence with category analysis, savings identification, and procurement performance benchmarking.",
-    },
-  ];
-
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-[#a855f7] selection:text-white">
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-black/80 backdrop-blur-xl border-b border-white/10">
-        <a href="/" className="flex items-center gap-2.5">
-          <div className="w-9 h-9 bg-gradient-to-br from-[#a855f7] to-[#7c3aed] rounded-xl flex items-center justify-center">
-            <span className="text-white font-black text-sm">SC</span>
-          </div>
-          <div>
-            <span className="text-lg font-bold text-white tracking-tight leading-none">Srinivas</span>
-            <span className="block text-[10px] text-[#a855f7] font-medium tracking-widest uppercase">Consultancy</span>
-          </div>
-        </a>
-        <a href="/contact" className="bg-[#a855f7] hover:bg-[#9333ea] text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-[0_0_20px_rgba(168,85,247,0.4)]">
-          Get in Touch
-        </a>
-      </nav>
-
-      <section className="pt-32 pb-20 px-6 text-center relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#a855f7]/15 blur-[120px] rounded-full -z-10"></div>
-        <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-[#a855f7] mb-6">Product</div>
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
-          Procurement / Purchase System
-        </h1>
-        <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-          End-to-end procurement and purchase management — from vendor sourcing and purchase orders to budget tracking and spend analytics.
-        </p>
-      </section>
-
-      <section className="max-w-6xl mx-auto px-6 pb-24">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((f, i) => (
-            <div key={i} className="bg-zinc-900/50 border border-white/5 rounded-3xl p-8 hover:border-[#a855f7]/30 transition-all duration-500">
-              <div className="w-12 h-12 rounded-2xl bg-[#a855f7]/10 border border-[#a855f7]/20 flex items-center justify-center text-[#a855f7] mb-6">{f.icon}</div>
-              <h3 className="text-xl font-bold mb-3">{f.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{f.desc}</p>
+    <PageLayout>
+      {/* Split Hero */}
+      <section className="relative pt-32 pb-20 px-6">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <AnimatedSection>
+            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[#a855f7]/10 text-[#a855f7] border border-[#a855f7]/20 mb-6">Procurement</span>
+            <h1 className="text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-6">Procurement System</h1>
+            <p className="text-lg text-zinc-400 leading-relaxed mb-8">
+              End-to-end procurement and purchase management — from vendor sourcing and purchase orders to budget tracking and spend analytics.
+            </p>
+            <a href="/contact" className="inline-flex items-center gap-2 bg-[#a855f7] hover:bg-[#9333ea] text-white font-semibold px-8 py-3.5 rounded-full shadow-lg shadow-[#a855f7]/25 transition-colors">
+              Get Started <ArrowUpRight className="w-4 h-4" />
+            </a>
+          </AnimatedSection>
+          <AnimatedSection delay={100}>
+            <div className="rounded-3xl overflow-hidden shadow-[0_0_40px_rgba(168,85,247,0.15)]">
+              <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80&auto=format&fit=crop" alt="Procurement System" className="w-full h-full object-cover" />
             </div>
-          ))}
+          </AnimatedSection>
         </div>
       </section>
 
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto bg-gradient-to-br from-zinc-900 to-black rounded-[2rem] border border-white/5 p-12 md:p-16 text-center relative overflow-hidden">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-[#a855f7]/10 blur-[100px] -z-10"></div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Ready to get started?</h2>
-          <p className="text-gray-400 text-lg max-w-xl mx-auto mb-8">{"Let's discuss how our procurement system can optimize your purchasing."}</p>
-          <a href="/contact" className="inline-flex items-center gap-2 bg-[#a855f7] hover:bg-[#9333ea] text-white px-8 py-3 rounded-xl font-semibold transition-all hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]">
-            Contact Us <ArrowUpRight size={18} />
-          </a>
-        </div>
+      {/* Alternating Features */}
+      <section className="px-6 pb-24 max-w-6xl mx-auto space-y-24">
+        {features.map((feature, i) => {
+          const imageFirst = i % 2 === 0;
+          return (
+            <AnimatedSection key={feature.title}>
+              <div className={`grid md:grid-cols-2 gap-12 items-center ${!imageFirst ? "md:[direction:rtl]" : ""}`}>
+                <div className="rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(168,85,247,0.15)] md:[direction:ltr]">
+                  <img src={feature.image} alt={feature.title} className="w-full h-full object-cover" />
+                </div>
+                <div className="md:[direction:ltr]">
+                  <feature.icon className="w-10 h-10 text-[#a855f7] mb-4" />
+                  <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
+                  <p className="text-zinc-400 leading-relaxed text-lg">{feature.description}</p>
+                </div>
+              </div>
+            </AnimatedSection>
+          );
+        })}
       </section>
 
-      <footer className="border-t border-white/5 py-8 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-gray-600">© {new Date().getFullYear()} Srinivas Consultancy. All rights reserved.</p>
-          <a href="/" className="text-sm text-[#a855f7] hover:text-[#c084fc] transition-colors">Back to Home</a>
-        </div>
-      </footer>
+      {/* Stats */}
+      <section className="px-6 pb-24 max-w-6xl mx-auto">
+        <AnimatedSection>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {stats.map((stat) => (
+              <div key={stat.label} className="bg-white/5 border border-white/5 rounded-2xl p-6 text-center">
+                <div className="text-3xl font-bold text-[#a855f7] mb-1">{stat.value}</div>
+                <div className="text-zinc-400 text-sm">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </AnimatedSection>
+      </section>
 
-      <style jsx>{`
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        section { animation: fadeInUp 0.6s ease-out; }
-      `}</style>
-    </div>
+      {/* CTA */}
+      <section className="px-6 pb-24 max-w-4xl mx-auto">
+        <AnimatedSection>
+          <div className="rounded-3xl bg-gradient-to-br from-[#7c3aed] to-[#a855f7] p-12 md:p-16 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Take Control of Your Procurement</h2>
+            <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">Streamline purchasing, reduce costs, and gain full visibility into every transaction.</p>
+            <a href="/contact" className="inline-flex items-center gap-2 bg-white text-[#7c3aed] font-semibold px-8 py-3.5 rounded-full hover:bg-white/90 transition-colors">
+              Request a Demo <ArrowUpRight className="w-4 h-4" />
+            </a>
+          </div>
+        </AnimatedSection>
+      </section>
+    </PageLayout>
   );
 }
