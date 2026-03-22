@@ -9,8 +9,8 @@ interface InteractiveRobotSplineProps {
 
 function SplineFallback({ className }: { className?: string }) {
   return (
-    <div className={`w-full h-full flex items-center justify-center bg-black text-white ${className ?? ''}`}>
-      <svg className="animate-spin h-5 w-5 text-white mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <div className={`w-full h-full flex items-center justify-center bg-background text-foreground ${className ?? ''}`}>
+      <svg className="animate-spin h-5 w-5 text-foreground mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
         <path
           className="opacity-75"

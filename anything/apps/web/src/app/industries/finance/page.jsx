@@ -1,55 +1,65 @@
-import { ArrowUpRight, ShieldAlert, TrendingUp, BarChart3, FileText, Smartphone, CreditCard } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
+import AnimatedSection from "@/components/AnimatedSection";
+import { RequestTalentForm } from "@/components/industries/RequestTalentForm";
 import { pageMeta } from "@/app/seo/buildPageMeta";
 
 export function meta() {
   return pageMeta({
-    title: "Financial Services Technology — Fraud, Risk & Digital Banking",
+    title: "Financial Services Technology Solutions",
     description:
-      "Fraud detection, trading and risk platforms, RegTech, mobile banking, and payment innovation for banks and fintechs.",
+      "TelivAi Solutions supports financial institutions with secure, scalable technology talent and solutions for transactions, analytics, and compliance.",
     path: "/industries/finance",
   });
 }
 
 export default function Finance() {
-  const features = [
-    { icon: <ShieldAlert size={24} />, title: "Fraud Detection AI", desc: "Real-time AI-powered fraud detection systems that identify anomalies, prevent losses, and protect customer accounts." },
-    { icon: <TrendingUp size={24} />, title: "Algorithmic Trading", desc: "High-frequency trading algorithms with low-latency execution, backtesting frameworks, and risk controls." },
-    { icon: <BarChart3 size={24} />, title: "Risk Management", desc: "Comprehensive risk assessment platforms with stress testing, scenario analysis, and regulatory capital modeling." },
-    { icon: <FileText size={24} />, title: "Regulatory Reporting", desc: "Automated compliance reporting for Basel III, MiFID II, SOX, and other financial regulatory frameworks." },
-    { icon: <Smartphone size={24} />, title: "Digital Banking", desc: "Modern digital banking platforms with seamless mobile experiences, open banking APIs, and core system integration." },
-    { icon: <CreditCard size={24} />, title: "Payment Processing", desc: "Scalable payment infrastructure supporting multi-currency transactions, real-time settlements, and PCI compliance." },
-  ];
-
   return (
     <PageLayout>
-      <section className="pt-32 pb-20 px-6 text-center relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#a855f7]/15 blur-[120px] rounded-full -z-10"></div>
-        <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-[#a855f7] mb-6">Finance</div>
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">Finance</h1>
-        <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">Secure, intelligent financial technology solutions for modern banking and investment.</p>
+      <section className="relative overflow-hidden px-6 pb-16 pt-32 text-center">
+        <div className="absolute left-1/2 top-1/2 -z-10 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#a855f7]/15 blur-[120px]" />
+        <div className="mb-6 inline-block rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium text-[#a855f7]">
+          Finance
+        </div>
+        <h1 className="mb-6 text-5xl font-bold tracking-tight md:text-7xl">Finance</h1>
+        <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-gray-400 md:text-xl">
+          Technology Solutions for Financial Institutions
+        </p>
+        <a
+          href="#request-talent"
+          className="inline-flex items-center gap-2 rounded-xl bg-[#a855f7] px-8 py-3 font-semibold text-white transition-all hover:bg-[#9333ea]"
+        >
+          Request Talent <ArrowUpRight size={18} />
+        </a>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 pb-24">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((f, i) => (
-            <div key={i} className="bg-zinc-900/50 border border-white/5 rounded-3xl p-8 hover:border-[#a855f7]/30 transition-all duration-500">
-              <div className="w-12 h-12 rounded-2xl bg-[#a855f7]/10 border border-[#a855f7]/20 flex items-center justify-center text-[#a855f7] mb-6">{f.icon}</div>
-              <h3 className="text-xl font-bold mb-3">{f.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{f.desc}</p>
-            </div>
-          ))}
+      <section className="mx-auto max-w-3xl px-6 pb-20">
+        <AnimatedSection>
+          <div className="space-y-6 text-base leading-relaxed text-gray-400">
+            <p>
+              Financial institutions require highly secure and reliable technology systems to manage transactions, analyze financial data, and ensure regulatory compliance. TelivAi Solutions LLC supports financial organizations with experienced professionals and technology solutions designed to enhance operational efficiency and digital innovation.
+            </p>
+            <p className="text-gray-300">
+              We help financial institutions build scalable systems that support secure and efficient financial operations.
+            </p>
+          </div>
+        </AnimatedSection>
+      </section>
+
+      <section className="px-6 pb-12">
+        <div className="mx-auto max-w-2xl rounded-[2rem] border border-white/5 bg-gradient-to-br from-zinc-900 to-black p-10 text-center">
+          <h2 className="mb-3 text-xl font-bold text-white md:text-2xl">Strengthen your financial technology team</h2>
+          <p className="mb-6 text-sm text-gray-400">Submit your search criteria below to get started.</p>
+          <a
+            href="#request-talent"
+            className="inline-flex items-center gap-2 rounded-xl bg-[#a855f7] px-8 py-3 font-semibold text-white transition-all hover:bg-[#9333ea]"
+          >
+            Request Talent <ArrowUpRight size={18} />
+          </a>
         </div>
       </section>
 
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto bg-gradient-to-br from-zinc-900 to-black rounded-[2rem] border border-white/5 p-12 md:p-16 text-center relative overflow-hidden">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-[#a855f7]/10 blur-[100px] -z-10"></div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Ready to get started?</h2>
-          <p className="text-gray-400 text-lg max-w-xl mx-auto mb-8">Let&apos;s discuss how we can help transform your business.</p>
-          <a href="/contact" className="inline-flex items-center gap-2 bg-[#a855f7] hover:bg-[#9333ea] text-white px-8 py-3 rounded-xl font-semibold transition-all">Contact Us <ArrowUpRight size={18} /></a>
-        </div>
-      </section>
+      <RequestTalentForm defaultIndustry="Finance" />
     </PageLayout>
   );
 }

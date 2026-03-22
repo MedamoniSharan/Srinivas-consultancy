@@ -10,23 +10,19 @@ import robotProcessAutomationAnimation from "@/assets/lottie/robot-process-autom
 import businessGoalPlanningAnimation from "@/assets/lottie/business-goal-planning.json";
 import {
   ArrowUpRight,
-  Check,
   Zap,
   Clock,
   ChevronDown,
   ChevronLeft,
   ChevronRight,
-  Rocket,
   Eye,
   DollarSign,
   Lightbulb,
   TrendingUp,
-  Crown,
 } from "lucide-react";
 import { Logos3 } from "@/components/ui/logos3";
 import MagicRings from "@/components/ui/MagicRings";
 import { TestimonialsSection } from "@/components/ui/testimonials-with-marquee";
-import { ImageCarouselHero } from "@/components/ui/ai-image-generator-hero";
 import { InteractiveRobotSpline } from "@/components/ui/interactive-3d-robot";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -107,20 +103,20 @@ const Hero = () => {
       </div>
 
       <AnimatedSection>
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-[#a855f7] mb-8">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-muted/35 border border-border text-xs font-medium text-[#a855f7] mb-8">
           <span className="bg-[#a855f7] text-white px-2 py-0.5 rounded-full text-[10px]">New</span>
           AI-Powered Enterprise Solutions
         </div>
       </AnimatedSection>
 
       <AnimatedSection delay={100}>
-        <h1 className="text-4xl md:text-7xl font-bold text-white max-w-4xl mb-6 tracking-tight leading-[1.1]">
+        <h1 className="text-4xl md:text-7xl font-bold text-foreground max-w-4xl mb-6 tracking-tight leading-[1.1]">
           Intelligent Automation for Modern Businesses.
         </h1>
       </AnimatedSection>
 
       <AnimatedSection delay={200}>
-        <p className="text-gray-400 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed">
+        <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mb-10 leading-relaxed">
           TelivAI Solutions brings AI automation to your fingertips & streamlines tasks.
         </p>
       </AnimatedSection>
@@ -131,7 +127,7 @@ const Hero = () => {
             Get in touch
             <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </button>
-          <button className="px-8 py-3 rounded-xl font-semibold text-white border border-white/10 hover:bg-white/5 transition-all">
+          <button className="px-8 py-3 rounded-xl font-semibold text-foreground border border-border hover:bg-muted/35 transition-all">
             View services
           </button>
         </div>
@@ -204,62 +200,70 @@ const Logos = () => {
 
 const Services = () => {
   return (
-    <section className="py-24 px-6 max-w-7xl mx-auto space-y-32">
+    <section className="mx-auto max-w-7xl space-y-12 px-6 py-12 md:space-y-16 md:py-16">
       <AnimatedSection>
-        <div className="text-center mb-4">
-          <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-white mb-6">Our Services</div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
-            AI Solutions That Take Your<br />Business to the Next Level
+        <div className="mb-2 text-center">
+          <div className="mb-3 inline-block rounded-full border border-border bg-muted/35 px-3 py-1 text-xs font-medium text-foreground">
+            Our Services
+          </div>
+          <h2 className="mb-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl lg:text-[2.5rem] lg:leading-tight">
+            AI Solutions That Take Your
+            <br />
+            Business to the Next Level
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="mx-auto max-w-2xl text-sm text-muted-foreground sm:text-base">
             We design, develop, and implement automation tools that help you work smarter, not harder
           </p>
         </div>
       </AnimatedSection>
 
       <AnimatedSection>
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="relative flex items-center justify-center min-h-[280px] md:min-h-[380px]">
+        <div className="grid items-center gap-6 md:grid-cols-2 md:gap-8">
+          <div className="relative flex min-h-[200px] items-center justify-center md:min-h-[240px]">
             <Lottie
               animationData={businessmanRocketAnimation}
               loop
-              className="w-full max-w-[420px] mx-auto"
+              className="mx-auto w-full max-w-[280px] sm:max-w-[300px] md:max-w-[320px]"
               aria-label="Workflow automation animation"
             />
           </div>
           <div>
-            <div className="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-[#a855f7] mb-6">Workflow Automation</div>
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">Automate repetitive tasks</h3>
-            <p className="text-gray-400 text-lg mb-8 leading-relaxed">
+            <div className="mb-2 inline-block rounded-full border border-border bg-muted/35 px-3 py-1 text-xs font-medium text-[#a855f7]">
+              Workflow Automation
+            </div>
+            <h3 className="mb-3 text-xl font-bold text-foreground sm:text-2xl md:text-3xl">Automate repetitive tasks</h3>
+            <p className="mb-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
               We help you streamline internal operations by automating manual workflows like data entry, reporting, and approval chains saving time and cutting down errors.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <div className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white">Internal Task Bots</div>
-              <div className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white">100+ Automations</div>
+            <div className="flex flex-wrap gap-2 sm:gap-3">
+              <div className="rounded-lg border border-border bg-muted/35 px-3 py-1.5 text-xs text-foreground sm:text-sm">Internal Task Bots</div>
+              <div className="rounded-lg border border-border bg-muted/35 px-3 py-1.5 text-xs text-foreground sm:text-sm">100+ Automations</div>
             </div>
           </div>
         </div>
       </AnimatedSection>
 
       <AnimatedSection>
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid items-center gap-6 md:grid-cols-2 md:gap-8">
           <div className="order-2 md:order-1">
-            <div className="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-[#a855f7] mb-6">AI Assistant</div>
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">Delegate Daily Tasks</h3>
-            <p className="text-gray-400 text-lg mb-8 leading-relaxed">
+            <div className="mb-2 inline-block rounded-full border border-border bg-muted/35 px-3 py-1 text-xs font-medium text-[#a855f7]">
+              AI Assistant
+            </div>
+            <h3 className="mb-3 text-xl font-bold text-foreground sm:text-2xl md:text-3xl">Delegate Daily Tasks</h3>
+            <p className="mb-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
               From managing calendars to drafting emails and summarizing meetings, our AI assistants work around the clock to keep your business running smarter and faster.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <div className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white">Summaries</div>
-              <div className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white">Scheduling</div>
-              <div className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white">Many more</div>
+            <div className="flex flex-wrap gap-2 sm:gap-3">
+              <div className="rounded-lg border border-border bg-muted/35 px-3 py-1.5 text-xs text-foreground sm:text-sm">Summaries</div>
+              <div className="rounded-lg border border-border bg-muted/35 px-3 py-1.5 text-xs text-foreground sm:text-sm">Scheduling</div>
+              <div className="rounded-lg border border-border bg-muted/35 px-3 py-1.5 text-xs text-foreground sm:text-sm">Many more</div>
             </div>
           </div>
-          <div className="order-1 md:order-2 relative flex items-center justify-center min-h-[320px] md:min-h-[400px]">
+          <div className="order-1 relative flex min-h-[200px] items-center justify-center md:order-2 md:min-h-[240px]">
             <Lottie
               animationData={workManagementAnimation}
               loop
-              className="w-full max-w-[480px] mx-auto"
+              className="mx-auto w-full max-w-[280px] sm:max-w-[300px] md:max-w-[340px]"
               aria-label="AI assistant and work management animation"
             />
           </div>
@@ -267,49 +271,53 @@ const Services = () => {
       </AnimatedSection>
 
       <AnimatedSection>
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="relative flex items-center justify-center min-h-[320px] md:min-h-[400px]">
+        <div className="grid items-center gap-6 md:grid-cols-2 md:gap-8">
+          <div className="relative flex min-h-[200px] items-center justify-center md:min-h-[240px]">
             <Lottie
               animationData={growthBusinessPullSalesAnimation}
               loop
-              className="w-full max-w-[480px] mx-auto"
+              className="mx-auto w-full max-w-[280px] sm:max-w-[300px] md:max-w-[340px]"
               aria-label="Sales growth and business pull animation"
             />
           </div>
           <div>
-            <div className="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-[#a855f7] mb-6">Sales & Marketing</div>
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">Accelerate Sales Growth</h3>
-            <p className="text-gray-400 text-lg mb-8 leading-relaxed">
+            <div className="mb-2 inline-block rounded-full border border-border bg-muted/35 px-3 py-1 text-xs font-medium text-[#a855f7]">
+              Sales & Marketing
+            </div>
+            <h3 className="mb-3 text-xl font-bold text-foreground sm:text-2xl md:text-3xl">Accelerate Sales Growth</h3>
+            <p className="mb-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
               AI tools for lead generation, personalized outreach, and automated content creation that scales your sales efforts and builds stronger brand presence.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <div className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white">Leads</div>
-              <div className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white">Content</div>
-              <div className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white">Social post</div>
+            <div className="flex flex-wrap gap-2 sm:gap-3">
+              <div className="rounded-lg border border-border bg-muted/35 px-3 py-1.5 text-xs text-foreground sm:text-sm">Leads</div>
+              <div className="rounded-lg border border-border bg-muted/35 px-3 py-1.5 text-xs text-foreground sm:text-sm">Content</div>
+              <div className="rounded-lg border border-border bg-muted/35 px-3 py-1.5 text-xs text-foreground sm:text-sm">Social post</div>
             </div>
           </div>
         </div>
       </AnimatedSection>
 
       <AnimatedSection>
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid items-center gap-6 md:grid-cols-2 md:gap-8">
           <div className="order-2 md:order-1">
-            <div className="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-[#a855f7] mb-6">Custom Projects</div>
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">Build Smarter Systems</h3>
-            <p className="text-gray-400 text-lg mb-8 leading-relaxed">
+            <div className="mb-2 inline-block rounded-full border border-border bg-muted/35 px-3 py-1 text-xs font-medium text-[#a855f7]">
+              Custom Projects
+            </div>
+            <h3 className="mb-3 text-xl font-bold text-foreground sm:text-2xl md:text-3xl">Build Smarter Systems</h3>
+            <p className="mb-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
               Whether you're starting from scratch or enhancing an existing system, we offer strategic consulting and develop custom AI projects aligned with your unique goals.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <div className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white">Strategy</div>
-              <div className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white">Custom AI</div>
-              <div className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white">Consulting</div>
+            <div className="flex flex-wrap gap-2 sm:gap-3">
+              <div className="rounded-lg border border-border bg-muted/35 px-3 py-1.5 text-xs text-foreground sm:text-sm">Strategy</div>
+              <div className="rounded-lg border border-border bg-muted/35 px-3 py-1.5 text-xs text-foreground sm:text-sm">Custom AI</div>
+              <div className="rounded-lg border border-border bg-muted/35 px-3 py-1.5 text-xs text-foreground sm:text-sm">Consulting</div>
             </div>
           </div>
-          <div className="order-1 md:order-2 relative flex items-center justify-center min-h-[320px] md:min-h-[420px]">
+          <div className="order-1 relative flex min-h-[200px] items-center justify-center md:order-2 md:min-h-[260px]">
             <Lottie
               animationData={robotProcessAutomationAnimation}
               loop
-              className="w-full max-w-[480px] mx-auto"
+              className="mx-auto w-full max-w-[280px] sm:max-w-[300px] md:max-w-[340px]"
               aria-label="Robot process automation animation"
             />
           </div>
@@ -355,9 +363,9 @@ const CaseStudies = () => {
     <section className="py-24 px-6 max-w-7xl mx-auto overflow-hidden">
       <AnimatedSection>
         <div className="text-center mb-4">
-          <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-white mb-6">Case Studies</div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">See How Smart AI Automation<br />Transforms Businesses</h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">See how AI automation streamlines operations, boosts and drives growth.</p>
+          <div className="inline-block px-4 py-1.5 rounded-full bg-muted/35 border border-border text-xs font-medium text-foreground mb-6">Case Studies</div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">See How Smart AI Automation<br />Transforms Businesses</h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">See how AI automation streamlines operations, boosts and drives growth.</p>
         </div>
       </AnimatedSection>
       <AnimatedSection delay={200}>
@@ -366,10 +374,10 @@ const CaseStudies = () => {
             {studies.map((study, i) => (
               <div key={i} className="w-full flex-shrink-0 px-4">
                 <div className="grid md:grid-cols-2 gap-8 items-stretch">
-                  <div className="bg-zinc-900 rounded-3xl border border-white/5 overflow-hidden min-h-[400px] flex items-center justify-center relative">
+                  <div className="bg-zinc-900 rounded-3xl border border-border/80 overflow-hidden min-h-[400px] flex items-center justify-center relative">
                     <div className="absolute inset-0 bg-gradient-to-br from-[#a855f7]/5 to-transparent"></div>
                     <div className="relative z-10 p-8 w-full">
-                      <div className="flex items-center gap-2 mb-4"><div className="w-6 h-6 bg-white rounded-full"></div><span className="text-white font-bold">Logoipsum</span></div>
+                      <div className="flex items-center gap-2 mb-4"><div className="w-6 h-6 bg-white rounded-full"></div><span className="text-foreground font-bold">Logoipsum</span></div>
                       <div className="w-full max-w-[280px] md:max-w-[320px] mx-auto min-h-[200px] flex items-center justify-center">
                         <Lottie
                           animationData={businessGoalPlanningAnimation}
@@ -381,14 +389,14 @@ const CaseStudies = () => {
                     </div>
                   </div>
                   <div className="flex flex-col justify-center">
-                    <div className="flex items-center gap-2 mb-4"><div className="w-6 h-6 bg-white rounded-full"></div><span className="text-white font-bold">Logoipsum</span></div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">"{study.quote}"</h3>
-                    <p className="text-gray-400 text-sm mb-6 leading-relaxed">{study.desc}</p>
+                    <div className="flex items-center gap-2 mb-4"><div className="w-6 h-6 bg-white rounded-full"></div><span className="text-foreground font-bold">Logoipsum</span></div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4 leading-tight">"{study.quote}"</h3>
+                    <p className="text-muted-foreground text-sm mb-6 leading-relaxed">{study.desc}</p>
                     <div>
-                      <p className="text-gray-500 text-sm font-medium mb-3">Impact :</p>
+                      <p className="text-muted-foreground text-sm font-medium mb-3">Impact :</p>
                       <ul className="space-y-2">
                         {study.stats.map((stat, j) => (
-                          <li key={j} className="flex items-center gap-3 text-white text-sm"><div className="w-1.5 h-1.5 bg-[#a855f7] rounded-full"></div>{stat}</li>
+                          <li key={j} className="flex items-center gap-3 text-foreground text-sm"><div className="w-1.5 h-1.5 bg-[#a855f7] rounded-full"></div>{stat}</li>
                         ))}
                       </ul>
                     </div>
@@ -398,11 +406,11 @@ const CaseStudies = () => {
             ))}
           </div>
           <div className="flex items-center justify-between mt-8">
-            <button onClick={prev} className="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:border-white/30 transition-all"><ChevronLeft size={20} /></button>
+            <button onClick={prev} className="w-10 h-10 border border-border rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-border transition-all"><ChevronLeft size={20} /></button>
             <div className="flex gap-2">
-              {studies.map((_, i) => (<button key={i} onClick={() => setCurrentIndex(i)} className={`w-2 h-2 rounded-full transition-all ${i === currentIndex ? "bg-[#a855f7] w-6" : "bg-white/20"}`} />))}
+              {studies.map((_, i) => (<button key={i} onClick={() => setCurrentIndex(i)} className={`w-2 h-2 rounded-full transition-all ${i === currentIndex ? "bg-[#a855f7] w-6" : "bg-foreground/15"}`} />))}
             </div>
-            <button onClick={next} className="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:border-white/30 transition-all"><ChevronRight size={20} /></button>
+            <button onClick={next} className="w-10 h-10 border border-border rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-border transition-all"><ChevronRight size={20} /></button>
           </div>
         </div>
       </AnimatedSection>
@@ -423,64 +431,18 @@ const Benefits = () => {
     <section className="py-24 px-6 max-w-7xl mx-auto">
       <AnimatedSection>
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-white mb-6">Benefits</div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">The Key Benefits of AI<br />for Your Business Growth</h2>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto">Discover how AI automation enhances efficiency, reduces costs, and drives business growth with smarter, faster processes.</p>
+          <div className="inline-block px-4 py-1.5 rounded-full bg-muted/35 border border-border text-xs font-medium text-foreground mb-6">Benefits</div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">The Key Benefits of AI<br />for Your Business Growth</h2>
+          <p className="text-muted-foreground text-lg max-w-3xl mx-auto">Discover how AI automation enhances efficiency, reduces costs, and drives business growth with smarter, faster processes.</p>
         </div>
       </AnimatedSection>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {benefits.map((benefit, i) => (
           <AnimatedSection key={i} delay={i * 100}>
-            <div className="group bg-zinc-900/50 border border-white/5 rounded-3xl p-8 hover:border-[#a855f7]/30 hover:bg-zinc-900 transition-all duration-500 cursor-default h-full">
-              <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 group-hover:text-[#a855f7] group-hover:border-[#a855f7]/30 transition-all duration-500 mb-6">{benefit.icon}</div>
-              <h3 className="text-xl font-bold text-white mb-3">{benefit.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{benefit.desc}</p>
-            </div>
-          </AnimatedSection>
-        ))}
-      </div>
-    </section>
-  );
-};
-
-const Pricing = () => {
-  const [isAnnual, setIsAnnual] = useState(true);
-  const plans = [
-    { name: "Starter", icon: <Rocket size={20} />, price: isAnnual ? "$37" : "$45", period: "/month", desc: "Perfect for small businesses starting with AI automation.", cta: "Choose this plan", ctaStyle: "bg-white/5 border border-white/10 hover:bg-white/10 text-white", features: ["Basic workflow automation", "AI-powered personal assistant", "Standard analytics & reporting", "Email & chat support", "Up to 3 AI integrations"] },
-    { name: "Professional", icon: <Zap size={20} />, price: isAnnual ? "$75" : "$95", period: "/month", desc: "Perfect for small businesses starting with AI automation.", cta: "Choose this plan", ctaStyle: "bg-[#a855f7] hover:bg-[#9333ea] text-white", popular: true, features: ["Advanced workflow automation", "AI-driven sales & marketing tools", "Enhanced data analytics & insights", "Priority customer support", "Up to 10 AI integrations"] },
-    { name: "Enterprise", icon: <Crown size={20} />, price: "Custom", period: "", desc: "Perfect for small businesses starting with AI automation.", cta: "Schedule a call", ctaStyle: "bg-white/5 border border-white/10 hover:bg-white/10 text-white", features: ["Fully customizable AI automation", "Dedicated AI business consultant", "Enterprise-grade compliance", "24/7 VIP support", "Unlimited AI integrations"] },
-  ];
-  return (
-    <section className="py-24 px-6 max-w-7xl mx-auto">
-      <AnimatedSection>
-        <div className="text-center mb-16">
-          <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-white mb-6">Pricing</div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">The Best AI Automation,<br />at the Right Price</h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">Choose a plan that fits your business needs and start automating with AI</p>
-        </div>
-      </AnimatedSection>
-      <AnimatedSection delay={100}>
-        <div className="flex items-center justify-center gap-4 mb-16">
-          <span className={`text-sm font-medium transition-colors ${!isAnnual ? "text-white" : "text-gray-500"}`}>Monthly</span>
-          <button onClick={() => setIsAnnual(!isAnnual)} className={`relative w-14 h-7 rounded-full transition-colors duration-300 ${isAnnual ? "bg-[#a855f7]" : "bg-white/20"}`}>
-            <div className={`absolute top-0.5 w-6 h-6 bg-white rounded-full shadow-md transition-transform duration-300 ${isAnnual ? "translate-x-7" : "translate-x-0.5"}`} />
-          </button>
-          <span className={`text-sm font-medium transition-colors ${isAnnual ? "text-white" : "text-gray-500"}`}>Annually</span>
-        </div>
-      </AnimatedSection>
-      <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-        {plans.map((plan, i) => (
-          <AnimatedSection key={i} delay={i * 150}>
-            <div className={`relative rounded-3xl border p-8 lg:p-10 transition-all duration-500 h-full flex flex-col ${plan.popular ? "bg-gradient-to-b from-[#a855f7]/10 to-zinc-900 border-[#a855f7]/30 shadow-[0_0_40px_rgba(168,85,247,0.15)]" : "bg-zinc-900/50 border-white/5 hover:border-white/10"}`}>
-              {plan.popular && <div className="absolute -top-0 right-6 px-3 py-1 bg-[#a855f7] rounded-b-lg text-xs font-semibold text-white">Popular</div>}
-              <div className="flex items-center gap-3 mb-6"><div className="text-[#a855f7]">{plan.icon}</div><h3 className="text-xl font-bold text-white">{plan.name}</h3></div>
-              <div className="mb-4"><span className="text-5xl font-bold text-white">{plan.price}</span><span className="text-gray-500 text-sm">{plan.period}</span></div>
-              <p className="text-gray-400 text-sm mb-8">{plan.desc}</p>
-              <button className={`w-full py-3 rounded-xl font-semibold text-sm transition-all mb-8 ${plan.ctaStyle}`}>{plan.cta}</button>
-              <div className="mt-auto">
-                <p className="text-sm text-gray-500 mb-4">What's Included:</p>
-                <ul className="space-y-3">{plan.features.map((f, j) => (<li key={j} className="flex items-center gap-3 text-sm text-gray-300"><Check size={16} className="text-[#a855f7] flex-shrink-0" />{f}</li>))}</ul>
-              </div>
+            <div className="group bg-card/80 border border-border/80 rounded-3xl p-8 hover:border-[#a855f7]/30 hover:bg-card transition-all duration-500 cursor-default h-full">
+              <div className="w-12 h-12 rounded-2xl bg-muted/35 border border-border flex items-center justify-center text-muted-foreground group-hover:text-[#a855f7] group-hover:border-[#a855f7]/30 transition-all duration-500 mb-6">{benefit.icon}</div>
+              <h3 className="text-xl font-bold text-foreground mb-3">{benefit.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{benefit.desc}</p>
             </div>
           </AnimatedSection>
         ))}
@@ -547,7 +509,7 @@ const Testimonials = () => {
         title="Why Businesses Trust TelivAI Solutions"
         description="Real results from real clients — see how our AI solutions and IT consulting drive business growth."
         testimonials={consultancyTestimonials}
-        className="bg-transparent text-white"
+        className="bg-transparent text-foreground"
       />
     </AnimatedSection>
   );
@@ -566,21 +528,21 @@ const FAQ = () => {
     <section className="py-24 px-6 max-w-3xl mx-auto">
       <AnimatedSection>
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-white mb-6">FAQs</div>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">We've Got the Answers<br />You're Looking For</h2>
-          <p className="text-gray-400">Quick answers to your AI automation questions.</p>
+          <div className="inline-block px-4 py-1.5 rounded-full bg-muted/35 border border-border text-xs font-medium text-foreground mb-6">FAQs</div>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">We've Got the Answers<br />You're Looking For</h2>
+          <p className="text-muted-foreground">Quick answers to your AI automation questions.</p>
         </div>
       </AnimatedSection>
       <div className="space-y-4">
         {faqs.map((faq, i) => (
           <AnimatedSection key={i} delay={i * 80}>
-            <div className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-colors cursor-pointer" onClick={() => setOpenIndex(openIndex === i ? null : i)}>
+            <div className="bg-muted/35 border border-border rounded-2xl overflow-hidden hover:border-white/20 transition-colors cursor-pointer" onClick={() => setOpenIndex(openIndex === i ? null : i)}>
               <div className="flex items-center justify-between p-6">
-                <h4 className="text-white font-medium">{faq.q}</h4>
-                <ChevronDown size={20} className={`text-gray-500 transition-transform duration-300 flex-shrink-0 ml-4 ${openIndex === i ? "rotate-180 text-[#a855f7]" : ""}`} />
+                <h4 className="text-foreground font-medium">{faq.q}</h4>
+                <ChevronDown size={20} className={`text-muted-foreground transition-transform duration-300 flex-shrink-0 ml-4 ${openIndex === i ? "rotate-180 text-[#a855f7]" : ""}`} />
               </div>
               <div className={`overflow-hidden transition-all duration-300 ${openIndex === i ? "max-h-48 opacity-100" : "max-h-0 opacity-0"}`}>
-                <p className="px-6 pb-6 text-gray-400 text-sm leading-relaxed">{faq.a}</p>
+                <p className="px-6 pb-6 text-muted-foreground text-sm leading-relaxed">{faq.a}</p>
               </div>
             </div>
           </AnimatedSection>
@@ -594,15 +556,15 @@ const CTA = () => {
   return (
     <section className="py-24 px-6">
       <AnimatedSection>
-        <div className="max-w-5xl mx-auto bg-gradient-to-br from-zinc-900 to-black rounded-[2.5rem] border border-white/5 p-12 md:p-20 text-center relative overflow-hidden">
+        <div className="max-w-5xl mx-auto bg-gradient-to-br from-zinc-900 to-black rounded-[2.5rem] border border-border/80 p-12 md:p-20 text-center relative overflow-hidden">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-[#a855f7]/10 blur-[100px] -z-10"></div>
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">Let AI do the Work so you<br />can Scale Faster</h2>
-          <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">Book a Call Today and Start Automating</p>
+          <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-4">Let AI do the Work so you<br />can Scale Faster</h2>
+          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">Book a Call Today and Start Automating</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button className="group flex items-center gap-2 bg-[#a855f7] hover:bg-[#9333ea] text-white px-8 py-3 rounded-xl font-bold transition-all hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]">
               Book a free call <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </button>
-            <button className="flex items-center gap-2 text-white border border-white/10 hover:bg-white/5 px-8 py-3 rounded-xl font-bold transition-all">
+            <button className="flex items-center gap-2 text-foreground border border-border hover:bg-muted/35 px-8 py-3 rounded-xl font-bold transition-all">
               Another AI Template <ArrowUpRight size={18} />
             </button>
           </div>
@@ -614,10 +576,10 @@ const CTA = () => {
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-black font-sans selection:bg-[#a855f7] selection:text-white">
+    <div className="min-h-screen bg-background font-sans selection:bg-[#a855f7] selection:text-white">
       <div className="fixed inset-0 pointer-events-none z-0">
         {[...Array(30)].map((_, i) => (
-          <div key={i} className="absolute bg-white rounded-full animate-twinkle" style={{ width: Math.random() * 2 + 1 + "px", height: Math.random() * 2 + 1 + "px", top: Math.random() * 100 + "%", left: Math.random() * 100 + "%", animationDelay: Math.random() * 5 + "s", animationDuration: 3 + Math.random() * 4 + "s" }} />
+          <div key={i} className="absolute bg-foreground/25 dark:bg-white/40 rounded-full animate-twinkle" style={{ width: Math.random() * 2 + 1 + "px", height: Math.random() * 2 + 1 + "px", top: Math.random() * 100 + "%", left: Math.random() * 100 + "%", animationDelay: Math.random() * 5 + "s", animationDuration: 3 + Math.random() * 4 + "s" }} />
         ))}
       </div>
       <div className="relative z-10">
@@ -627,39 +589,16 @@ export default function LandingPage() {
           <Logos />
           <Services />
           <CaseStudies />
-          <ImageCarouselHero
-            title="Transforming Ideas Into Intelligent Solutions"
-            subtitle="Our Portfolio"
-            description="From AI-powered platforms to enterprise software — explore the solutions we've built for businesses across industries."
-            ctaText="Start Your Project"
-            onCtaClick={() => window.location.href = '/contact'}
-            images={[
-              { id: "1", src: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=900&q=80&auto=format&fit=crop", alt: "IT consulting strategy session", rotation: -15 },
-              { id: "2", src: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=900&q=80&auto=format&fit=crop", alt: "Software development team", rotation: -8 },
-              { id: "3", src: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=900&q=80&auto=format&fit=crop", alt: "Client workshop and planning", rotation: 5 },
-              { id: "4", src: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=900&q=80&auto=format&fit=crop", alt: "Data analytics dashboard", rotation: 12 },
-              { id: "5", src: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=900&q=80&auto=format&fit=crop", alt: "AI and machine learning", rotation: -12 },
-              { id: "6", src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=80&auto=format&fit=crop", alt: "Collaborative engineering team", rotation: 8 },
-              { id: "7", src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=900&q=80&auto=format&fit=crop", alt: "Technology infrastructure", rotation: -5 },
-              { id: "8", src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80&auto=format&fit=crop", alt: "Business analytics and reporting", rotation: 10 },
-            ]}
-            features={[
-              { title: "Enterprise-Grade Quality", description: "Battle-tested solutions built for scale, security, and performance." },
-              { title: "Rapid Delivery", description: "From concept to deployment in weeks, not months." },
-              { title: "Industry Expertise", description: "Deep domain knowledge across healthcare, finance, retail, and IT." },
-            ]}
-          />
           <Benefits />
-          <Pricing />
           <Testimonials />
           <FAQ />
           <section className="relative w-full overflow-hidden">
             <div className="text-center pt-24 pb-8 px-4 md:px-8">
               <div className="w-full max-w-2xl mx-auto">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
                   Meet Whobee, Our AI Assistant
                 </h2>
-                <p className="text-gray-400 text-lg md:text-xl">
+                <p className="text-muted-foreground text-lg md:text-xl">
                   Interact with our 3D AI companion — a glimpse into the intelligent solutions we build for enterprises.
                 </p>
               </div>

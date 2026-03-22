@@ -21,12 +21,10 @@ import {
   Network,
   Lock,
   Palette,
-  Database,
-  Cog,
   Eye,
   Target,
-  FileText,
 } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -69,19 +67,7 @@ const navItems = [
       { label: "UI/UX Designer", href: "/technologies/ui-ux", icon: <Palette size={16} /> },
     ],
   },
-  {
-    label: "Careers",
-    children: [
-      { label: "AI/ML Engineer", href: "/careers/ai-ml-engineer", icon: <Brain size={16} /> },
-      { label: "Data Engineer", href: "/careers/data-engineer", icon: <Database size={16} /> },
-      { label: "Network Engineer", href: "/careers/network-engineer", icon: <Network size={16} /> },
-      { label: "Cyber Security Engineer", href: "/careers/cybersecurity-engineer", icon: <Lock size={16} /> },
-      { label: "UI/UX Designer", href: "/careers/ui-ux-designer", icon: <Palette size={16} /> },
-      { label: "Java Developer", href: "/careers/java-developer", icon: <Code size={16} /> },
-      { label: "Software Developer", href: "/careers/software-developer", icon: <Cog size={16} /> },
-      { label: "Hiring Process", href: "/careers/hiring-process", icon: <FileText size={16} /> },
-    ],
-  },
+  { label: "Careers", href: "/careers" },
   {
     label: "About",
     children: [
@@ -90,7 +76,6 @@ const navItems = [
       { label: "Our Mission", href: "/about", icon: <Target size={16} /> },
     ],
   },
-  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -119,7 +104,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 overflow-visible transition-all duration-300 ${
         scrolled
-          ? "bg-black/80 backdrop-blur-xl border-b border-white/10 shadow-lg"
+          ? "bg-background/80 backdrop-blur-xl border-b border-border shadow-lg"
           : "bg-transparent"
       }`}
     >
@@ -143,20 +128,20 @@ export default function Navbar() {
               onMouseLeave={handleMouseLeave}
             >
               {item.href ? (
-                <a href={item.href} className="px-3 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-all">
+                <a href={item.href} className="px-3 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-all">
                   {item.label}
                 </a>
               ) : (
-                <button className="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-all">
+                <button className="flex items-center gap-1 px-3 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-all">
                   {item.label}
                   <ChevronDown size={14} className={`transition-transform duration-200 ${openDropdown === item.label ? "rotate-180" : ""}`} />
                 </button>
               )}
               {item.children && openDropdown === item.label && (
-                <div className="absolute top-full left-0 mt-1 w-72 bg-zinc-900/95 backdrop-blur-xl border border-white/10 rounded-2xl p-2 shadow-2xl animate-fadeIn">
+                <div className="absolute top-full left-0 mt-1 w-72 bg-card/95 backdrop-blur-xl border border-border rounded-2xl p-2 shadow-2xl animate-fadeIn">
                   {item.children.map((child) => (
-                    <a key={child.label} href={child.href} className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-gray-400 hover:text-white hover:bg-white/5 transition-all group">
-                      <span className="text-gray-500 group-hover:text-[#a855f7] transition-colors">{child.icon}</span>
+                    <a key={child.label} href={child.href} className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-all group">
+                      <span className="text-muted-foreground/80 group-hover:text-[#a855f7] transition-colors">{child.icon}</span>
                       <span className="text-sm">{child.label}</span>
                     </a>
                   ))}
@@ -166,28 +151,34 @@ export default function Navbar() {
           ))}
         </div>
 
-        <a href="/contact" className="hidden lg:flex items-center gap-2 bg-[#a855f7] hover:bg-[#9333ea] text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:shadow-[0_0_30px_rgba(168,85,247,0.6)]">
-          Get in Touch <ArrowUpRight size={16} />
-        </a>
+        <div className="hidden lg:flex items-center gap-2">
+          <ThemeToggle />
+          <a href="/contact" className="flex items-center gap-2 bg-[#a855f7] hover:bg-[#9333ea] text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:shadow-[0_0_30px_rgba(168,85,247,0.6)]">
+            Get in Touch <ArrowUpRight size={16} />
+          </a>
+        </div>
 
-        <button className="lg:hidden text-white p-2" onClick={() => setMobileOpen(!mobileOpen)}>
+        <div className="flex lg:hidden items-center gap-2">
+          <ThemeToggle />
+          <button type="button" className="text-foreground p-2" onClick={() => setMobileOpen(!mobileOpen)} aria-label={mobileOpen ? "Close menu" : "Open menu"}>
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          </button>
+        </div>
       </div>
 
       {mobileOpen && (
-        <div className="lg:hidden bg-black/95 backdrop-blur-xl border-t border-white/10 max-h-[80vh] overflow-y-auto animate-slideDown">
+        <div className="lg:hidden bg-background/95 backdrop-blur-xl border-t border-border max-h-[80vh] overflow-y-auto animate-slideDown">
           <div className="p-4 space-y-1">
             {navItems.map((item) => (
               <div key={item.label}>
                 {item.href ? (
-                  <a href={item.href} className="block px-4 py-3 text-white rounded-xl hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>
+                  <a href={item.href} className="block px-4 py-3 text-foreground rounded-xl hover:bg-muted/40 transition-colors" onClick={() => setMobileOpen(false)}>
                     {item.label}
                   </a>
                 ) : (
                   <>
                     <button
-                      className="flex items-center justify-between w-full px-4 py-3 text-white rounded-xl hover:bg-white/5 transition-colors"
+                      className="flex items-center justify-between w-full px-4 py-3 text-foreground rounded-xl hover:bg-muted/40 transition-colors"
                       onClick={() => setMobileExpanded(mobileExpanded === item.label ? null : item.label)}
                     >
                       {item.label}
@@ -196,8 +187,8 @@ export default function Navbar() {
                     {mobileExpanded === item.label && (
                       <div className="pl-4 pb-2 space-y-1">
                         {item.children.map((child) => (
-                          <a key={child.label} href={child.href} className="flex items-center gap-3 px-4 py-2.5 text-gray-400 hover:text-white rounded-xl hover:bg-white/5 transition-all" onClick={() => setMobileOpen(false)}>
-                            <span className="text-gray-500">{child.icon}</span>
+                          <a key={child.label} href={child.href} className="flex items-center gap-3 px-4 py-2.5 text-muted-foreground hover:text-foreground rounded-xl hover:bg-muted/40 transition-all" onClick={() => setMobileOpen(false)}>
+                            <span className="text-muted-foreground/80">{child.icon}</span>
                             <span className="text-sm">{child.label}</span>
                           </a>
                         ))}

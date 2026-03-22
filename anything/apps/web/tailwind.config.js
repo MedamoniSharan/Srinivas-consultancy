@@ -1,4 +1,5 @@
 module.exports = {
+	darkMode: 'class',
 	content: ['./src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
 		fontFamily: {
@@ -15,6 +16,19 @@ module.exports = {
 				marquee: {
 					from: { transform: 'translateX(0)' },
 					to: { transform: 'translateX(calc(-100% - var(--gap)))' },
+				},
+			},
+			colors: {
+				border: 'rgb(var(--border) / <alpha-value>)',
+				background: 'rgb(var(--background) / <alpha-value>)',
+				foreground: 'rgb(var(--foreground) / <alpha-value>)',
+				muted: {
+					DEFAULT: 'rgb(var(--muted) / <alpha-value>)',
+					foreground: 'rgb(var(--muted-foreground) / <alpha-value>)',
+				},
+				card: {
+					DEFAULT: 'rgb(var(--card) / <alpha-value>)',
+					foreground: 'rgb(var(--card-foreground) / <alpha-value>)',
 				},
 			},
 			fontFamily: {

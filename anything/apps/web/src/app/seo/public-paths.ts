@@ -5,7 +5,6 @@
 export const PUBLIC_PATHS: string[] = [
   "/",
   "/about",
-  "/blog",
   "/contact",
   "/products",
   "/products/ai-agents",

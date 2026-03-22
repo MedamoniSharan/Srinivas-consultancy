@@ -4,7 +4,7 @@ import Footer from "./Footer";
 
 export default function PageLayout({ children }) {
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-[#a855f7] selection:text-white">
+    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-[#a855f7] selection:text-white">
       <Navbar />
       {children}
       <Footer />

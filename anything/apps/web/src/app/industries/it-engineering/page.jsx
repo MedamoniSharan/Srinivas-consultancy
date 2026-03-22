@@ -1,55 +1,81 @@
-import { ArrowUpRight, Laptop, Cloud, GitBranch, RefreshCw, BrainCircuit, ShieldCheck } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
+import AnimatedSection from "@/components/AnimatedSection";
+import { RequestTalentForm } from "@/components/industries/RequestTalentForm";
 import { pageMeta } from "@/app/seo/buildPageMeta";
 
 export function meta() {
   return pageMeta({
-    title: "IT & Engineering Solutions — Cloud, DevOps & Security",
+    title: "IT & Engineering Staffing & Technology Consulting",
     description:
-      "Digital transformation, cloud migration, DevOps, AI integration, and secure SDLC for technology and engineering organizations.",
+      "TelivAi Solutions connects organizations with skilled IT and engineering professionals—contract staffing, consulting, and project-based technology delivery.",
     path: "/industries/it-engineering",
   });
 }
 
 export default function ITEngineering() {
-  const features = [
-    { icon: <Laptop size={24} />, title: "Digital Transformation", desc: "Modernize legacy systems and business processes with cutting-edge digital strategies that drive efficiency and innovation." },
-    { icon: <Cloud size={24} />, title: "Cloud Migration", desc: "Seamlessly migrate infrastructure to AWS, Azure, or GCP with zero-downtime strategies and optimized cost management." },
-    { icon: <GitBranch size={24} />, title: "DevOps Automation", desc: "Implement CI/CD pipelines, infrastructure as code, and automated testing for faster, more reliable deployments." },
-    { icon: <RefreshCw size={24} />, title: "Software Modernization", desc: "Transform monolithic applications into scalable microservices with modern frameworks and cloud-native architectures." },
-    { icon: <BrainCircuit size={24} />, title: "AI Integration", desc: "Embed intelligent automation and machine learning capabilities into your existing technology stack." },
-    { icon: <ShieldCheck size={24} />, title: "Quality Engineering", desc: "End-to-end quality assurance with automated testing frameworks, performance testing, and security validation." },
-  ];
-
   return (
     <PageLayout>
-      <section className="pt-32 pb-20 px-6 text-center relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#a855f7]/15 blur-[120px] rounded-full -z-10"></div>
-        <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-[#a855f7] mb-6">IT &amp; Engineering</div>
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">IT & Engineering</h1>
-        <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">Comprehensive technology solutions to accelerate your digital evolution and engineering excellence.</p>
+      <section className="relative overflow-hidden px-6 pb-16 pt-32 text-center">
+        <div className="absolute left-1/2 top-1/2 -z-10 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#a855f7]/15 blur-[120px]" />
+        <div className="mb-6 inline-block rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium text-[#a855f7]">
+          IT | Engineering
+        </div>
+        <h1 className="mb-4 text-5xl font-bold tracking-tight md:text-7xl">IT &amp; Engineering</h1>
+        <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-gray-400 md:text-xl">
+          IT and Engineering Staffing and Technology Consulting
+        </p>
+        <a
+          href="#request-talent"
+          className="inline-flex items-center gap-2 rounded-xl bg-[#a855f7] px-8 py-3 font-semibold text-white transition-all hover:bg-[#9333ea]"
+        >
+          Request Talent <ArrowUpRight size={18} />
+        </a>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 pb-24">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((f, i) => (
-            <div key={i} className="bg-zinc-900/50 border border-white/5 rounded-3xl p-8 hover:border-[#a855f7]/30 transition-all duration-500">
-              <div className="w-12 h-12 rounded-2xl bg-[#a855f7]/10 border border-[#a855f7]/20 flex items-center justify-center text-[#a855f7] mb-6">{f.icon}</div>
-              <h3 className="text-xl font-bold mb-3">{f.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{f.desc}</p>
-            </div>
-          ))}
-        </div>
+      <section className="mx-auto max-w-3xl px-6 pb-16">
+        <AnimatedSection>
+          <div className="space-y-6 text-base leading-relaxed text-gray-400">
+            <p>
+              TelivAi Solutions LLC is a technology consulting and staffing company specializing in connecting organizations with highly skilled IT and engineering professionals. We provide contract staffing, consulting services, and project-based solutions to companies that require experienced technical talent to support critical business initiatives.
+            </p>
+            <p>
+              Our team works with organizations across industries to deliver professionals who possess the technical expertise and industry knowledge needed to build modern technology platforms, manage infrastructure, and support digital transformation initiatives.
+            </p>
+          </div>
+        </AnimatedSection>
       </section>
 
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto bg-gradient-to-br from-zinc-900 to-black rounded-[2rem] border border-white/5 p-12 md:p-16 text-center relative overflow-hidden">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-[#a855f7]/10 blur-[100px] -z-10"></div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Ready to get started?</h2>
-          <p className="text-gray-400 text-lg max-w-xl mx-auto mb-8">Let&apos;s discuss how we can help transform your business.</p>
-          <a href="/contact" className="inline-flex items-center gap-2 bg-[#a855f7] hover:bg-[#9333ea] text-white px-8 py-3 rounded-xl font-semibold transition-all">Contact Us <ArrowUpRight size={18} /></a>
-        </div>
+      <section className="mx-auto max-w-3xl px-6 pb-12">
+        <AnimatedSection delay={80}>
+          <h2 className="mb-4 text-2xl font-bold text-white md:text-3xl">Are You Looking for Technical Talent?</h2>
+          <p className="mb-6 text-gray-400">
+            Skilled STEM professionals are in high demand, making it increasingly difficult for organizations to find qualified candidates who align with their technical requirements and business goals. That&apos;s where TelivAi Solutions LLC can help.
+          </p>
+          <ul className="mb-8 space-y-4 text-gray-300">
+            <li className="flex gap-3">
+              <span className="mt-1 shrink-0 font-bold text-[#a855f7]">•</span>
+              <span>
+                As a technology staffing and consulting partner, we help businesses identify and place highly skilled professionals who can support enterprise technology projects, software development initiatives, infrastructure modernization, and advanced analytics solutions.
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <span className="mt-1 shrink-0 font-bold text-[#a855f7]">•</span>
+              <span>
+                Working closely with our clients, we ensure that the professionals we provide are well-aligned with each organization&apos;s technical environment, project goals, and operational needs.
+              </span>
+            </li>
+          </ul>
+          <a
+            href="#request-talent"
+            className="inline-flex items-center gap-2 rounded-xl border border-[#a855f7]/40 bg-[#a855f7]/10 px-8 py-3 font-semibold text-[#a855f7] transition-colors hover:bg-[#a855f7]/20"
+          >
+            Request Talent <ArrowUpRight size={18} />
+          </a>
+        </AnimatedSection>
       </section>
+
+      <RequestTalentForm defaultIndustry="IT & Engineering" />
     </PageLayout>
   );
 }

@@ -2,60 +2,137 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
-          <div className="lg:col-span-2">
-            <a href="/" className="inline-flex mb-4 max-w-full">
+    <footer className="border-t border-border/60">
+      <div className="mx-auto max-w-7xl px-6 py-8 sm:py-10">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-stretch lg:justify-between lg:gap-10">
+          <div className="flex max-w-sm shrink-0 flex-col sm:max-w-md lg:max-w-[min(100%,500px)]">
+            <a href="/" className="mb-3 inline-flex overflow-visible pr-1">
               <img
                 src="/images/telivai-logo.png"
                 alt="TelivAI Solutions"
-                className="h-80 sm:h-[21.25rem] w-auto max-w-full min-w-0 object-contain object-left"
-                width={2000}
-                height={340}
+                className="h-16 w-auto max-w-[min(100%,360px)] origin-left object-contain object-left sm:h-20 sm:max-w-[400px] md:h-24 md:max-w-[440px] lg:h-[6.5rem] lg:max-w-[480px]"
+                width={480}
+                height={104}
               />
             </a>
-            <p className="text-gray-500 text-sm leading-relaxed mb-6 max-w-xs">Automate Smarter, Optimize Faster, and Grow Stronger.</p>
-            <div className="flex items-center gap-2">
-              <input type="email" placeholder="Join our newsletter" className="bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#a855f7]/50 flex-1 max-w-[200px]" />
-              <button className="bg-[#a855f7] hover:bg-[#9333ea] text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">Subscribe</button>
+            <p className="text-sm leading-snug text-muted-foreground">
+              Automate Smarter, Optimize Faster, and Grow Stronger.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-2 sm:mt-10 lg:mt-auto lg:pt-10">
+              <input
+                type="email"
+                placeholder="Join our newsletter"
+                className="min-w-0 flex-1 rounded-lg border border-border bg-muted/40 px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#a855f7]/50 focus:outline-none sm:max-w-[200px]"
+              />
+              <button
+                type="button"
+                className="shrink-0 rounded-lg bg-[#a855f7] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#9333ea]"
+              >
+                Subscribe
+              </button>
             </div>
           </div>
-          <div>
-            <h4 className="text-white font-semibold mb-4 text-sm">Products</h4>
-            <ul className="space-y-3 text-sm text-gray-500">
-              <li><a href="/products/ai-agents" className="hover:text-white transition-colors">AI Agents</a></li>
-              <li><a href="/products/crm" className="hover:text-white transition-colors">CRM Platform</a></li>
-              <li><a href="/products/erp" className="hover:text-white transition-colors">ERP System</a></li>
-              <li><a href="/products/procurement" className="hover:text-white transition-colors">Procurement System</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-white font-semibold mb-4 text-sm">Services</h4>
-            <ul className="space-y-3 text-sm text-gray-500">
-              <li><a href="/services/staffing" className="hover:text-white transition-colors">IT Staffing & Consulting</a></li>
-              <li><a href="/services/ai-development" className="hover:text-white transition-colors">AI Development</a></li>
-              <li><a href="/services/mobile-development" className="hover:text-white transition-colors">Mobile App Development</a></li>
-              <li><a href="/services/web-development" className="hover:text-white transition-colors">Web Development</a></li>
-              <li><a href="/services/custom-software" className="hover:text-white transition-colors">Custom Software</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-white font-semibold mb-4 text-sm">Company</h4>
-            <ul className="space-y-3 text-sm text-gray-500">
-              <li><a href="/about" className="hover:text-white transition-colors">About</a></li>
-              <li><a href="/careers" className="hover:text-white transition-colors">Careers</a></li>
-              <li><a href="/careers/hiring-process" className="hover:text-white transition-colors">Hiring Process</a></li>
-              <li><a href="/contact" className="hover:text-white transition-colors">Contact</a></li>
-              <li><a href="/industries" className="hover:text-white transition-colors">Industries</a></li>
-              <li><a href="/technologies" className="hover:text-white transition-colors">Technologies</a></li>
-              <li><a href="/blog" className="hover:text-white transition-colors">Blog</a></li>
-            </ul>
-          </div>
+
+          <nav
+            className="grid min-w-0 flex-1 grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-3 sm:gap-x-10 lg:max-w-2xl lg:justify-items-stretch xl:max-w-none"
+            aria-label="Footer"
+          >
+            <div>
+              <h4 className="mb-2.5 text-sm font-semibold text-foreground">Products</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>
+                  <a href="/products/ai-agents" className="transition-colors hover:text-foreground">
+                    AI Agents
+                  </a>
+                </li>
+                <li>
+                  <a href="/products/crm" className="transition-colors hover:text-foreground">
+                    CRM Platform
+                  </a>
+                </li>
+                <li>
+                  <a href="/products/erp" className="transition-colors hover:text-foreground">
+                    ERP System
+                  </a>
+                </li>
+                <li>
+                  <a href="/products/procurement" className="transition-colors hover:text-foreground">
+                    Procurement System
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="mb-2.5 text-sm font-semibold text-foreground">Services</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>
+                  <a href="/services/staffing" className="transition-colors hover:text-foreground">
+                    IT Staffing & Consulting
+                  </a>
+                </li>
+                <li>
+                  <a href="/services/ai-development" className="transition-colors hover:text-foreground">
+                    AI Development
+                  </a>
+                </li>
+                <li>
+                  <a href="/services/mobile-development" className="transition-colors hover:text-foreground">
+                    Mobile App Development
+                  </a>
+                </li>
+                <li>
+                  <a href="/services/web-development" className="transition-colors hover:text-foreground">
+                    Web Development
+                  </a>
+                </li>
+                <li>
+                  <a href="/services/custom-software" className="transition-colors hover:text-foreground">
+                    Custom Software
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="col-span-2 sm:col-span-1">
+              <h4 className="mb-2.5 text-sm font-semibold text-foreground">Company</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>
+                  <a href="/about" className="transition-colors hover:text-foreground">
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a href="/careers" className="transition-colors hover:text-foreground">
+                    Careers
+                  </a>
+                </li>
+                <li>
+                  <a href="/careers/hiring-process" className="transition-colors hover:text-foreground">
+                    Hiring Process
+                  </a>
+                </li>
+                <li>
+                  <a href="/contact" className="transition-colors hover:text-foreground">
+                    Contact
+                  </a>
+                </li>
+                <li>
+                  <a href="/industries" className="transition-colors hover:text-foreground">
+                    Industries
+                  </a>
+                </li>
+                <li>
+                  <a href="/technologies" className="transition-colors hover:text-foreground">
+                    Technologies
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
         </div>
-        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-gray-600">© {new Date().getFullYear()} TelivAI Solutions. All rights reserved.</p>
-          <p className="text-xs text-gray-600">Visioned and Crafted by TelivAI Solutions</p>
+
+        <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-border/60 pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center">
+          <p>© {new Date().getFullYear()} TelivAI Solutions. All rights reserved.</p>
+          <p className="text-center sm:text-right">Visioned and Crafted by TelivAI Solutions</p>
         </div>
       </div>
     </footer>

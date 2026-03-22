@@ -29,7 +29,7 @@ export default function NotFoundPage({
   const navigate = useNavigate();
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-black">
+    <div className="relative w-full h-screen overflow-hidden bg-background">
       <AnimatedGradientBackground
         Breathing={true}
         startingGap={120}
@@ -53,11 +53,11 @@ export default function NotFoundPage({
           404
         </p>
 
-        <h1 className="text-2xl md:text-4xl font-semibold text-white mt-2 mb-4">
+        <h1 className="text-2xl md:text-4xl font-semibold text-foreground mt-2 mb-4">
           Page Not Found
         </h1>
 
-        <p className="text-gray-400 text-base md:text-lg max-w-md mb-10 leading-relaxed">
+        <p className="text-muted-foreground text-base md:text-lg max-w-md mb-10 leading-relaxed">
           The page{' '}
           <span className="text-[#a855f7] font-medium">
             {loaderData.path}
@@ -74,7 +74,7 @@ export default function NotFoundPage({
           </button>
           <button
             onClick={() => navigate('/contact')}
-            className="px-8 py-3 rounded-xl font-semibold text-white border border-white/10 hover:bg-white/5 transition-all"
+            className="px-8 py-3 rounded-xl font-semibold text-foreground border border-border hover:bg-muted/40 transition-all"
           >
             Contact Us
           </button>

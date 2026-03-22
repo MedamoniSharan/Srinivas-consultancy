@@ -21,6 +21,5 @@ export {
   SkeletonFour,
 } from './ui/feature-section-with-bento-grid';
 export { default as AnimatedGradientBackground } from './ui/animated-gradient-background';
-export { ImageCarouselHero } from './ui/ai-image-generator-hero';
 export { InteractiveRobotSpline } from './ui/interactive-3d-robot';
 export { default as MagicRings } from './ui/MagicRings';

@@ -30,7 +30,9 @@ import { SessionProvider } from '@auth/create/react';
 import { toPng } from 'html-to-image';
 import { useNavigate } from 'react-router';
 import { serializeError } from 'serialize-error';
-import { Toaster, toast } from 'sonner';
+import { toast } from 'sonner';
+import { AppProviders } from '@/components/app-providers';
+import { SonnerToaster } from '@/components/sonner-toaster';
 import { useDevServerHeartbeat } from '../__create/useDevServerHeartbeat';
 import type { MetaDescriptor } from 'react-router';
 import type { Route } from './+types/root';
@@ -407,7 +409,6 @@ export function Layout({ children }: { children: ReactNode }) {
   const navigate = useNavigate();
   const location = useLocation();
   const pathname = location?.pathname;
-  const isMobile = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
       if (event.data.type === 'sandbox:navigation') {
@@ -433,7 +434,7 @@ export function Layout({ children }: { children: ReactNode }) {
     }
   }, [pathname]);
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -444,8 +445,10 @@ export function Layout({ children }: { children: ReactNode }) {
         {LoadFontsSSR ? <LoadFontsSSR /> : null}
       </head>
       <body>
-        <ErrorBoundaryWrapper>{children}</ErrorBoundaryWrapper>
-        <Toaster position={isMobile ? 'top-center' : 'bottom-right'} />
+        <AppProviders>
+          <ErrorBoundaryWrapper>{children}</ErrorBoundaryWrapper>
+          <SonnerToaster />
+        </AppProviders>
         <ScrollRestoration />
         <Scripts />
         <script src="https://kit.fontawesome.com/2c15cc0cc7.js" crossOrigin="anonymous" async />
