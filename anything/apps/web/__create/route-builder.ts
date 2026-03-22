@@ -1,6 +1,7 @@
+import { existsSync } from 'node:fs';
 import { readdir, stat } from 'node:fs/promises';
-import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { Hono } from 'hono';
 import type { Handler } from 'hono/types';
 import updatedFetch from '../src/__create/fetch';
@@ -8,8 +9,12 @@ import updatedFetch from '../src/__create/fetch';
 const API_BASENAME = '/api';
 const api = new Hono();
 
-// Get current directory
-const __dirname = join(fileURLToPath(new URL('.', import.meta.url)), '../src/app/api');
+// In dev, `import.meta.url` is under `__create/`; in the SSR bundle it lives under
+// `build/server/assets/`, so resolve `src/app/api` from cwd as fallback.
+const moduleDir = dirname(fileURLToPath(import.meta.url));
+const apiDirFromModule = join(moduleDir, '../src/app/api');
+const apiDirFromCwd = join(process.cwd(), 'src', 'app', 'api');
+const __dirname = existsSync(apiDirFromModule) ? apiDirFromModule : apiDirFromCwd;
 if (globalThis.fetch) {
   globalThis.fetch = updatedFetch;
 }
@@ -27,6 +32,12 @@ async function findRouteFiles(dir: string): Promise<string[]> {
       if (statResult.isDirectory()) {
         routes = routes.concat(await findRouteFiles(filePath));
       } else if (file === 'route.js') {
+        const posixPath = filePath.replace(/\\/g, '/');
+        // Dev-only / tooling routes: import TS and Vite-only modules; skip when
+        // registering raw `route.js` files from disk (production / prerender).
+        if (posixPath.includes('/api/__create/')) {
+          continue;
+        }
         // Handle root route.js specially
         if (filePath === join(__dirname, 'route.js')) {
           routes.unshift(filePath); // Add to beginning of array
@@ -63,6 +74,10 @@ function getHonoPath(routeFile: string): { name: string; pattern: string }[] {
   return transformedParts;
 }
 
+function routeModuleSpecifier(routeFile: string, cacheBust: number): string {
+  return `${pathToFileURL(routeFile).href}?update=${cacheBust}`;
+}
+
 // Import and register all routes
 async function registerRoutes() {
   const routeFiles = (
@@ -81,7 +96,7 @@ async function registerRoutes() {
 
   for (const routeFile of routeFiles) {
     try {
-      const route = await import(/* @vite-ignore */ `${routeFile}?update=${Date.now()}`);
+      const route = await import(/* @vite-ignore */ routeModuleSpecifier(routeFile, Date.now()));
 
       const methods = ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'];
       for (const method of methods) {
@@ -93,7 +108,7 @@ async function registerRoutes() {
               const params = c.req.param();
               if (import.meta.env.DEV) {
                 const updatedRoute = await import(
-                  /* @vite-ignore */ `${routeFile}?update=${Date.now()}`
+                  /* @vite-ignore */ routeModuleSpecifier(routeFile, Date.now())
                 );
                 return await updatedRoute[method](c.req.raw, { params });
               }

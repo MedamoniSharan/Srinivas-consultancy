@@ -467,13 +467,6 @@ const Footer = () => {
         </span>
       </div>
 
-      <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-lg border border-white/10">
-        <div className="w-4 h-4 bg-white rounded-sm flex items-center justify-center overflow-hidden">
-          <div className="w-full h-full bg-[#a855f7] transform -rotate-45 translate-y-2"></div>
-        </div>
-        <span className="text-xs text-gray-400">Made in Framer</span>
-      </div>
-
       <button className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
         Another AI Template
         <ArrowUpRight size={14} />

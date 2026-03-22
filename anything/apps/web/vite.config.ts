@@ -14,6 +14,13 @@ import { restart } from './plugins/restart';
 import { restartEnvFileChange } from './plugins/restartEnvFileChange';
 
 export default defineConfig({
+  // Node SSR bundle uses top-level await in __create; default Vite browser targets
+  // break vite:esbuild-transpile (uses build.target, not ssr.target).
+  build: {
+    target: 'esnext',
+  },
+  // Node resolution for SSR externals.
+  ssr: { target: 'node' },
   // Keep them available via import.meta.env.NEXT_PUBLIC_*
   envPrefix: 'NEXT_PUBLIC_',
   optimizeDeps: {

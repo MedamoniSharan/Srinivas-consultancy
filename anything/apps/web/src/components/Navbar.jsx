@@ -116,21 +116,21 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 overflow-visible transition-all duration-300 ${
         scrolled
           ? "bg-black/80 backdrop-blur-xl border-b border-white/10 shadow-lg"
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        <a href="/" className="flex items-center gap-2.5">
-          <div className="w-9 h-9 bg-gradient-to-br from-[#a855f7] to-[#7c3aed] rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.3)]">
-            <span className="text-white font-black text-sm">TS</span>
-          </div>
-          <div className="hidden sm:block">
-            <span className="text-lg font-bold text-white tracking-tight leading-none">TelivAI</span>
-            <span className="block text-[10px] text-[#a855f7] font-medium tracking-widest uppercase">Solutions</span>
-          </div>
+      <div className="max-w-7xl mx-auto flex items-center justify-between overflow-visible px-6 py-4">
+        <a href="/" className="flex h-10 shrink-0 items-center overflow-visible pr-3 sm:pr-4">
+          <img
+            src="/images/telivai-logo.png"
+            alt="TelivAI Solutions"
+            className="block h-10 w-auto max-w-[200px] object-contain object-left origin-left scale-[1.55] sm:max-w-[230px] sm:scale-[1.65] md:max-w-[260px] md:scale-[1.72]"
+            width={260}
+            height={42}
+          />
         </a>
 
         <div className="hidden lg:flex items-center gap-1 text-sm font-medium">

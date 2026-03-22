@@ -6,14 +6,14 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           <div className="lg:col-span-2">
-            <a href="/" className="flex items-center gap-2.5 mb-4">
-              <div className="w-9 h-9 bg-gradient-to-br from-[#a855f7] to-[#7c3aed] rounded-xl flex items-center justify-center">
-                <span className="text-white font-black text-sm">TS</span>
-              </div>
-              <div>
-                <span className="text-lg font-bold text-white tracking-tight leading-none">TelivAI</span>
-                <span className="block text-[10px] text-[#a855f7] font-medium tracking-widest uppercase">Solutions</span>
-              </div>
+            <a href="/" className="inline-flex mb-4 max-w-full">
+              <img
+                src="/images/telivai-logo.png"
+                alt="TelivAI Solutions"
+                className="h-80 sm:h-[21.25rem] w-auto max-w-full min-w-0 object-contain object-left"
+                width={2000}
+                height={340}
+              />
             </a>
             <p className="text-gray-500 text-sm leading-relaxed mb-6 max-w-xs">Automate Smarter, Optimize Faster, and Grow Stronger.</p>
             <div className="flex items-center gap-2">
@@ -54,10 +54,6 @@ export default function Footer() {
         </div>
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-gray-600">© {new Date().getFullYear()} TelivAI Solutions. All rights reserved.</p>
-          <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-lg border border-white/10">
-            <div className="w-4 h-4 bg-white rounded-sm flex items-center justify-center overflow-hidden"><div className="w-full h-full bg-[#a855f7] transform -rotate-45 translate-y-2"></div></div>
-            <span className="text-xs text-gray-400">Made in Framer</span>
-          </div>
           <p className="text-xs text-gray-600">Visioned and Crafted by TelivAI Solutions</p>
         </div>
       </div>
