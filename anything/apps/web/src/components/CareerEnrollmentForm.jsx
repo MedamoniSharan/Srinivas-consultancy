@@ -92,6 +92,9 @@ export default function CareerEnrollmentForm() {
   const [isPaying, setIsPaying] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(null);
+  const [receipt, setReceipt] = useState(null);
+  const [isSendingReceiptEmail, setIsSendingReceiptEmail] = useState(false);
+  const [receiptEmailStatus, setReceiptEmailStatus] = useState("");
 
   const paypalContainerRef = useRef(null);
   const hasRenderedButtonsRef = useRef(false);
@@ -246,11 +249,14 @@ export default function CareerEnrollmentForm() {
     try {
       setIsSubmitting(true);
       const applicantPayload = buildApplicantPayload(applicant);
+      const receiptId = `REC-${Date.now()}`;
+      const createdAt = new Date().toISOString();
       const enrollmentRecord = {
         applicant: applicantPayload,
         payment: paymentDetails,
+        receiptId,
         source: "paypal",
-        createdAt: new Date().toISOString(),
+        createdAt,
       };
 
       const existing = localStorage.getItem(ENROLLMENT_STORAGE_KEY);
@@ -262,12 +268,103 @@ export default function CareerEnrollmentForm() {
         message: "Enrollment submitted successfully.",
         referenceId: paymentDetails.captureID || paymentDetails.orderID,
       });
+      setReceipt({
+        receiptId,
+        createdAt,
+        applicant: applicantPayload,
+        payment: paymentDetails,
+        companyName: COMPANY_NAME,
+        itemName: ITEM_NAME,
+      });
+      setReceiptEmailStatus("");
       setFormError("");
     } catch (_error) {
       setFormError("Unable to save enrollment locally. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const buildReceiptEmail = () => {
+    if (!receipt) return null;
+
+    const body = [
+      `Hi ${receipt.applicant.fullName},`,
+      "",
+      `Your enrollment payment has been received by ${receipt.companyName}.`,
+      "",
+      `Receipt ID: ${receipt.receiptId}`,
+      `Item: ${receipt.itemName}`,
+      `Amount: ${receipt.payment.amount} ${receipt.payment.currency}`,
+      `Payment Status: ${receipt.payment.status}`,
+      `Capture ID: ${receipt.payment.captureID || "-"}`,
+      `Order ID: ${receipt.payment.orderID}`,
+      `Paid At: ${receipt.payment.paidAt}`,
+      "",
+      "Thank you.",
+    ].join("\n");
+
+    return {
+      to: receipt.applicant.email,
+      subject: `${receipt.companyName} Enrollment Receipt ${receipt.receiptId}`,
+      body,
+    };
+  };
+
+  const onSendReceiptEmail = async () => {
+    const mail = buildReceiptEmail();
+    if (!mail) return;
+    try {
+      setIsSendingReceiptEmail(true);
+      setReceiptEmailStatus("");
+
+      const response = await fetch("/api/enrollment/receipt", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          to: mail.to,
+          subject: mail.subject,
+          text: mail.body,
+          html: mail.body.replaceAll("\n", "<br/>"),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Receipt email failed");
+      }
+
+      setReceiptEmailStatus("Receipt email sent successfully.");
+    } catch (_error) {
+      setReceiptEmailStatus("Could not send receipt email. Please check SMTP setup.");
+    } finally {
+      setIsSendingReceiptEmail(false);
+    }
+  };
+
+  const onDownloadReceipt = () => {
+    if (!receipt) return;
+
+    const receiptContent = {
+      receiptId: receipt.receiptId,
+      createdAt: receipt.createdAt,
+      companyName: receipt.companyName,
+      itemName: receipt.itemName,
+      applicant: receipt.applicant,
+      payment: receipt.payment,
+      source: "paypal",
+    };
+
+    const blob = new Blob([JSON.stringify(receiptContent, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `${receipt.receiptId}.json`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
   };
 
   return (
@@ -368,6 +465,33 @@ export default function CareerEnrollmentForm() {
       {submitSuccess ? (
         <div className="rounded-xl border border-emerald-400/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-200">
           {submitSuccess.message} Confirmation ID: {submitSuccess.referenceId}
+        </div>
+      ) : null}
+
+      {receipt ? (
+        <div className="space-y-3 rounded-xl border border-[#a855f7]/25 bg-white/5 px-4 py-4 text-sm">
+          <p className="text-white font-semibold">Receipt generated: {receipt.receiptId}</p>
+          <p className="text-gray-300">
+            Amount paid: {receipt.payment.amount} {receipt.payment.currency}
+          </p>
+          <div className="flex gap-3">
+            <button
+              type="button"
+              onClick={onDownloadReceipt}
+              className="rounded-lg bg-white/10 hover:bg-white/20 px-4 py-2 text-white text-xs font-semibold transition-colors"
+            >
+              Download Receipt
+            </button>
+            <button
+              type="button"
+              onClick={onSendReceiptEmail}
+              disabled={isSendingReceiptEmail}
+              className="rounded-lg bg-[#a855f7] hover:bg-[#9333ea] px-4 py-2 text-white text-xs font-semibold transition-colors"
+            >
+              {isSendingReceiptEmail ? "Sending..." : "Send Receipt Email"}
+            </button>
+          </div>
+          {receiptEmailStatus ? <p className="text-xs text-gray-300">{receiptEmailStatus}</p> : null}
         </div>
       ) : null}
     </form>

@@ -59,36 +59,24 @@ export default function HiringProcessPage() {
       </section>
 
       <section className="max-w-5xl mx-auto px-6 pb-24">
-        <div className="relative">
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#a855f7]/40 via-[#a855f7]/20 to-transparent hidden md:block" />
-
-          <div className="space-y-12 md:space-y-16">
-            {steps.map((step, i) => {
-              const isLeft = i % 2 === 0;
-              return (
-                <div key={i} className="relative">
-                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 top-6 w-12 h-12 rounded-full bg-[#a855f7] items-center justify-center text-white font-bold text-sm z-10 shadow-[0_0_20px_rgba(168,85,247,0.5)]">
-                    {step.num}
-                  </div>
-
-                  <div className={`md:w-[45%] ${isLeft ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8"}`}>
-                    <div className="group bg-zinc-900/60 border border-[#a855f7]/20 rounded-2xl p-6 md:p-8 hover:border-[#a855f7]/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.1)]">
-                      <div className="flex items-center gap-4 mb-4">
-                        <div className="md:hidden w-10 h-10 rounded-full bg-[#a855f7] flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
-                          {step.num}
-                        </div>
-                        <div className="w-12 h-12 rounded-xl bg-[#a855f7]/10 border border-[#a855f7]/20 flex items-center justify-center text-[#a855f7]">
-                          {step.icon}
-                        </div>
-                      </div>
-                      <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
-                      <p className="text-gray-400 text-sm leading-relaxed">{step.desc}</p>
-                    </div>
-                  </div>
+        <div className="grid gap-6 md:grid-cols-2">
+          {steps.map((step, i) => (
+            <div
+              key={i}
+              className="group bg-zinc-900/60 border border-[#a855f7]/20 rounded-2xl p-6 md:p-8 hover:border-[#a855f7]/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.1)]"
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-10 h-10 rounded-full bg-[#a855f7] flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
+                  {step.num}
                 </div>
-              );
-            })}
-          </div>
+                <div className="w-12 h-12 rounded-xl bg-[#a855f7]/10 border border-[#a855f7]/20 flex items-center justify-center text-[#a855f7]">
+                  {step.icon}
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">{step.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
