@@ -8,11 +8,11 @@ export default function Footer() {
           <div className="flex max-w-sm shrink-0 flex-col sm:max-w-md lg:max-w-[min(100%,500px)]">
             <a href="/" className="mb-3 inline-flex overflow-visible pr-1">
               <img
-                src="/images/telivai-logo.png"
+                src="/images/TelivAI.png"
                 alt="TelivAI Solutions"
-                className="h-16 w-auto max-w-[min(100%,360px)] origin-left object-contain object-left sm:h-20 sm:max-w-[400px] md:h-24 md:max-w-[440px] lg:h-[6.5rem] lg:max-w-[480px]"
-                width={480}
-                height={104}
+                className="h-28 w-auto max-w-[min(100%,620px)] origin-left object-contain object-left sm:h-32 sm:max-w-[700px] md:h-36 md:max-w-[800px] lg:h-[11rem] lg:max-w-[920px]"
+                width={920}
+                height={198}
               />
             </a>
             <p className="text-sm leading-snug text-muted-foreground">
