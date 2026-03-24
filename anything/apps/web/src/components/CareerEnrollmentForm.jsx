@@ -7,6 +7,7 @@ const PAYPAL_CURRENCY = process.env.NEXT_PUBLIC_PAYPAL_CURRENCY || "USD";
 const ENROLLMENT_FEE = process.env.NEXT_PUBLIC_ENROLLMENT_FEE || "49.00";
 const COMPANY_NAME = process.env.NEXT_PUBLIC_COMPANY_NAME || "TelivAI Solutions";
 const ITEM_NAME = process.env.NEXT_PUBLIC_ENROLLMENT_ITEM_NAME || "Career Enrollment Fee";
+const PAYPAL_BACKEND_URL = process.env.NEXT_PUBLIC_PAYPAL_BACKEND_URL || "https://srinivas-consultancy.onrender.com";
 const PAYPAL_LOCALE = process.env.NEXT_PUBLIC_PAYPAL_LOCALE || "";
 const PAYPAL_ENABLE_FUNDING = process.env.NEXT_PUBLIC_PAYPAL_ENABLE_FUNDING || "";
 const ENROLLMENT_STORAGE_KEY = "careerEnrollmentRecords";
@@ -144,40 +145,55 @@ export default function CareerEnrollmentForm() {
       onClick: () => {
         setPaymentError("");
       },
-      createOrder: (_data, actions) => {
+      createOrder: async () => {
         setPaymentStatus("idle");
-        return actions.order.create({
-          purchase_units: [
-            {
-              description: `${ITEM_NAME} - ${COMPANY_NAME}`,
-              amount: {
-                currency_code: PAYPAL_CURRENCY,
-                value: ENROLLMENT_FEE,
-              },
-            },
-          ],
+        const response = await fetch(`${PAYPAL_BACKEND_URL}/api/create-order`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
         });
+        if (!response.ok) {
+          throw new Error("Failed to create order on backend.");
+        }
+        const data = await response.json();
+        if (!data.orderID) {
+          throw new Error("Backend did not return order ID.");
+        }
+        return data.orderID;
       },
-      onApprove: async (data, actions) => {
+      onApprove: async (data) => {
         try {
           setIsPaying(true);
-          const capture = await actions.order.capture();
-          const purchaseUnit = capture?.purchase_units?.[0];
-          const captureUnit = purchaseUnit?.payments?.captures?.[0];
+          const response = await fetch(`${PAYPAL_BACKEND_URL}/api/capture-order`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              orderID: data.orderID,
+              email: applicant.email.trim(),
+            }),
+          });
+          const capture = await response.json();
+          if (!response.ok) {
+            throw new Error(capture?.error || "Payment capture failed.");
+          }
 
           const approvedPayment = {
             orderID: data.orderID,
             payerID: data.payerID,
-            captureID: captureUnit?.id || "",
+            captureID: capture.captureID || "",
             status: capture?.status || "COMPLETED",
-            amount: captureUnit?.amount?.value || ENROLLMENT_FEE,
-            currency: captureUnit?.amount?.currency_code || PAYPAL_CURRENCY,
-            paidAt: captureUnit?.create_time || new Date().toISOString(),
+            amount: capture?.amount?.replace("$", "") || ENROLLMENT_FEE,
+            currency: capture?.currency || PAYPAL_CURRENCY,
+            paidAt: new Date().toISOString(),
           };
 
           setPaymentDetails(approvedPayment);
           setPaymentStatus("approved");
           setPaymentError("");
+          setReceiptEmailStatus("Receipt email has been sent from backend SMTP.");
           setFormError("");
         } catch (_error) {
           setPaymentStatus("failed");
@@ -312,35 +328,12 @@ export default function CareerEnrollmentForm() {
   };
 
   const onSendReceiptEmail = async () => {
+    setIsSendingReceiptEmail(true);
     const mail = buildReceiptEmail();
-    if (!mail) return;
-    try {
-      setIsSendingReceiptEmail(true);
-      setReceiptEmailStatus("");
-
-      const response = await fetch("/api/enrollment/receipt", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          to: mail.to,
-          subject: mail.subject,
-          text: mail.body,
-          html: mail.body.replaceAll("\n", "<br/>"),
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Receipt email failed");
-      }
-
-      setReceiptEmailStatus("Receipt email sent successfully.");
-    } catch (_error) {
-      setReceiptEmailStatus("Could not send receipt email. Please check SMTP setup.");
-    } finally {
-      setIsSendingReceiptEmail(false);
+    if (mail?.to) {
+      setReceiptEmailStatus("Receipt email is automatically sent after payment capture.");
     }
+    setIsSendingReceiptEmail(false);
   };
 
   const onDownloadReceipt = () => {
