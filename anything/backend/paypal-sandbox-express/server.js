@@ -11,8 +11,8 @@ const app = express();
 const PORT = Number(process.env.PORT || 5001);
 
 const PAYPAL_BASE_URL = "https://api-m.sandbox.paypal.com";
-const ORDER_AMOUNT = "49.00";
-const ORDER_CURRENCY = "USD";
+const ORDER_AMOUNT = process.env.PAYPAL_ORDER_AMOUNT || "49.00";
+const ORDER_CURRENCY = process.env.PAYPAL_ORDER_CURRENCY || "USD";
 
 app.use(cors());
 app.use(express.json());
