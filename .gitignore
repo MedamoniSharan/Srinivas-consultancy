@@ -6,3 +6,47 @@ dist/
 *.log
 .DS_Store
 Thumbs.db
+
+# Ignore OS/user-home artifacts in this root-level repo
+.android/
+.antigravity/
+.codeium/
+.cursor/
+.eclipse/
+.gemini/
+.gradle/
+.keras/
+.m2/
+.p2/
+.qoder/
+.redhat/
+.ssh/
+.vscode/
+.windsurf/
+AppData/
+Contacts/
+Downloads/
+Favorites/
+Links/
+Music/
+OneDrive/
+Saved Games/
+Searches/
+Videos/
+eclipse-workspace/
+eclipse/
+
+# Ignore shell/history and local machine files
+.gitconfig
+.lesshst
+.node_repl_history
+NTUSER.DAT
+NTUSER.DAT*.TM.blf
+NTUSER.DAT*.regtrans-ms
+ntuser.dat.LOG1
+ntuser.dat.LOG2
+ntuser.ini
+
+# Ignore loose local files in home folder
+*.class
+*.html
