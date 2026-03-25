@@ -39,7 +39,9 @@ export default function TechnologiesPage() {
           <AnimatedSection>
             <span className="inline-block px-4 py-1.5 rounded-full text-xs font-medium tracking-wider uppercase bg-[#a855f7]/10 text-[#a855f7] border border-[#a855f7]/20 mb-6">Our Technology Stack</span>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">Technologies</h1>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">We leverage cutting-edge technologies to build solutions that scale, perform, and endure.</p>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              We leverage cutting-edge technologies to build solutions that scale, perform, and endure.
+            </p>
           </AnimatedSection>
         </div>
       </section>
@@ -49,7 +51,10 @@ export default function TechnologiesPage() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {technologies.map((tech, i) => (
             <AnimatedSection key={tech.title} delay={i * 100}>
-              <a href={tech.href} className="group block bg-zinc-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-[#a855f7]/30 hover:-translate-y-1 transition-all duration-500">
+              <a
+                href={tech.href}
+                className="group block bg-card/80 border border-border rounded-2xl overflow-hidden hover:border-[#a855f7]/30 hover:-translate-y-1 transition-all duration-500"
+              >
                 <div className="h-48 overflow-hidden">
                   <img src={tech.image} alt={tech.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 </div>
@@ -60,7 +65,7 @@ export default function TechnologiesPage() {
                     </div>
                     <h3 className="text-lg font-semibold">{tech.title}</h3>
                   </div>
-                  <p className="text-sm text-gray-400 mb-4">{tech.description}</p>
+                  <p className="text-sm text-muted-foreground mb-4">{tech.description}</p>
                   <span className="inline-flex items-center gap-1 text-sm text-[#a855f7] group-hover:gap-2 transition-all">
                     Learn more <ArrowRight className="w-4 h-4" />
                   </span>
@@ -85,7 +90,7 @@ export default function TechnologiesPage() {
                     <s.icon className="w-5 h-5 text-[#a855f7]" />
                   </div>
                   <p className="text-3xl font-bold mb-1">{s.value}</p>
-                  <p className="text-sm text-gray-400">{s.label}</p>
+                  <p className="text-sm text-muted-foreground">{s.label}</p>
                 </div>
               </AnimatedSection>
             ))}
@@ -114,7 +119,9 @@ export default function TechnologiesPage() {
         <AnimatedSection>
           <div className="max-w-3xl mx-auto text-center px-6">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to build with us?</h2>
-            <p className="text-gray-400 mb-8">Let&apos;s discuss how our technology expertise can accelerate your business goals.</p>
+            <p className="text-muted-foreground mb-8">
+              Let&apos;s discuss how our technology expertise can accelerate your business goals.
+            </p>
             <a href="/contact" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#a855f7] hover:bg-[#9333ea] text-white font-medium transition-colors">
               Get in Touch <ArrowRight className="w-4 h-4" />
             </a>
