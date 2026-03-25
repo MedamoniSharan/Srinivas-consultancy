@@ -11,8 +11,10 @@ const app = express();
 const PORT = Number(process.env.PORT || 5001);
 
 const PAYPAL_BASE_URL = "https://api-m.sandbox.paypal.com";
-const ORDER_AMOUNT = process.env.PAYPAL_ORDER_AMOUNT || "49.00";
-const ORDER_CURRENCY = process.env.PAYPAL_ORDER_CURRENCY || "USD";
+const DEFAULT_ORDER_AMOUNT = process.env.PAYPAL_ORDER_AMOUNT || "49.00";
+const DEFAULT_ORDER_CURRENCY = process.env.PAYPAL_ORDER_CURRENCY || "USD";
+const MIN_AMOUNT = Number(process.env.PAYPAL_MIN_AMOUNT || 0.01);
+const MAX_AMOUNT = Number(process.env.PAYPAL_MAX_AMOUNT || 10000);
 
 app.use(cors());
 app.use(express.json());
@@ -47,7 +49,31 @@ async function getPayPalAccessToken() {
   return data.access_token;
 }
 
-async function createPayPalOrder(accessToken) {
+function normalizeCurrency(currency) {
+  if (!currency) return DEFAULT_ORDER_CURRENCY;
+  return String(currency).trim().toUpperCase();
+}
+
+function normalizeAmount(value) {
+  if (value === undefined || value === null || value === "") return DEFAULT_ORDER_AMOUNT;
+  const raw = typeof value === "number" ? String(value) : String(value).trim();
+  if (!/^\d+(\.\d{1,2})?$/.test(raw)) {
+    throw new Error("Invalid amount format. Use up to 2 decimal places.");
+  }
+  const numeric = Number(raw);
+  if (!Number.isFinite(numeric)) {
+    throw new Error("Invalid amount.");
+  }
+  if (numeric < MIN_AMOUNT) {
+    throw new Error(`Amount must be at least ${MIN_AMOUNT}.`);
+  }
+  if (numeric > MAX_AMOUNT) {
+    throw new Error(`Amount must be at most ${MAX_AMOUNT}.`);
+  }
+  return numeric.toFixed(2);
+}
+
+async function createPayPalOrder(accessToken, { amount, currency }) {
   const response = await fetch(`${PAYPAL_BASE_URL}/v2/checkout/orders`, {
     method: "POST",
     headers: {
@@ -59,8 +85,8 @@ async function createPayPalOrder(accessToken) {
       purchase_units: [
         {
           amount: {
-            currency_code: ORDER_CURRENCY,
-            value: ORDER_AMOUNT,
+            currency_code: currency,
+            value: amount,
           },
         },
       ],
@@ -107,9 +133,16 @@ function createTransporter() {
   });
 }
 
-async function sendReceiptEmail({ toEmail, orderId, paymentStatus }) {
+function getCapturedAmount(capture) {
+  const amount = capture?.purchase_units?.[0]?.payments?.captures?.[0]?.amount;
+  if (!amount?.value || !amount?.currency_code) return null;
+  return { value: amount.value, currency: amount.currency_code };
+}
+
+async function sendReceiptEmail({ toEmail, orderId, paymentStatus, amount }) {
   const transporter = createTransporter();
   const fromEmail = process.env.SMTP_FROM || process.env.SMTP_USER;
+  const formattedAmount = amount?.value && amount?.currency ? `${amount.value} ${amount.currency}` : "N/A";
 
   await transporter.sendMail({
     from: fromEmail,
@@ -117,17 +150,24 @@ async function sendReceiptEmail({ toEmail, orderId, paymentStatus }) {
     subject: "Payment Successful",
     text: [
       "Your payment was successful.",
-      `Amount: $${ORDER_AMOUNT}`,
+      `Amount: ${formattedAmount}`,
       `Order ID: ${orderId}`,
       `Payment status: ${paymentStatus}`,
     ].join("\n"),
   });
 }
 
-app.post("/api/create-order", async (_req, res) => {
+app.post("/api/create-order", async (req, res) => {
   try {
+    const { amount, currency } = req.body || {};
+    const normalizedAmount = normalizeAmount(amount);
+    const normalizedCurrency = normalizeCurrency(currency);
+
     const accessToken = await getPayPalAccessToken();
-    const order = await createPayPalOrder(accessToken);
+    const order = await createPayPalOrder(accessToken, {
+      amount: normalizedAmount,
+      currency: normalizedCurrency,
+    });
 
     res.status(200).json({
       orderID: order.id,
@@ -160,18 +200,21 @@ app.post("/api/capture-order", async (req, res) => {
       });
     }
 
+    const capturedAmount = getCapturedAmount(capture);
+
     await sendReceiptEmail({
       toEmail: email,
       orderId: orderID,
       paymentStatus: capture.status,
+      amount: capturedAmount,
     });
 
     return res.status(200).json({
       success: true,
       orderID,
       status: capture.status,
-      amount: `$${ORDER_AMOUNT}`,
-      currency: ORDER_CURRENCY,
+      amount: capturedAmount?.value ? `$${capturedAmount.value}` : undefined,
+      currency: capturedAmount?.currency || DEFAULT_ORDER_CURRENCY,
       message: "Payment captured and receipt email sent",
     });
   } catch (error) {

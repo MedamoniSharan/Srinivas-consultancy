@@ -10,6 +10,13 @@ const PAYPAL_CURRENCY =
   env.VITE_PAYPAL_CURRENCY || env.NEXT_PUBLIC_PAYPAL_CURRENCY || process.env.NEXT_PUBLIC_PAYPAL_CURRENCY || "USD";
 const ENROLLMENT_FEE =
   env.VITE_ENROLLMENT_FEE || env.NEXT_PUBLIC_ENROLLMENT_FEE || process.env.NEXT_PUBLIC_ENROLLMENT_FEE || "49.00";
+const MIN_ENROLLMENT_FEE =
+  env.VITE_MIN_ENROLLMENT_FEE || env.NEXT_PUBLIC_MIN_ENROLLMENT_FEE || process.env.NEXT_PUBLIC_MIN_ENROLLMENT_FEE || "0.01";
+const MAX_ENROLLMENT_FEE =
+  env.VITE_MAX_ENROLLMENT_FEE ||
+  env.NEXT_PUBLIC_MAX_ENROLLMENT_FEE ||
+  process.env.NEXT_PUBLIC_MAX_ENROLLMENT_FEE ||
+  "10000";
 const COMPANY_NAME =
   env.VITE_COMPANY_NAME || env.NEXT_PUBLIC_COMPANY_NAME || process.env.NEXT_PUBLIC_COMPANY_NAME || "TelivAI Solutions";
 const ITEM_NAME =
@@ -81,14 +88,27 @@ function getRequiredFieldErrors(applicant) {
   return errors;
 }
 
-function buildApplicantPayload(applicant) {
+function normalizeAmountInput(value) {
+  const raw = String(value ?? "").trim();
+  if (!raw) return { ok: false, message: "Amount is required." };
+  if (!/^\d+(\.\d{1,2})?$/.test(raw)) return { ok: false, message: "Enter a valid amount (up to 2 decimals)." };
+  const numeric = Number(raw);
+  if (!Number.isFinite(numeric)) return { ok: false, message: "Enter a valid amount." };
+  const min = Number(MIN_ENROLLMENT_FEE);
+  const max = Number(MAX_ENROLLMENT_FEE);
+  if (Number.isFinite(min) && numeric < min) return { ok: false, message: `Amount must be at least ${min}.` };
+  if (Number.isFinite(max) && numeric > max) return { ok: false, message: `Amount must be at most ${max}.` };
+  return { ok: true, value: numeric.toFixed(2) };
+}
+
+function buildApplicantPayload(applicant, amount) {
   return {
     fullName: applicant.fullName.trim(),
     email: applicant.email.trim(),
     phone: applicant.phone.trim(),
     position: applicant.position,
     consentAccepted: applicant.consentAccepted,
-    enrollmentFee: ENROLLMENT_FEE,
+    enrollmentFee: amount,
     currency: PAYPAL_CURRENCY,
   };
 }
@@ -101,6 +121,7 @@ export default function CareerEnrollmentForm() {
     position: "",
     consentAccepted: false,
   });
+  const [amount, setAmount] = useState(ENROLLMENT_FEE);
   const [fieldErrors, setFieldErrors] = useState({});
   const [formError, setFormError] = useState("");
   const [paymentStatus, setPaymentStatus] = useState("idle");
@@ -165,11 +186,20 @@ export default function CareerEnrollmentForm() {
       },
       createOrder: async () => {
         setPaymentStatus("idle");
+        const amountValidation = normalizeAmountInput(amount);
+        if (!amountValidation.ok) {
+          setFieldErrors((prev) => ({ ...prev, amount: amountValidation.message }));
+          throw new Error(amountValidation.message);
+        }
         const response = await fetch(`${PAYPAL_BACKEND_URL}/api/create-order`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
+          body: JSON.stringify({
+            amount: amountValidation.value,
+            currency: PAYPAL_CURRENCY,
+          }),
         });
         if (!response.ok) {
           throw new Error("Failed to create order on backend.");
@@ -203,7 +233,7 @@ export default function CareerEnrollmentForm() {
             payerID: data.payerID,
             captureID: capture.captureID || "",
             status: capture?.status || "COMPLETED",
-            amount: capture?.amount?.replace("$", "") || ENROLLMENT_FEE,
+            amount: capture?.amount?.replace("$", "") || normalizeAmountInput(amount).value || ENROLLMENT_FEE,
             currency: capture?.currency || PAYPAL_CURRENCY,
             paidAt: new Date().toISOString(),
           };
@@ -251,6 +281,10 @@ export default function CareerEnrollmentForm() {
     if (!canStartPayment) return;
 
     const errors = getRequiredFieldErrors(applicant);
+    const amountValidation = normalizeAmountInput(amount);
+    if (!amountValidation.ok) {
+      errors.amount = amountValidation.message;
+    }
     if (Object.keys(errors).length) {
       setFieldErrors(errors);
       setFormError("Please fill all required fields before starting payment.");
@@ -269,6 +303,10 @@ export default function CareerEnrollmentForm() {
     if (isSubmitting) return;
 
     const errors = getRequiredFieldErrors(applicant);
+    const amountValidation = normalizeAmountInput(amount);
+    if (!amountValidation.ok) {
+      errors.amount = amountValidation.message;
+    }
     if (Object.keys(errors).length) {
       setFieldErrors(errors);
       setFormError("Please fill all required fields.");
@@ -282,7 +320,8 @@ export default function CareerEnrollmentForm() {
 
     try {
       setIsSubmitting(true);
-      const applicantPayload = buildApplicantPayload(applicant);
+      const normalizedAmount = amountValidation.ok ? amountValidation.value : String(amount || "").trim();
+      const applicantPayload = buildApplicantPayload(applicant, normalizedAmount);
       const receiptId = `REC-${Date.now()}`;
       const createdAt = new Date().toISOString();
       const enrollmentRecord = {
@@ -434,8 +473,39 @@ export default function CareerEnrollmentForm() {
       </label>
       {fieldErrors.consentAccepted ? <p className="text-xs text-red-400">{fieldErrors.consentAccepted}</p> : null}
 
-      <div className="rounded-xl border border-[#a855f7]/20 bg-[#a855f7]/5 px-4 py-3 text-sm text-muted-foreground">
-        Enrollment fee: <span className="font-semibold text-foreground">{ENROLLMENT_FEE}</span> {PAYPAL_CURRENCY}
+      <div className="space-y-1">
+        <div className="flex items-center justify-between gap-3 rounded-xl border border-[#a855f7]/20 bg-[#a855f7]/5 px-4 py-3">
+          <div className="text-sm text-muted-foreground">Payment amount ({PAYPAL_CURRENCY})</div>
+          <input
+            type="text"
+            inputMode="decimal"
+            value={amount}
+            onChange={(event) => {
+              setAmount(event.target.value);
+              setFieldErrors((prev) => ({ ...prev, amount: undefined }));
+              setFormError("");
+              // If user changes amount after rendering buttons, require restarting payment
+              if (showPayPalButtons && paymentStatus !== "approved") {
+                setShowPayPalButtons(false);
+                setSdkReady(false);
+                hasRenderedButtonsRef.current = false;
+              }
+              if (paymentStatus === "approved") {
+                setPaymentStatus("idle");
+                setPaymentDetails(null);
+                setShowPayPalButtons(false);
+                setSdkReady(false);
+                hasRenderedButtonsRef.current = false;
+              }
+            }}
+            className="w-32 rounded-lg px-3 py-2 text-sm transition-colors focus:outline-none bg-card border border-border text-foreground placeholder:text-muted-foreground focus:border-[#a855f7]/50 text-right"
+            placeholder="0.01"
+          />
+        </div>
+        {fieldErrors.amount ? <p className="text-xs text-red-400">{fieldErrors.amount}</p> : null}
+        <p className="text-[11px] text-muted-foreground">
+          Min {MIN_ENROLLMENT_FEE} • Max {MAX_ENROLLMENT_FEE}
+        </p>
       </div>
 
       {!showPayPalButtons ? (
