@@ -385,7 +385,7 @@ export default function CareerEnrollmentForm() {
         placeholder="Full name"
         value={applicant.fullName}
         onChange={(event) => onFieldChange("fullName", event.target.value)}
-        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-[#a855f7]/50 transition-colors"
+        className="w-full rounded-xl px-4 py-3 text-sm transition-colors focus:outline-none bg-white border border-zinc-300 text-zinc-900 placeholder-zinc-500 focus:border-[#a855f7]/50 dark:bg-white/5 dark:border-white/10 dark:text-white dark:placeholder-gray-600"
       />
       {fieldErrors.fullName ? <p className="text-xs text-red-400">{fieldErrors.fullName}</p> : null}
 
@@ -394,7 +394,7 @@ export default function CareerEnrollmentForm() {
         placeholder="Email"
         value={applicant.email}
         onChange={(event) => onFieldChange("email", event.target.value)}
-        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-[#a855f7]/50 transition-colors"
+        className="w-full rounded-xl px-4 py-3 text-sm transition-colors focus:outline-none bg-white border border-zinc-300 text-zinc-900 placeholder-zinc-500 focus:border-[#a855f7]/50 dark:bg-white/5 dark:border-white/10 dark:text-white dark:placeholder-gray-600"
       />
       {fieldErrors.email ? <p className="text-xs text-red-400">{fieldErrors.email}</p> : null}
 
@@ -403,14 +403,14 @@ export default function CareerEnrollmentForm() {
         placeholder="Phone number"
         value={applicant.phone}
         onChange={(event) => onFieldChange("phone", event.target.value)}
-        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-[#a855f7]/50 transition-colors"
+        className="w-full rounded-xl px-4 py-3 text-sm transition-colors focus:outline-none bg-white border border-zinc-300 text-zinc-900 placeholder-zinc-500 focus:border-[#a855f7]/50 dark:bg-white/5 dark:border-white/10 dark:text-white dark:placeholder-gray-600"
       />
       {fieldErrors.phone ? <p className="text-xs text-red-400">{fieldErrors.phone}</p> : null}
 
       <select
         value={applicant.position}
         onChange={(event) => onFieldChange("position", event.target.value)}
-        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-gray-400 text-sm focus:outline-none focus:border-[#a855f7]/50 transition-colors"
+        className="w-full rounded-xl px-4 py-3 text-sm transition-colors focus:outline-none bg-white border border-zinc-300 text-zinc-700 focus:border-[#a855f7]/50 dark:bg-white/5 dark:border-white/10 dark:text-gray-400"
       >
         <option value="">Position applying for (select)</option>
         <option value="ai-ml">AI/ML Engineer</option>
@@ -423,7 +423,7 @@ export default function CareerEnrollmentForm() {
       </select>
       {fieldErrors.position ? <p className="text-xs text-red-400">{fieldErrors.position}</p> : null}
 
-      <label className="flex items-start gap-2 text-xs text-gray-400 cursor-pointer">
+      <label className="flex items-start gap-2 text-xs text-zinc-600 dark:text-gray-400 cursor-pointer">
         <input
           type="checkbox"
           checked={applicant.consentAccepted}
@@ -434,8 +434,8 @@ export default function CareerEnrollmentForm() {
       </label>
       {fieldErrors.consentAccepted ? <p className="text-xs text-red-400">{fieldErrors.consentAccepted}</p> : null}
 
-      <div className="rounded-xl border border-[#a855f7]/20 bg-[#a855f7]/5 px-4 py-3 text-sm text-gray-300">
-        Enrollment fee: <span className="font-semibold text-white">{ENROLLMENT_FEE}</span> {PAYPAL_CURRENCY}
+      <div className="rounded-xl border border-[#a855f7]/20 bg-[#a855f7]/5 px-4 py-3 text-sm text-zinc-700 dark:text-gray-300">
+        Enrollment fee: <span className="font-semibold text-zinc-900 dark:text-white">{ENROLLMENT_FEE}</span> {PAYPAL_CURRENCY}
       </div>
 
       {!showPayPalButtons ? (
@@ -452,7 +452,7 @@ export default function CareerEnrollmentForm() {
       {showPayPalButtons && paymentStatus !== "approved" ? (
         <div className="space-y-3">
           <div ref={paypalContainerRef} />
-          {isPaying ? <p className="text-xs text-gray-400">Processing payment...</p> : null}
+          {isPaying ? <p className="text-xs text-zinc-600 dark:text-gray-400">Processing payment...</p> : null}
         </div>
       ) : null}
 
@@ -502,7 +502,7 @@ export default function CareerEnrollmentForm() {
               {isSendingReceiptEmail ? "Sending..." : "Send Receipt Email"}
             </button>
           </div>
-          {receiptEmailStatus ? <p className="text-xs text-gray-300">{receiptEmailStatus}</p> : null}
+          {receiptEmailStatus ? <p className="text-xs text-zinc-600 dark:text-gray-300">{receiptEmailStatus}</p> : null}
         </div>
       ) : null}
     </form>
