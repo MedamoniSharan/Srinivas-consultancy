@@ -58,9 +58,11 @@ export default function UiUxDesignerPage() {
 
       {/* About the Role */}
       <AnimatedSection className="max-w-5xl mx-auto px-6 py-16">
-        <div className="bg-gradient-to-br from-zinc-900 to-black border border-[#a855f7]/20 rounded-2xl p-8 md:p-10">
-          <h2 className="text-2xl font-bold mb-4">About the Role</h2>
-          <p className="text-zinc-400 leading-relaxed">As a UI/UX Designer, you will craft intuitive user experiences through deep research, wireframing, and modern design systems. You'll own the end-to-end design process—from discovery and ideation to pixel-perfect handoff—ensuring every interaction feels seamless and delightful. Your designs will directly shape how thousands of users experience our products every day.</p>
+        <div className="bg-card/80 border border-border rounded-2xl p-8 md:p-10">
+          <h2 className="text-2xl font-bold mb-4 text-foreground">About the Role</h2>
+          <p className="text-muted-foreground leading-relaxed">
+            As a UI/UX Designer, you will craft intuitive user experiences through deep research, wireframing, and modern design systems. You'll own the end-to-end design process—from discovery and ideation to pixel-perfect handoff—ensuring every interaction feels seamless and delightful. Your designs will directly shape how thousands of users experience our products every day.
+          </p>
         </div>
       </AnimatedSection>
 

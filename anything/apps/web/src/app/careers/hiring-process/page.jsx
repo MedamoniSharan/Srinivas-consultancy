@@ -1,4 +1,5 @@
 import PageLayout from "@/components/PageLayout";
+import CareerApplicationForm from "@/components/CareerApplicationForm";
 import { FileText, Search, Users, Award, Rocket } from "lucide-react";
 import { pageMeta } from "@/app/seo/buildPageMeta";
 
@@ -52,7 +53,7 @@ export default function HiringProcessPage() {
         <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight">
           Hiring Process at <span className="text-[#a855f7]">TelivAI Solutions</span>
         </h1>
-        <p className="text-gray-400 text-lg max-w-xl mx-auto">
+        <p className="text-muted-foreground text-lg max-w-xl mx-auto">
           Here's a step-by-step guide to our process:
         </p>
       </section>
@@ -62,7 +63,7 @@ export default function HiringProcessPage() {
           {steps.map((step, i) => (
             <div
               key={i}
-              className="group bg-zinc-900/60 border border-[#a855f7]/20 rounded-2xl p-6 md:p-8 hover:border-[#a855f7]/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.1)]"
+              className="group bg-card/80 border border-border rounded-2xl p-6 md:p-8 hover:border-[#a855f7]/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.1)]"
             >
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-10 h-10 rounded-full bg-[#a855f7] flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
@@ -72,8 +73,8 @@ export default function HiringProcessPage() {
                   {step.icon}
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{step.desc}</p>
+              <h3 className="text-xl font-bold text-foreground mb-2">{step.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
             </div>
           ))}
         </div>
@@ -81,7 +82,7 @@ export default function HiringProcessPage() {
 
       <section className="max-w-5xl mx-auto px-6 pb-24">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-[#a855f7]">Tips for Preparation</h2>
-        <p className="text-gray-400 text-center mb-12 max-w-lg mx-auto">
+        <p className="text-muted-foreground text-center mb-12 max-w-lg mx-auto">
           Practical tips to prepare for our hiring steps.
         </p>
 
@@ -92,49 +93,24 @@ export default function HiringProcessPage() {
             { title: "Practice Interview Skills", desc: "Practice common interview questions and be ready to discuss your projects and achievements." },
             { title: "Showcase Your Passion", desc: "Demonstrate enthusiasm for the role and the company, and be ready to share your vision." },
           ].map((tip, i) => (
-            <div key={i} className="bg-zinc-900/60 border border-[#a855f7]/20 rounded-2xl p-6 text-center hover:border-[#a855f7]/50 transition-all duration-500 hover:shadow-[0_0_20px_rgba(168,85,247,0.1)]">
-              <h3 className="font-bold text-white mb-3">{tip.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{tip.desc}</p>
+            <div
+              key={i}
+              className="bg-card/80 border border-border rounded-2xl p-6 text-center hover:border-[#a855f7]/50 transition-all duration-500 hover:shadow-[0_0_20px_rgba(168,85,247,0.1)]"
+            >
+              <h3 className="font-bold text-foreground mb-3">{tip.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{tip.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       <section className="max-w-5xl mx-auto px-6 pb-24">
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-zinc-900/60 border border-[#a855f7]/20 rounded-2xl p-8">
-            <h3 className="text-xl font-bold text-white mb-2">Refer a Friend</h3>
-            <p className="text-gray-400 text-sm mb-6">Employee referral program — share great talent.</p>
-            <form className="space-y-4">
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-[#a855f7]/50 transition-colors"
-              />
-              <input
-                type="email"
-                placeholder="Friend's Email"
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-[#a855f7]/50 transition-colors"
-              />
-              <button
-                type="submit"
-                className="w-full bg-[#a855f7] hover:bg-[#9333ea] text-white py-3 rounded-xl font-semibold transition-all hover:shadow-[0_0_20px_rgba(168,85,247,0.4)]"
-              >
-                Refer
-              </button>
-            </form>
-          </div>
-
-          <div className="bg-zinc-900/60 border border-[#a855f7]/20 rounded-2xl p-8">
-            <h3 className="text-xl font-bold text-white mb-2">Contact HR</h3>
-            <p className="text-gray-400 text-sm mb-6">For application questions, connect with our HR team.</p>
-            <a
-              href="/contact"
-              className="inline-block w-full text-center bg-[#a855f7] hover:bg-[#9333ea] text-white py-3 rounded-xl font-semibold transition-all hover:shadow-[0_0_20px_rgba(168,85,247,0.4)]"
-            >
-              Contact HR
-            </a>
-          </div>
+        <div className="bg-card/80 border border-border rounded-2xl p-8 md:p-10">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Submit Application</h2>
+          <p className="text-muted-foreground text-sm mb-8">
+            Fill in your details and upload your resume. After submitting, a confirmation email will be sent to your mail id.
+          </p>
+          <CareerApplicationForm />
         </div>
       </section>
     </PageLayout>

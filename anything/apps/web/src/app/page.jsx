@@ -561,15 +561,12 @@ const CTA = () => {
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">Let AI do the Work so you<br />can Scale Faster</h2>
           <p className="text-zinc-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">Book a Call Today and Start Automating</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="group flex items-center gap-2 bg-[#a855f7] hover:bg-[#9333ea] text-white px-8 py-3 rounded-xl font-bold transition-all hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]">
-              Book a free call <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </button>
-            <button
-              type="button"
-              className="flex items-center gap-2 text-white border border-white/25 bg-white/5 hover:bg-white/10 hover:border-white/40 px-8 py-3 rounded-xl font-bold transition-all"
+            <a
+              href="tel:+16784639506"
+              className="group inline-flex items-center gap-2 bg-[#a855f7] hover:bg-[#9333ea] text-white px-8 py-3 rounded-xl font-bold transition-all hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]"
             >
-              Another AI Template <ArrowUpRight size={18} />
-            </button>
+              Book a free call <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </a>
           </div>
         </div>
       </AnimatedSection>

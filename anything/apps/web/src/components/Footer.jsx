@@ -15,22 +15,6 @@ export default function Footer() {
                 height={412}
               />
             </a>
-            <p className="text-sm leading-snug text-muted-foreground">
-              Automate Smarter, Optimize Faster, and Grow Stronger.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-2 sm:mt-10 lg:mt-auto lg:pt-10">
-              <input
-                type="email"
-                placeholder="Join our newsletter"
-                className="min-w-0 flex-1 rounded-lg border border-border bg-muted/40 px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-[#a855f7]/50 focus:outline-none sm:max-w-[200px]"
-              />
-              <button
-                type="button"
-                className="shrink-0 rounded-lg bg-[#a855f7] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#9333ea]"
-              >
-                Subscribe
-              </button>
-            </div>
           </div>
 
           <nav
