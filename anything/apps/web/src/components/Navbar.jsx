@@ -109,13 +109,24 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between overflow-visible px-6 py-4">
-        <a href="/" className="flex h-12 shrink-0 items-center overflow-visible pr-1 sm:pr-6 md:pr-10 lg:pr-12">
+        <a
+          href="/"
+          className="group relative flex h-12 shrink-0 items-center overflow-visible pr-1 sm:pr-6 md:pr-10 lg:pr-12"
+        >
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -inset-y-2 -left-2 right-0 rounded-2xl bg-gradient-to-r from-[#a855f7]/20 via-[#a855f7]/10 to-transparent opacity-80 blur-[0.5px] transition-opacity group-hover:opacity-100"
+          />
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -inset-y-2 -left-2 right-0 rounded-2xl border border-[#a855f7]/20 opacity-60 transition-opacity group-hover:opacity-90"
+          />
           <img
             src="/images/TelivAI.png"
             alt="TelivAI Solutions"
-            className="block h-12 w-auto max-w-[300px] object-contain object-left origin-left scale-[2.8] sm:max-w-[340px] sm:scale-[3] md:max-w-[380px] md:scale-[3.2] lg:scale-[3.35]"
-            width={380}
-            height={60}
+            className="relative z-10 block h-16 w-auto -translate-y-1 max-w-[320px] object-contain object-left sm:h-[4.5rem] sm:max-w-[360px] md:h-20 md:max-w-[420px]"
+            width={520}
+            height={90}
           />
         </a>
 

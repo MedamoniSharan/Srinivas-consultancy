@@ -1,19 +1,22 @@
 import React from "react";
+import { ArrowRight } from "lucide-react";
 
 export default function Footer() {
   return (
     <footer className="border-t border-border/60">
       <div className="mx-auto max-w-7xl px-6 py-8 sm:py-10">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-stretch lg:justify-between lg:gap-10">
-          <div className="flex max-w-sm shrink-0 flex-col sm:max-w-md lg:max-w-[min(100%,560px)]">
-            <a href="/" className="mb-1 inline-flex items-start">
-              <img
-                src="/images/TelivAI.png"
-                alt="TelivAI Solutions"
-                className="block h-32 w-auto max-w-[min(100%,720px)] object-contain object-left sm:h-36 sm:max-w-[820px] md:h-40 md:max-w-[900px] lg:h-[12rem] lg:max-w-[980px]"
-                width={920}
-                height={198}
-              />
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
+          <div className="flex max-w-sm shrink-0 flex-col sm:max-w-md lg:max-w-[min(100%,680px)]">
+            <a href="/" className="mb-0 inline-flex w-full items-start justify-start">
+              <div className="h-48 w-[520px] overflow-hidden sm:h-56 sm:w-[600px] md:h-64 md:w-[680px] lg:h-[22rem] lg:w-[820px]">
+                <img
+                  src="/images/TelivAI.png"
+                  alt="TelivAI Solutions"
+                  className="block h-full w-full object-cover object-left object-top"
+                  width={1400}
+                  height={300}
+                />
+              </div>
             </a>
             <p className="text-sm leading-snug text-muted-foreground">
               Automate Smarter, Optimize Faster, and Grow Stronger.
@@ -41,22 +44,38 @@ export default function Footer() {
               <h4 className="mb-2.5 text-sm font-semibold text-foreground">Products</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>
-                  <a href="/products/ai-agents" className="transition-colors hover:text-foreground">
+                  <a
+                    href="/products/ai-agents"
+                    className="group inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                  >
+                    <ArrowRight className="h-3.5 w-3.5 text-muted-foreground/70 transition-colors group-hover:text-[#a855f7]" />
                     AI Agents
                   </a>
                 </li>
                 <li>
-                  <a href="/products/crm" className="transition-colors hover:text-foreground">
+                  <a
+                    href="/products/crm"
+                    className="group inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                  >
+                    <ArrowRight className="h-3.5 w-3.5 text-muted-foreground/70 transition-colors group-hover:text-[#a855f7]" />
                     CRM Platform
                   </a>
                 </li>
                 <li>
-                  <a href="/products/erp" className="transition-colors hover:text-foreground">
+                  <a
+                    href="/products/erp"
+                    className="group inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                  >
+                    <ArrowRight className="h-3.5 w-3.5 text-muted-foreground/70 transition-colors group-hover:text-[#a855f7]" />
                     ERP System
                   </a>
                 </li>
                 <li>
-                  <a href="/products/procurement" className="transition-colors hover:text-foreground">
+                  <a
+                    href="/products/procurement"
+                    className="group inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                  >
+                    <ArrowRight className="h-3.5 w-3.5 text-muted-foreground/70 transition-colors group-hover:text-[#a855f7]" />
                     Procurement System
                   </a>
                 </li>
@@ -66,27 +85,47 @@ export default function Footer() {
               <h4 className="mb-2.5 text-sm font-semibold text-foreground">Services</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>
-                  <a href="/services/staffing" className="transition-colors hover:text-foreground">
+                  <a
+                    href="/services/staffing"
+                    className="group inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                  >
+                    <ArrowRight className="h-3.5 w-3.5 text-muted-foreground/70 transition-colors group-hover:text-[#a855f7]" />
                     IT Staffing & Consulting
                   </a>
                 </li>
                 <li>
-                  <a href="/services/ai-development" className="transition-colors hover:text-foreground">
+                  <a
+                    href="/services/ai-development"
+                    className="group inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                  >
+                    <ArrowRight className="h-3.5 w-3.5 text-muted-foreground/70 transition-colors group-hover:text-[#a855f7]" />
                     AI Development
                   </a>
                 </li>
                 <li>
-                  <a href="/services/mobile-development" className="transition-colors hover:text-foreground">
+                  <a
+                    href="/services/mobile-development"
+                    className="group inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                  >
+                    <ArrowRight className="h-3.5 w-3.5 text-muted-foreground/70 transition-colors group-hover:text-[#a855f7]" />
                     Mobile App Development
                   </a>
                 </li>
                 <li>
-                  <a href="/services/web-development" className="transition-colors hover:text-foreground">
+                  <a
+                    href="/services/web-development"
+                    className="group inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                  >
+                    <ArrowRight className="h-3.5 w-3.5 text-muted-foreground/70 transition-colors group-hover:text-[#a855f7]" />
                     Web Development
                   </a>
                 </li>
                 <li>
-                  <a href="/services/custom-software" className="transition-colors hover:text-foreground">
+                  <a
+                    href="/services/custom-software"
+                    className="group inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                  >
+                    <ArrowRight className="h-3.5 w-3.5 text-muted-foreground/70 transition-colors group-hover:text-[#a855f7]" />
                     Custom Software
                   </a>
                 </li>
@@ -96,32 +135,56 @@ export default function Footer() {
               <h4 className="mb-2.5 text-sm font-semibold text-foreground">Company</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>
-                  <a href="/about" className="transition-colors hover:text-foreground">
+                  <a
+                    href="/about"
+                    className="group inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                  >
+                    <ArrowRight className="h-3.5 w-3.5 text-muted-foreground/70 transition-colors group-hover:text-[#a855f7]" />
                     About
                   </a>
                 </li>
                 <li>
-                  <a href="/careers" className="transition-colors hover:text-foreground">
+                  <a
+                    href="/careers"
+                    className="group inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                  >
+                    <ArrowRight className="h-3.5 w-3.5 text-muted-foreground/70 transition-colors group-hover:text-[#a855f7]" />
                     Careers
                   </a>
                 </li>
                 <li>
-                  <a href="/careers/hiring-process" className="transition-colors hover:text-foreground">
+                  <a
+                    href="/careers/hiring-process"
+                    className="group inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                  >
+                    <ArrowRight className="h-3.5 w-3.5 text-muted-foreground/70 transition-colors group-hover:text-[#a855f7]" />
                     Hiring Process
                   </a>
                 </li>
                 <li>
-                  <a href="/contact" className="transition-colors hover:text-foreground">
+                  <a
+                    href="/contact"
+                    className="group inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                  >
+                    <ArrowRight className="h-3.5 w-3.5 text-muted-foreground/70 transition-colors group-hover:text-[#a855f7]" />
                     Contact
                   </a>
                 </li>
                 <li>
-                  <a href="/industries" className="transition-colors hover:text-foreground">
+                  <a
+                    href="/industries"
+                    className="group inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                  >
+                    <ArrowRight className="h-3.5 w-3.5 text-muted-foreground/70 transition-colors group-hover:text-[#a855f7]" />
                     Industries
                   </a>
                 </li>
                 <li>
-                  <a href="/technologies" className="transition-colors hover:text-foreground">
+                  <a
+                    href="/technologies"
+                    className="group inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                  >
+                    <ArrowRight className="h-3.5 w-3.5 text-muted-foreground/70 transition-colors group-hover:text-[#a855f7]" />
                     Technologies
                   </a>
                 </li>
