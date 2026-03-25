@@ -28,7 +28,11 @@ export default function ContactPage() {
           {[
             { icon: <Mail size={20} />, label: "Email", value: "info@telivai.com" },
             { icon: <Phone size={20} />, label: "Phone", value: "+1 (555) 123-4567" },
-            { icon: <MapPin size={20} />, label: "Location", value: "Hyderabad, India" },
+            {
+              icon: <MapPin size={20} />,
+              label: "Location",
+              value: "2570 Highbrooke Tri, Duluth, GA 30097",
+            },
             { icon: <Clock size={20} />, label: "Hours", value: "Mon - Fri, 9am - 6pm" },
           ].map((item, i) => (
             <div key={i} className="text-center p-5 bg-white/5 border border-white/10 rounded-2xl">

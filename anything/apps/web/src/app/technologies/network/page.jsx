@@ -100,8 +100,8 @@ export default function NetworkPage() {
           <div className="max-w-3xl mx-auto text-center px-6">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Build a network that never sleeps</h2>
             <p className="text-gray-400 mb-8">Talk to our network engineers about designing infrastructure that scales with you.</p>
-            <a href="/contact" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#a855f7] hover:bg-[#9333ea] text-white font-medium transition-colors">
-              Start a Conversation <ArrowRight className="w-4 h-4" />
+            <a href="/technologies#enrollment" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#a855f7] hover:bg-[#9333ea] text-white font-medium transition-colors">
+              Enroll Now <ArrowRight className="w-4 h-4" />
             </a>
           </div>
         </AnimatedSection>

@@ -1,5 +1,4 @@
 import PageLayout from "@/components/PageLayout";
-import CareerEnrollmentForm from "@/components/CareerEnrollmentForm";
 import { FileText, Search, Users, Award, Rocket } from "lucide-react";
 import { pageMeta } from "@/app/seo/buildPageMeta";
 
@@ -126,10 +125,17 @@ export default function HiringProcessPage() {
             </form>
           </div>
 
-          <div id="enrollment" className="bg-zinc-900/60 border border-[#a855f7]/20 rounded-2xl p-8 scroll-mt-28">
-            <h3 className="text-xl font-bold text-white mb-2">Contact HR & Submit Resume</h3>
-            <p className="text-gray-400 text-sm mb-6">Questions? Reach us or upload your resume.</p>
-            <CareerEnrollmentForm />
+          <div className="bg-zinc-900/60 border border-[#a855f7]/20 rounded-2xl p-8">
+            <h3 className="text-xl font-bold text-white mb-2">Contact HR</h3>
+            <p className="text-gray-400 text-sm mb-6">
+              For paid enrollment with PayPal, visit our Technologies page. General questions? Use Contact or email HR.
+            </p>
+            <a
+              href="/technologies#enrollment"
+              className="inline-block w-full text-center bg-[#a855f7] hover:bg-[#9333ea] text-white py-3 rounded-xl font-semibold transition-all hover:shadow-[0_0_20px_rgba(168,85,247,0.4)]"
+            >
+              Go to enrollment
+            </a>
           </div>
         </div>
       </section>

@@ -5,12 +5,12 @@ export default function Footer() {
     <footer className="border-t border-border/60">
       <div className="mx-auto max-w-7xl px-6 py-8 sm:py-10">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-stretch lg:justify-between lg:gap-10">
-          <div className="flex max-w-sm shrink-0 flex-col sm:max-w-md lg:max-w-[min(100%,500px)]">
-            <a href="/" className="mb-3 inline-flex overflow-visible pr-1">
+          <div className="flex max-w-sm shrink-0 flex-col sm:max-w-md lg:max-w-[min(100%,560px)]">
+            <a href="/" className="mb-1 inline-flex items-start">
               <img
                 src="/images/TelivAI.png"
                 alt="TelivAI Solutions"
-                className="h-28 w-auto max-w-[min(100%,620px)] origin-left object-contain object-left sm:h-32 sm:max-w-[700px] md:h-36 md:max-w-[800px] lg:h-[11rem] lg:max-w-[920px]"
+                className="block h-32 w-auto max-w-[min(100%,720px)] object-contain object-left sm:h-36 sm:max-w-[820px] md:h-40 md:max-w-[900px] lg:h-[12rem] lg:max-w-[980px]"
                 width={920}
                 height={198}
               />

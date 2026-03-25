@@ -1,5 +1,6 @@
 import PageLayout from "@/components/PageLayout";
 import AnimatedSection from "@/components/AnimatedSection";
+import CareerEnrollmentForm from "@/components/CareerEnrollmentForm";
 import { ArrowRight, Brain, BarChart3, Network, Shield, Palette, Rocket, Users, Clock, HeartHandshake } from "lucide-react";
 import { pageMeta } from "@/app/seo/buildPageMeta";
 
@@ -90,6 +91,19 @@ export default function TechnologiesPage() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Enrollment & payment */}
+      <section className="max-w-3xl mx-auto px-6 pb-24">
+        <AnimatedSection>
+          <div id="enrollment" className="scroll-mt-28 rounded-2xl border border-[#a855f7]/20 bg-zinc-900/60 p-8 md:p-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">Technology enrollment</h2>
+            <p className="text-gray-400 text-sm mb-8">
+              Complete your details and pay the enrollment fee securely via PayPal.
+            </p>
+            <CareerEnrollmentForm />
+          </div>
+        </AnimatedSection>
       </section>
 
       {/* CTA */}
