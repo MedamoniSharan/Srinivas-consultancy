@@ -3,16 +3,16 @@ import React from "react";
 export default function Footer() {
   return (
     <footer className="border-t border-border/60">
-      <div className="mx-auto max-w-7xl px-6 py-8 sm:py-10">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-stretch lg:justify-between lg:gap-10">
-          <div className="flex max-w-sm shrink-0 flex-col sm:max-w-md lg:max-w-[min(100%,560px)]">
-            <a href="/" className="mb-1 inline-flex items-start">
+      <div className="mx-auto max-w-7xl px-6 py-6 sm:py-7">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between lg:gap-8">
+          <div className="flex shrink-0 flex-col">
+            <a href="/" className="inline-flex items-start">
               <img
                 src="/images/TelivAI.png"
                 alt="TelivAI Solutions"
-                className="block h-56 w-auto max-w-[min(100%,1160px)] object-contain object-left sm:h-60 sm:max-w-[1400px] md:h-64 md:max-w-[1640px] lg:h-72 lg:max-w-[1920px]"
-                width={1920}
-                height={412}
+                className="block h-20 w-auto object-contain object-left sm:h-24"
+                width={640}
+                height={140}
               />
             </a>
           </div>
@@ -114,7 +114,7 @@ export default function Footer() {
           </nav>
         </div>
 
-        <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-border/60 pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center">
+        <div className="mt-6 flex flex-col items-center justify-between gap-2 border-t border-border/60 pt-4 text-xs text-muted-foreground sm:flex-row sm:items-center">
           <p>© {new Date().getFullYear()} TelivAI Solutions. All rights reserved.</p>
           <p className="text-center sm:text-right">Visioned and Crafted by TelivAI Solutions</p>
         </div>

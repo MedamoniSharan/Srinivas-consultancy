@@ -46,7 +46,7 @@ export default function JavaDeveloperPage() {
           <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&q=80&auto=format&fit=crop" alt="" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/45" />
           <div className="relative max-w-5xl mx-auto">
-            <a href="/careers" className="inline-flex items-center text-sm text-zinc-400 hover:text-white mb-8 transition-colors"><ArrowLeft className="w-4 h-4 mr-2" />Back to Careers</a>
+            <a href="/careers" className="inline-flex items-center text-sm text-muted-foreground hover:text-white mb-8 transition-colors"><ArrowLeft className="w-4 h-4 mr-2" />Back to Careers</a>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">Java Developer</h1>
             <div className="flex gap-3 flex-wrap">
               <span className="bg-white/5 border border-white/10 rounded-full px-3 py-1 text-xs text-zinc-300 inline-flex items-center"><MapPin className="w-3 h-3 mr-1" />Hyderabad</span>
@@ -70,7 +70,7 @@ export default function JavaDeveloperPage() {
           <h2 className="text-2xl font-bold mb-6">Key Responsibilities</h2>
           <ul className="space-y-4">
             {responsibilities.map((r, i) => (
-              <li key={i} className="flex gap-3 text-zinc-400 text-sm leading-relaxed"><Check className="w-5 h-5 text-[#a855f7] shrink-0 mt-0.5" />{r}</li>
+              <li key={i} className="flex gap-3 text-muted-foreground text-sm leading-relaxed"><Check className="w-5 h-5 text-[#a855f7] shrink-0 mt-0.5" />{r}</li>
             ))}
           </ul>
         </AnimatedSection>
@@ -78,7 +78,7 @@ export default function JavaDeveloperPage() {
           <h2 className="text-2xl font-bold mb-6">Requirements</h2>
           <ul className="space-y-4">
             {requirements.map((r, i) => (
-              <li key={i} className="flex gap-3 text-zinc-400 text-sm leading-relaxed"><Check className="w-5 h-5 text-[#a855f7] shrink-0 mt-0.5" />{r}</li>
+              <li key={i} className="flex gap-3 text-muted-foreground text-sm leading-relaxed"><Check className="w-5 h-5 text-[#a855f7] shrink-0 mt-0.5" />{r}</li>
             ))}
           </ul>
         </AnimatedSection>
@@ -90,10 +90,10 @@ export default function JavaDeveloperPage() {
         <div className="grid sm:grid-cols-2 gap-6">
           {perks.map((p, i) => (
             <AnimatedSection key={p.title} delay={i * 80}>
-              <div className="bg-zinc-900/50 border border-white/5 rounded-2xl p-6">
+              <div className="bg-card/80 border border-border rounded-2xl p-6">
                 <p.icon className="w-8 h-8 text-[#a855f7] mb-3" />
                 <h3 className="font-semibold mb-1">{p.title}</h3>
-                <p className="text-sm text-zinc-400">{p.description}</p>
+                <p className="text-sm text-muted-foreground">{p.description}</p>
               </div>
             </AnimatedSection>
           ))}
@@ -105,16 +105,16 @@ export default function JavaDeveloperPage() {
         <div className="relative rounded-2xl overflow-hidden">
           <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80&auto=format&fit=crop" alt="Our team" className="w-full h-[300px] object-cover" />
           <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-            <p className="text-xl md:text-2xl font-semibold">Join a team that values innovation</p>
+            <p className="text-xl md:text-2xl font-semibold text-white">Join a team that values innovation</p>
           </div>
         </div>
       </AnimatedSection>
 
       {/* Apply CTA */}
       <AnimatedSection className="max-w-3xl mx-auto px-6 pb-24">
-        <div className="bg-gradient-to-br from-zinc-900 to-black border border-[#a855f7]/20 rounded-2xl p-10 text-center">
+        <div className="bg-card/80 border border-border rounded-2xl p-10 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Apply?</h2>
-          <p className="text-zinc-400 mb-6">Take the next step in your career and join our Java engineering team.</p>
+          <p className="text-muted-foreground mb-6">Take the next step in your career and join our Java engineering team.</p>
           <a href="/careers/hiring-process" className="inline-block bg-[#a855f7] hover:bg-[#9333ea] text-white font-semibold px-8 py-3 rounded-full transition-colors">Apply Now</a>
         </div>
       </AnimatedSection>
