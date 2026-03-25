@@ -98,10 +98,10 @@ export default function TechnologiesPage() {
         <AnimatedSection>
           <div
             id="enrollment"
-            className="scroll-mt-28 rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm md:p-10 dark:border-[#a855f7]/20 dark:bg-zinc-900/60 dark:shadow-none"
+            className="scroll-mt-28 rounded-2xl border border-border bg-card/80 p-8 md:p-10"
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white mb-2">Technology enrollment</h2>
-            <p className="text-zinc-600 dark:text-gray-400 text-sm mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Technology enrollment</h2>
+            <p className="text-muted-foreground text-sm mb-8">
               Complete your details and pay the enrollment fee securely via PayPal.
             </p>
             <CareerEnrollmentForm />

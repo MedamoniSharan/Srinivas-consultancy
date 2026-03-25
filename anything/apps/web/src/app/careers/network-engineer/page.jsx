@@ -44,7 +44,7 @@ export default function NetworkEngineerPage() {
       <AnimatedSection>
         <section className="relative pt-28 pb-20 px-6 overflow-hidden">
           <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80&auto=format&fit=crop" alt="" className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-background/70" />
+          <div className="absolute inset-0 bg-black/45" />
           <div className="relative max-w-5xl mx-auto">
             <a href="/careers" className="inline-flex items-center text-sm text-zinc-400 hover:text-white mb-8 transition-colors"><ArrowLeft className="w-4 h-4 mr-2" />Back to Careers</a>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">Network Engineer</h1>
@@ -104,7 +104,7 @@ export default function NetworkEngineerPage() {
       <AnimatedSection className="max-w-5xl mx-auto px-6 pb-16">
         <div className="relative rounded-2xl overflow-hidden">
           <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80&auto=format&fit=crop" alt="Our team" className="w-full h-[300px] object-cover" />
-          <div className="absolute inset-0 bg-background/55 flex items-center justify-center">
+          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
             <p className="text-xl md:text-2xl font-semibold">Join a team that values innovation</p>
           </div>
         </div>

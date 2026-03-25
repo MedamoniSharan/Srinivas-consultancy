@@ -127,14 +127,12 @@ export default function HiringProcessPage() {
 
           <div className="bg-zinc-900/60 border border-[#a855f7]/20 rounded-2xl p-8">
             <h3 className="text-xl font-bold text-white mb-2">Contact HR</h3>
-            <p className="text-gray-400 text-sm mb-6">
-              For paid enrollment with PayPal, visit our Technologies page. General questions? Use Contact or email HR.
-            </p>
+            <p className="text-gray-400 text-sm mb-6">For application questions, connect with our HR team.</p>
             <a
-              href="/technologies#enrollment"
+              href="/contact"
               className="inline-block w-full text-center bg-[#a855f7] hover:bg-[#9333ea] text-white py-3 rounded-xl font-semibold transition-all hover:shadow-[0_0_20px_rgba(168,85,247,0.4)]"
             >
-              Go to enrollment
+              Contact HR
             </a>
           </div>
         </div>

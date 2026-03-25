@@ -168,7 +168,7 @@ export default function StaffingPage() {
               alt="Staffing and consulting teamwork"
               className="h-[400px] w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/50 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent" />
             <div className="absolute bottom-0 left-0 max-w-2xl p-8 md:p-12">
               <p className="text-xl font-semibold italic leading-relaxed text-foreground md:text-2xl">
                 &ldquo;TelivAI placed three senior engineers on our team in under two weeks. They understood our needs from day one.&rdquo;

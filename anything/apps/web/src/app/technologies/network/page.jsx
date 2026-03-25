@@ -70,12 +70,12 @@ export default function NetworkPage() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {capabilities.map((cap, i) => (
             <AnimatedSection key={cap.title} delay={i * 100}>
-              <div className="bg-zinc-900/50 border border-white/5 rounded-2xl p-6 hover:border-[#a855f7]/30 hover:-translate-y-1 transition-all duration-500">
+              <div className="bg-card/80 border border-border rounded-2xl p-6 hover:border-[#a855f7]/30 hover:-translate-y-1 transition-all duration-500">
                 <div className="w-12 h-12 rounded-full bg-[#a855f7]/10 flex items-center justify-center mb-4">
                   <cap.icon className="w-6 h-6 text-[#a855f7]" />
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{cap.title}</h3>
-                <p className="text-sm text-gray-400">{cap.description}</p>
+                <p className="text-sm text-muted-foreground">{cap.description}</p>
               </div>
             </AnimatedSection>
           ))}
@@ -88,7 +88,7 @@ export default function NetworkPage() {
           <h2 className="text-3xl font-bold text-center mb-10">Tools &amp; Technologies</h2>
           <div className="flex flex-wrap justify-center gap-3">
             {techStack.map((t) => (
-              <span key={t} className="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm text-gray-300">{t}</span>
+              <span key={t} className="bg-card border border-border rounded-full px-4 py-2 text-sm text-foreground">{t}</span>
             ))}
           </div>
         </AnimatedSection>

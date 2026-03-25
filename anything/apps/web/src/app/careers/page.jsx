@@ -160,7 +160,7 @@ export default function CareersPage() {
             alt="Team collaboration"
             className="h-[340px] w-full rounded-2xl object-cover"
           />
-          <div className="absolute inset-0 mx-6 flex items-center justify-center rounded-2xl bg-background/60">
+          <div className="absolute inset-0 mx-6 flex items-center justify-center rounded-2xl bg-black/40">
             <p className="text-2xl font-semibold text-foreground md:text-3xl">Build the future with us</p>
           </div>
         </div>

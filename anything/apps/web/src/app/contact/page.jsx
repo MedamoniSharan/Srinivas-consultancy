@@ -27,7 +27,7 @@ export default function ContactPage() {
         <div className="grid md:grid-cols-4 gap-4 mb-12">
           {[
             { icon: <Mail size={20} />, label: "Email", value: "info@telivai.com" },
-            { icon: <Phone size={20} />, label: "Phone", value: "+1 (555) 123-4567" },
+            { icon: <Phone size={20} />, label: "Phone", value: "+1 (678) 463-9506" },
             {
               icon: <MapPin size={20} />,
               label: "Location",
