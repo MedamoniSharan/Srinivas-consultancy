@@ -38,10 +38,10 @@ export default function CustomSoftwarePage() {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-[#a855f7] mb-8">
             <Code2 size={14} /> Custom Software
           </div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground max-w-5xl mx-auto mb-6 tracking-tight leading-[1.1]">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white max-w-5xl mx-auto mb-6 tracking-tight leading-[1.1]">
             Custom Software Development
           </h1>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
             Enterprise-grade software engineered for your unique workflows — from cloud-native platforms to legacy modernization.
           </p>
         </AnimatedSection>
@@ -51,7 +51,7 @@ export default function CustomSoftwarePage() {
       <section className="py-20 px-6 max-w-7xl mx-auto">
         <AnimatedSection>
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">What We Offer</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white">What We Offer</h2>
           </div>
         </AnimatedSection>
         <div className="grid md:grid-cols-4 gap-4">
@@ -81,15 +81,15 @@ export default function CustomSoftwarePage() {
       {/* Process Timeline */}
       <section className="py-20 px-6 max-w-5xl mx-auto">
         <AnimatedSection>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-16">Our Process</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-16">Our Process</h2>
         </AnimatedSection>
         <div className="relative flex flex-col md:flex-row md:justify-between gap-8 md:gap-0">
           <div className="hidden md:block absolute top-6 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#a855f7]/50 to-transparent" />
           {steps.map((s, i) => (
             <AnimatedSection key={i} delay={i * 150} className="flex-1 text-center relative">
               <div className="w-12 h-12 rounded-full bg-[#a855f7] text-white font-bold text-sm flex items-center justify-center mx-auto mb-4 relative z-10">{s.num}</div>
-              <h3 className="text-foreground font-semibold mb-1">{s.title}</h3>
-              <p className="text-muted-foreground text-sm max-w-[200px] mx-auto">{s.desc}</p>
+              <h3 className="text-white font-semibold mb-1">{s.title}</h3>
+              <p className="text-gray-400 text-sm max-w-[200px] mx-auto">{s.desc}</p>
             </AnimatedSection>
           ))}
         </div>

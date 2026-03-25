@@ -66,10 +66,10 @@ export default function ServicesPage() {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-[#a855f7] mb-8">
             What We Do
           </div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground max-w-4xl mx-auto mb-6 tracking-tight leading-[1.1]">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white max-w-4xl mx-auto mb-6 tracking-tight leading-[1.1]">
             Our Services
           </h1>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
             End-to-end technology solutions — from staffing and AI to mobile, web, and custom software development.
           </p>
         </AnimatedSection>
@@ -105,9 +105,9 @@ export default function ServicesPage() {
       <section className="py-20 px-6 max-w-7xl mx-auto">
         <AnimatedSection>
           <div className="text-center mb-16">
-            <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-foreground mb-6">Why Us</div>
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 tracking-tight">Why TelivAI Solutions</h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">We combine deep technical expertise with a client-first approach to deliver solutions that matter.</p>
+            <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-white mb-6">Why Us</div>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">Why TelivAI Solutions</h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">We combine deep technical expertise with a client-first approach to deliver solutions that matter.</p>
           </div>
         </AnimatedSection>
         <div className="grid md:grid-cols-3 gap-6">
