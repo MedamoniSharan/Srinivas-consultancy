@@ -105,29 +105,6 @@ function generateRoutes(node: Tree): RouteConfigEntry[] {
 	return routes;
 }
 
-function collectApiRoutes(dir: string, basePath = ''): RouteConfigEntry[] {
-	const entries = readdirSync(dir);
-	const routes: RouteConfigEntry[] = [];
-
-	for (const entry of entries) {
-		const fullPath = join(dir, entry);
-		const stat = statSync(fullPath);
-
-		if (stat.isDirectory()) {
-			const childPath = basePath ? `${basePath}/${entry}` : entry;
-			routes.push(...collectApiRoutes(fullPath, childPath));
-			continue;
-		}
-
-		if (entry === 'route.js' || entry === 'route.ts' || entry === 'route.tsx') {
-			if (!basePath) continue;
-			routes.push(route(basePath, `./${basePath}/${entry}`));
-		}
-	}
-
-	return routes;
-}
-
 if (import.meta.env.DEV) {
 	import.meta.glob('./**/page.jsx', {});
 	if (import.meta.hot) {
@@ -143,7 +120,12 @@ const seoRoutes: RouteConfigEntry[] = [
 	route('robots.txt', './robots.txt/route.tsx'),
 	route('sitemap.xml', './sitemap.xml/route.tsx'),
 ];
-const apiRoutes = collectApiRoutes(join(__dirname, 'api'), 'api');
+const apiRoutes: RouteConfigEntry[] = [
+	route('api/careers/application', './api/careers/application/route.js'),
+	route('api/enrollment/receipt', './api/enrollment/receipt/route.js'),
+	route('api/auth/token', './api/auth/token/route.js'),
+	route('api/auth/expo-web-success', './api/auth/expo-web-success/route.js'),
+];
 const routes = [...generateRoutes(tree), ...seoRoutes, ...apiRoutes, notFound];
 
 export default routes;
