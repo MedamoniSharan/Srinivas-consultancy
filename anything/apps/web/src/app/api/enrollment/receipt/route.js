@@ -61,3 +61,10 @@ export async function POST(request) {
     return jsonResponse({ error: "Failed to send receipt email." }, 500);
   }
 }
+
+export async function action({ request }) {
+  if (request.method !== "POST") {
+    return jsonResponse({ error: "Method not allowed." }, 405);
+  }
+  return POST(request);
+}

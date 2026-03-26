@@ -40,3 +40,7 @@ export async function GET(request) {
 		}
 	);
 }
+
+export async function loader({ request }) {
+	return GET(request);
+}

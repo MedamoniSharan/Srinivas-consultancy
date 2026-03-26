@@ -83,3 +83,10 @@ export async function POST(request) {
   }
 }
 
+export async function action({ request }) {
+  if (request.method !== "POST") {
+    return json({ error: "Method not allowed." }, 405);
+  }
+  return POST(request);
+}
+
