@@ -499,7 +499,7 @@ export default function CareerEnrollmentForm() {
               }
             }}
             className="w-32 rounded-lg px-3 py-2 text-sm transition-colors focus:outline-none bg-card border border-border text-foreground placeholder:text-muted-foreground focus:border-[#a855f7]/50 text-right"
-            placeholder="0.01"
+            placeholder="250.00"
           />
         </div>
         {fieldErrors.amount ? <p className="text-xs text-red-400">{fieldErrors.amount}</p> : null}

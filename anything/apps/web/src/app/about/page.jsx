@@ -25,7 +25,7 @@ export default function AboutPage() {
       <section className="pt-32 pb-20 px-6 text-center relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#a855f7]/15 blur-[120px] rounded-full -z-10"></div>
         <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">About Us</h1>
-        <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+        <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
           Empowering businesses with intelligent technology solutions and world-class talent.
         </p>
       </section>
@@ -51,13 +51,13 @@ export default function AboutPage() {
           ].map((item, i) => (
             <div
               key={i}
-              className="bg-gradient-to-br from-zinc-900 to-black border border-white/5 rounded-3xl p-8 lg:p-10 hover:border-[#a855f7]/20 transition-all duration-500"
+              className="bg-card/80 border border-border rounded-3xl p-8 lg:p-10 hover:border-[#a855f7]/20 transition-all duration-500"
             >
               <div className="w-14 h-14 rounded-2xl bg-[#a855f7]/10 border border-[#a855f7]/20 flex items-center justify-center text-[#a855f7] mb-6">
                 {item.icon}
               </div>
-              <h2 className="text-2xl font-bold mb-4">{item.title}</h2>
-              <p className="text-gray-400 leading-relaxed text-sm">{item.desc}</p>
+              <h2 className="text-2xl font-bold mb-4 text-foreground">{item.title}</h2>
+              <p className="text-muted-foreground leading-relaxed text-sm">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -69,15 +69,15 @@ export default function AboutPage() {
             { value: "8+", label: "Industries Served" },
             { value: "200+", label: "Engineers Placed" },
           ].map((stat, i) => (
-            <div key={i} className="text-center p-6 bg-white/5 border border-white/10 rounded-2xl">
+            <div key={i} className="text-center p-6 bg-card/80 border border-border rounded-2xl">
               <div className="text-3xl font-bold text-[#a855f7] mb-2">{stat.value}</div>
-              <div className="text-sm text-gray-500">{stat.label}</div>
+              <div className="text-sm text-muted-foreground">{stat.label}</div>
             </div>
           ))}
         </div>
 
-        <div className="bg-zinc-900/50 border border-white/5 rounded-3xl p-10 mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">Why Choose Us</h2>
+        <div className="bg-card/80 border border-border rounded-3xl p-10 mb-16">
+          <h2 className="text-3xl font-bold mb-8 text-center text-foreground">Why Choose Us</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               { icon: <Award size={24} />, title: "Proven Expertise", desc: "Years of experience delivering enterprise-grade solutions across multiple industries." },
@@ -88,8 +88,8 @@ export default function AboutPage() {
                 <div className="w-12 h-12 rounded-xl bg-[#a855f7]/10 flex items-center justify-center text-[#a855f7] mx-auto mb-4">
                   {item.icon}
                 </div>
-                <h3 className="font-bold text-lg mb-2">{item.title}</h3>
-                <p className="text-gray-400 text-sm">{item.desc}</p>
+                <h3 className="font-bold text-lg mb-2 text-foreground">{item.title}</h3>
+                <p className="text-muted-foreground text-sm">{item.desc}</p>
               </div>
             ))}
           </div>

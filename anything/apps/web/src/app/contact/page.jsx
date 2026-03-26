@@ -18,7 +18,7 @@ export default function ContactPage() {
       <section className="pt-32 pb-12 px-6 text-center relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#a855f7]/15 blur-[120px] rounded-full -z-10"></div>
         <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">Contact Us</h1>
-        <p className="text-gray-400 text-lg max-w-xl mx-auto">
+        <p className="text-muted-foreground text-lg max-w-xl mx-auto">
           Ready to transform your business? Let's start a conversation.
         </p>
       </section>
@@ -35,49 +35,49 @@ export default function ContactPage() {
             },
             { icon: <Clock size={20} />, label: "Hours", value: "Mon - Fri, 9am - 6pm" },
           ].map((item, i) => (
-            <div key={i} className="text-center p-5 bg-white/5 border border-white/10 rounded-2xl">
+            <div key={i} className="text-center p-5 bg-card/80 border border-border rounded-2xl">
               <div className="w-10 h-10 rounded-xl bg-[#a855f7]/10 flex items-center justify-center text-[#a855f7] mx-auto mb-3">
                 {item.icon}
               </div>
-              <div className="text-xs text-gray-500 mb-1">{item.label}</div>
-              <div className="text-white font-medium text-sm">{item.value}</div>
+              <div className="text-xs text-muted-foreground mb-1">{item.label}</div>
+              <div className="text-foreground font-medium text-sm">{item.value}</div>
             </div>
           ))}
         </div>
 
-        <div className="bg-zinc-900/50 border border-white/5 rounded-3xl p-8 md:p-10">
-          <h2 className="text-2xl font-bold mb-8 text-center">Send us a message</h2>
+        <div className="bg-card/80 border border-border rounded-3xl p-8 md:p-10">
+          <h2 className="text-2xl font-bold mb-8 text-center text-foreground">Send us a message</h2>
           <form className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium mb-2 text-gray-300">Full Name</label>
+                <label className="block text-sm font-medium mb-2 text-foreground">Full Name</label>
                 <input
                   type="text"
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#a855f7]/50 transition-colors placeholder-gray-600"
+                  className="w-full bg-card border border-border rounded-xl px-4 py-3 text-foreground focus:outline-none focus:border-[#a855f7]/50 transition-colors placeholder:text-muted-foreground"
                   placeholder="Your name"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-2 text-gray-300">Email</label>
+                <label className="block text-sm font-medium mb-2 text-foreground">Email</label>
                 <input
                   type="email"
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#a855f7]/50 transition-colors placeholder-gray-600"
+                  className="w-full bg-card border border-border rounded-xl px-4 py-3 text-foreground focus:outline-none focus:border-[#a855f7]/50 transition-colors placeholder:text-muted-foreground"
                   placeholder="your@email.com"
                 />
               </div>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium mb-2 text-gray-300">Company</label>
+                <label className="block text-sm font-medium mb-2 text-foreground">Company</label>
                 <input
                   type="text"
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#a855f7]/50 transition-colors placeholder-gray-600"
+                  className="w-full bg-card border border-border rounded-xl px-4 py-3 text-foreground focus:outline-none focus:border-[#a855f7]/50 transition-colors placeholder:text-muted-foreground"
                   placeholder="Your company"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-2 text-gray-300">Service Interested In</label>
-                <select className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-gray-400 focus:outline-none focus:border-[#a855f7]/50 transition-colors">
+                <label className="block text-sm font-medium mb-2 text-foreground">Service Interested In</label>
+                <select className="w-full bg-card border border-border rounded-xl px-4 py-3 text-foreground focus:outline-none focus:border-[#a855f7]/50 transition-colors">
                   <option value="">Select a service</option>
                   <option value="ai">AI Development</option>
                   <option value="staffing">IT Staffing & Consulting</option>
@@ -89,10 +89,10 @@ export default function ContactPage() {
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2 text-gray-300">Message</label>
+              <label className="block text-sm font-medium mb-2 text-foreground">Message</label>
               <textarea
                 rows="5"
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#a855f7]/50 transition-colors resize-none placeholder-gray-600"
+                className="w-full bg-card border border-border rounded-xl px-4 py-3 text-foreground focus:outline-none focus:border-[#a855f7]/50 transition-colors resize-none placeholder:text-muted-foreground"
                 placeholder="Tell us about your project or requirements..."
               ></textarea>
             </div>
