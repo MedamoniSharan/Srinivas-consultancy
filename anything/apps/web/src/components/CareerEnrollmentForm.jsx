@@ -9,7 +9,7 @@ const PAYPAL_CLIENT_ID =
 const PAYPAL_CURRENCY =
   env.VITE_PAYPAL_CURRENCY || env.NEXT_PUBLIC_PAYPAL_CURRENCY || process.env.NEXT_PUBLIC_PAYPAL_CURRENCY || "USD";
 const ENROLLMENT_FEE =
-  env.VITE_ENROLLMENT_FEE || env.NEXT_PUBLIC_ENROLLMENT_FEE || process.env.NEXT_PUBLIC_ENROLLMENT_FEE || "49.00";
+  env.VITE_ENROLLMENT_FEE || env.NEXT_PUBLIC_ENROLLMENT_FEE || process.env.NEXT_PUBLIC_ENROLLMENT_FEE || "250.00";
 const MIN_ENROLLMENT_FEE =
   env.VITE_MIN_ENROLLMENT_FEE || env.NEXT_PUBLIC_MIN_ENROLLMENT_FEE || process.env.NEXT_PUBLIC_MIN_ENROLLMENT_FEE || "0.01";
 const MAX_ENROLLMENT_FEE =
@@ -121,7 +121,7 @@ export default function CareerEnrollmentForm() {
     position: "",
     consentAccepted: false,
   });
-  const [amount, setAmount] = useState(ENROLLMENT_FEE);
+  const [amount, setAmount] = useState("250.00");
   const [fieldErrors, setFieldErrors] = useState({});
   const [formError, setFormError] = useState("");
   const [paymentStatus, setPaymentStatus] = useState("idle");

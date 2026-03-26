@@ -60,6 +60,7 @@ const navItems = [
   {
     label: "Technologies",
     children: [
+      { label: "Technologies and Training", href: "/technologies", icon: <Brain size={16} /> },
       { label: "AI/ML Engineering", href: "/technologies/ai-ml", icon: <Brain size={16} /> },
       { label: "Data & Analytics", href: "/technologies/data-analytics", icon: <LineChart size={16} /> },
       { label: "Network Engineering", href: "/technologies/network", icon: <Network size={16} /> },
@@ -113,9 +114,9 @@ export default function Navbar() {
           <img
             src="/images/TelivAI.png"
             alt="TelivAI Solutions"
-            className="block h-12 w-auto max-w-[300px] object-contain object-left origin-left scale-[2.8] sm:max-w-[340px] sm:scale-[3] md:max-w-[380px] md:scale-[3.2] lg:scale-[3.35]"
-            width={380}
-            height={60}
+            className="block h-12 w-auto max-w-[320px] object-contain object-left origin-left scale-[3.1] sm:max-w-[360px] sm:scale-[3.3] md:max-w-[400px] md:scale-[3.5] lg:scale-[3.7]"
+            width={420}
+            height={66}
           />
         </a>
 

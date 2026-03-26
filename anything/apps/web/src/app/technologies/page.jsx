@@ -46,6 +46,18 @@ export default function TechnologiesPage() {
         </div>
       </section>
 
+      {/* Technologies and Training */}
+      <section className="max-w-7xl mx-auto px-6 pb-12">
+        <AnimatedSection>
+          <div className="rounded-2xl border border-border bg-card/80 px-6 py-8 text-center md:px-10 md:py-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">Technologies and Training</h2>
+            <p className="text-muted-foreground max-w-3xl mx-auto">
+              Explore our core technology domains and enroll in practical training to build real-world skills.
+            </p>
+          </div>
+        </AnimatedSection>
+      </section>
+
       {/* Technology Cards */}
       <section className="max-w-7xl mx-auto px-6 pb-24">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -63,13 +63,13 @@ export default function ServicesPage() {
       <section className="relative pt-36 pb-24 px-6 text-center overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#a855f7]/15 rounded-full blur-[120px] -z-10" />
         <AnimatedSection>
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-[#a855f7] mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-card/80 border border-border text-xs font-medium text-[#a855f7] mb-8">
             What We Do
           </div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white max-w-4xl mx-auto mb-6 tracking-tight leading-[1.1]">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground max-w-4xl mx-auto mb-6 tracking-tight leading-[1.1]">
             Our Services
           </h1>
-          <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
             End-to-end technology solutions — from staffing and AI to mobile, web, and custom software development.
           </p>
         </AnimatedSection>
@@ -80,17 +80,17 @@ export default function ServicesPage() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s, i) => (
             <AnimatedSection key={i} delay={i * 100}>
-              <a href={s.href} className="group block bg-zinc-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-[#a855f7]/30 transition-all duration-500 h-full">
+              <a href={s.href} className="group block bg-card/80 border border-border rounded-2xl overflow-hidden hover:border-[#a855f7]/30 transition-all duration-500 h-full">
                 <div className="relative h-48 overflow-hidden">
                   <img src={s.image} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                 </div>
                 <div className="p-6">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#a855f7]">{s.icon}</div>
-                    <h3 className="text-lg font-bold text-white">{s.title}</h3>
+                    <div className="w-10 h-10 rounded-xl bg-card border border-border flex items-center justify-center text-[#a855f7]">{s.icon}</div>
+                    <h3 className="text-lg font-bold text-foreground">{s.title}</h3>
                   </div>
-                  <p className="text-gray-400 text-sm leading-relaxed mb-4">{s.desc}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">{s.desc}</p>
                   <div className="flex items-center gap-1 text-[#a855f7] text-sm font-medium group-hover:gap-2 transition-all">
                     Learn more <ArrowUpRight size={16} />
                   </div>
@@ -105,18 +105,18 @@ export default function ServicesPage() {
       <section className="py-20 px-6 max-w-7xl mx-auto">
         <AnimatedSection>
           <div className="text-center mb-16">
-            <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-white mb-6">Why Us</div>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">Why TelivAI Solutions</h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">We combine deep technical expertise with a client-first approach to deliver solutions that matter.</p>
+            <div className="inline-block px-4 py-1.5 rounded-full bg-card/80 border border-border text-xs font-medium text-foreground mb-6">Why Us</div>
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 tracking-tight">Why TelivAI Solutions</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">We combine deep technical expertise with a client-first approach to deliver solutions that matter.</p>
           </div>
         </AnimatedSection>
         <div className="grid md:grid-cols-3 gap-6">
           {benefits.map((b, i) => (
             <AnimatedSection key={i} delay={i * 120}>
-              <div className="group bg-zinc-900/50 border border-white/5 rounded-2xl p-8 hover:border-[#a855f7]/30 transition-all duration-500 h-full">
-                <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 group-hover:text-[#a855f7] transition-colors mb-6">{b.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-3">{b.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{b.desc}</p>
+              <div className="group bg-card/80 border border-border rounded-2xl p-8 hover:border-[#a855f7]/30 transition-all duration-500 h-full">
+                <div className="w-12 h-12 rounded-2xl bg-card border border-border flex items-center justify-center text-muted-foreground group-hover:text-[#a855f7] transition-colors mb-6">{b.icon}</div>
+                <h3 className="text-xl font-bold text-foreground mb-3">{b.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{b.desc}</p>
               </div>
             </AnimatedSection>
           ))}

@@ -5,14 +5,14 @@ export default function Footer() {
     <footer className="border-t border-border/60">
       <div className="mx-auto max-w-7xl px-6 py-10 sm:py-12">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
-          <div className="flex shrink-0 flex-col">
-            <a href="/" className="inline-flex items-start">
+          <div className="flex shrink-0 flex-col items-center lg:items-start">
+            <a href="/" className="inline-flex items-center justify-center">
               <img
                 src="/images/TelivAI.png"
                 alt="TelivAI Solutions"
-                className="block h-36 w-auto object-contain object-left sm:h-40 md:h-44"
-                width={920}
-                height={200}
+                className="block h-56 w-[360px] object-contain object-center origin-center scale-[1.35] sm:h-60 sm:w-[400px] sm:scale-[1.4] md:h-64 md:w-[440px] md:scale-[1.45]"
+                width={1320}
+                height={300}
               />
             </a>
           </div>

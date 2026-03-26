@@ -123,13 +123,19 @@ const Hero = () => {
 
       <AnimatedSection delay={300}>
         <div className="flex flex-col sm:flex-row items-center gap-4">
-          <button className="group flex items-center gap-2 bg-[#a855f7] hover:bg-[#9333ea] text-white px-8 py-3 rounded-xl font-semibold transition-all hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]">
+          <a
+            href="/contact"
+            className="group inline-flex items-center gap-2 bg-[#a855f7] hover:bg-[#9333ea] text-white px-8 py-3 rounded-xl font-semibold transition-all hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]"
+          >
             Get in touch
             <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </button>
-          <button className="px-8 py-3 rounded-xl font-semibold text-foreground border border-border hover:bg-muted/35 transition-all">
+          </a>
+          <a
+            href="/services"
+            className="inline-flex items-center px-8 py-3 rounded-xl font-semibold text-foreground border border-border hover:bg-muted/35 transition-all"
+          >
             View services
-          </button>
+          </a>
         </div>
       </AnimatedSection>
     </section>
