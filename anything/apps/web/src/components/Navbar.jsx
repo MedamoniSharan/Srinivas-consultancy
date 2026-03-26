@@ -58,9 +58,8 @@ const navItems = [
     ],
   },
   {
-    label: "Technologies",
+    label: "Technologies and Training",
     children: [
-      { label: "Technologies and Training", href: "/technologies", icon: <Brain size={16} /> },
       { label: "AI/ML Engineering", href: "/technologies/ai-ml", icon: <Brain size={16} /> },
       { label: "Data & Analytics", href: "/technologies/data-analytics", icon: <LineChart size={16} /> },
       { label: "Network Engineering", href: "/technologies/network", icon: <Network size={16} /> },
