@@ -31,7 +31,7 @@ export default function ContactPage() {
             {
               icon: <MapPin size={20} />,
               label: "Location",
-              value: "2570 Highbrooke Tri, Duluth, GA 30097",
+              value: "2570 Highbrooke Trl, Duluth, GA 30097",
             },
             { icon: <Clock size={20} />, label: "Hours", value: "Mon - Fri, 9am - 6pm" },
           ].map((item, i) => (

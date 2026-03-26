@@ -10,9 +10,9 @@ export default function Footer() {
               <img
                 src="/images/TelivAI.png"
                 alt="TelivAI Solutions"
-                className="block h-32 w-auto object-contain object-left sm:h-36 md:h-40"
-                width={800}
-                height={175}
+                className="block h-36 w-auto object-contain object-left sm:h-40 md:h-44"
+                width={920}
+                height={200}
               />
             </a>
           </div>

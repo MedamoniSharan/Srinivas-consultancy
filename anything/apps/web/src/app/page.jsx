@@ -377,7 +377,6 @@ const CaseStudies = () => {
                   <div className="bg-zinc-900 rounded-3xl border border-border/80 overflow-hidden min-h-[400px] flex items-center justify-center relative">
                     <div className="absolute inset-0 bg-gradient-to-br from-[#a855f7]/5 to-transparent"></div>
                     <div className="relative z-10 p-8 w-full">
-                      <div className="flex items-center gap-2 mb-4"><div className="w-6 h-6 bg-white rounded-full"></div><span className="text-foreground font-bold">Logoipsum</span></div>
                       <div className="w-full max-w-[280px] md:max-w-[320px] mx-auto min-h-[200px] flex items-center justify-center">
                         <Lottie
                           animationData={businessGoalPlanningAnimation}
@@ -389,7 +388,6 @@ const CaseStudies = () => {
                     </div>
                   </div>
                   <div className="flex flex-col justify-center">
-                    <div className="flex items-center gap-2 mb-4"><div className="w-6 h-6 bg-white rounded-full"></div><span className="text-foreground font-bold">Logoipsum</span></div>
                     <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4 leading-tight">"{study.quote}"</h3>
                     <p className="text-muted-foreground text-sm mb-6 leading-relaxed">{study.desc}</p>
                     <div>
